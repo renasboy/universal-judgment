@@ -1,1 +1,73 @@
-- logo
+- appearence
+    - angel vs devil (avatar?)
+    - heaven vs hell (background?)
+    - professional (tem que ser incrivel)
+
+- home page
+    - logo (use the hands down/up, red/green, devil/angel)
+    - title (universal judgement)
+    - slogan
+        - are you in heaven or hell?
+        - the people's review app
+        - how you are seeing to others
+        - voice to the people 
+        - what is your ultimate judgement?
+        - judge people you know
+        - get to know your last/final judgement (do you go heaven or to hell) discover/find out and share the result with your friends [play with A/B testing]
+    - super menu
+        - heaven
+        - hell
+        - last judgements
+        - share
+            - facebook
+            - whatsapp
+            - twitter
+        - logout (unlink facebook account?)
+    - search
+        - results with avatar, name and rate (link to judgement form)
+        - source
+            - internal database
+            - facebook
+    - avatar list
+        - top facebook page (famous people)
+        - facebook friends
+        - last judgements
+
+- logged in menu
+    - home
+    - me 
+    - judgeds
+    - search
+
+- judgement form page
+    - avatar (name, score, image)
+    - qualities
+        - appearance
+        - intelligence
+        - hosnesty
+        - professionalism
+    - why?
+        - open textarea field (why are you judging this person)
+    - submit/cancel
+
+- login form page
+    - explanation text why to login / what happens when you login
+    - facebook login with redirect
+    - or anonymous
+
+- thank you page
+    - your judgement was sent!
+    - avatar with score of judged
+    - share icons (notify judged adding @mention)
+    - continue / go to hell !!
+
+- free text search 
+- model new database
+- create new html
+- create deploy script (minify)
+- connection with facebook (internal app)
+    - login with facebook (fb://page/mypage)
+    - create proof of concept
+
+- PLUS (paid version)
+    - get to know who is judging you
