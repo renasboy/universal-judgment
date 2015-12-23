@@ -21,3 +21,4 @@ class Judgement(models.Model):
     person = models.ForeignKey('Person')
     quality = models.ForeignKey('Quality')
     score = models.PositiveSmallIntegerField()
+    why = models.CharField(max_length=255)
