@@ -14,12 +14,14 @@ class Person(models.Model):
     name = models.CharField(max_length=80)
     fb = models.CharField(max_length=80)
     img = models.URLField()
+    score = models.FloatField()
 
 
 class Judgement(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     judged = models.ForeignKey('Person')
     judge = models.ForeignKey('Person', related_name='judgements')
+    score = models.FloatField()
     why = models.CharField(max_length=255)
 
 
