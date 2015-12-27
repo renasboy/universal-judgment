@@ -63,6 +63,41 @@
 
 - free text search 
 - model new database
+- craete api
+    qualities
+        - fields
+            - name
+            - img
+        - used
+            - judgement form
+    people
+        -fields
+            - name
+            - img
+            - score
+        - used
+            - homepage
+            - search
+            - heaven
+            - hell
+    person
+        - fields
+            - name
+            - img
+            - total score
+            - quality
+                - name
+                - img
+                - score
+        - used
+            - profile
+    judgement
+        - fields
+            - fb judge
+            - fb judged
+            - list of quality / score
+            - why
+
 - create new html
 - create deploy script (minify)
 - connection with facebook (internal app)

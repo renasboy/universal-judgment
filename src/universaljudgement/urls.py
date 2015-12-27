@@ -8,8 +8,9 @@ from rest_framework.urlpatterns import format_suffix_patterns
 urlpatterns = [
     url(r'^admin/?', admin.site.urls),
     url(r'^qualities/?$', views.Qualities.as_view()),
-    #url(r'^judgements/?$', views.Judgements.as_view()),
+    url(r'^judgement/?$', views.Judgement.as_view()),
     url(r'^people/?$', views.People.as_view()),
+    url(r'^person/(?P<fb>.+)/?$', views.Person.as_view()),
     url(r'^auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]
 

@@ -5,6 +5,7 @@ class Quality(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
     name = models.CharField(max_length=30)
+    img = models.URLField()
     active = models.BooleanField(default=False)
 
 
@@ -16,13 +17,20 @@ class Person(models.Model):
     img = models.URLField()
     score = models.FloatField()
 
+    def get_qualities(self):
+        return []
 
 class Judgement(models.Model):
     created = models.DateTimeField(auto_now_add=True)
-    judged = models.ForeignKey('Person')
-    judge = models.ForeignKey('Person', related_name='judgements')
+    judged = models.ForeignKey('Person', related_name='judgements')
+    judge = models.ForeignKey('Person', related_name='opinions')
     score = models.FloatField()
     why = models.CharField(max_length=255)
+    qualities = models.ManyToManyField(
+        'Quality',
+        through='JudgementQuality',
+        through_fields=('judgement', 'quality')
+    )
 
 
 class JudgementQuality(models.Model):

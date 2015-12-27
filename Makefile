@@ -15,3 +15,6 @@ resetdb:
 clean:
 	@find src -name *.pyc -delete
 	@find src -name __pycache__ -delete
+
+test: clean
+	$(PYTHON) src/manage.py test api

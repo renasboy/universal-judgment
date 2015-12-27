@@ -10,7 +10,7 @@ class Quality(object):
         return self.data
 
 
-class Person(object):
+class People(object):
 
     def __init__(self, input=None, many=False):
         if many:
@@ -22,3 +22,15 @@ class Person(object):
     def get_data(self):
         return self.data
 
+
+class Person(object):
+
+    def __init__(self, input=None):
+        self.data = models.Person.filter(fb__iexact=input.get('fb'))
+
+    def get_data(self):
+        return self.data
+
+
+class Judgement(object):
+    pass
