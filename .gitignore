@@ -2,3 +2,5 @@ venv
 src/db/db.sqlite3
 __pycache__
 *.pyc
+bower_components
+node_modules
