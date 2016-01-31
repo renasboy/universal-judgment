@@ -9,7 +9,7 @@ angular.module('heavenHell', [
 config(['$routeProvider', function($routeProvider) {
     $routeProvider.
         when('/', {
-            templateUrl: 'home/home.html',
+            templateUrl: 'js/home/home.html',
             controller: 'HomeCtrl'
         }).
         otherwise({redirectTo: '/'});

@@ -1,0 +1,31 @@
+header {
+	background: $gray-1;
+	text-align: center;
+
+	.logo {
+
+		span {
+			font-size: 3rem;
+
+			&:first-child {
+				color: $blue-color
+			}
+			&:last-child {
+				color: $pink-color;
+
+				&:before {
+					transform: rotate(180deg);
+					-webkit-transform: rotate(180deg);
+					-moz-transform: rotate(180deg);
+					-o-transform: rotate(180deg);
+					-ms-transform: rotate(180deg);
+				}
+			}
+		}
+	}
+
+	h1 {
+		font-family: $font-ebony;
+	}
+
+}
