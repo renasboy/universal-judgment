@@ -1,7 +1,7 @@
 var
     gulp            = require('gulp'),
     runSequence     = require('run-sequence'),
-    gls             = require('gulp-live-server'),
+    browserSync     = require('browser-sync'),
     uglify          = require('gulp-uglify'),
     sass            = require('gulp-sass'),
     sourcemaps      = require('gulp-sourcemaps'),
@@ -13,32 +13,33 @@ gulp.task('build', function () {
     runSequence('bower', 'sass', 'copy');
     });
 
-// gulp.task('serve', ['build'], function(cb) {
-//     runSequence('browser-sync', 'watch', cb);
-// });
+gulp.task('serve', ['build'], function() {
+    runSequence('browser-sync');
+
+    gulp.watch(['app/**/*.scss', 'app/**/*.html'], function (file) {
+        runSequence('sass', 'copy');
+        browserSync.reload();
+    });
+
+});
+
+gulp.task('browser-sync', function() {
+    browserSync({
+        server: {
+            baseDir: './dist'
+        },
+        port: 9000,
+        notify: false,
+        tunnel: false,
+        browser: "none",
+    });
+});
 
 gulp.task('clean', function () {
     return gulp.src('dist')
     .pipe(clean());
-    });
-
-
-
-gulp.task('serve', ['bower', 'sass', 'copy'], function() {
-
-    var server = gls.static('/dist', 8001);
-    server.start();
-
-    gulp.watch(['app/**/*.scss', 'app/**/*.html'], function (file) {
-        runSequence('sass');
-        server.notify.apply(server, [file]);
-    });
 });
 
-gulp.task('stop', function() {
-    var server = gls.static();
-    server.stop();
-});
 
 gulp.task('bower', function(){
     return gulp.src('./bower_components/**/*')
@@ -53,7 +54,7 @@ gulp.task('sass', function () {
     .pipe(sourcemaps.write('./'))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('./dist/css'));
-    });
+});
 
 
 gulp.task('copy', function() {

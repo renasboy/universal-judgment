@@ -1,19 +1,26 @@
 <header>
-	<div class="logo">
-		<span class="icon-logo"></span>
-		<span class="icon-logo"></span>		
-	</div>
-	<h1>
-		Heaven &amp; Hell
-	</h1>
+    <div class="logo">
+        <span class="icon-logo"></span>
+        <span class="icon-logo"></span>		
+    </div>
+    <h1>
+        Heaven <span>&amp; Hell</span>
+    </h1>
 </header>
-<input type="text" ng-model="nameFilter" placeholder="Search..."/>
 
-<ul id="user-list">
-    <li ng-repeat="users in usersList | filter: searchFilter">
-        <a href="#/users/{{users.userId}}">
-            <img src="img/icon-user.png" />
-            {{users.givenName}}
-        </a>
-    </li>
-</ul>
+<!-- <input type="text" ng-model="nameFilter" placeholder="Search..."/> -->
+
+<div id="user-list">
+    <ul>
+        <li ng-repeat="users in usersList | filter: searchFilter">
+            <a href="#/users/{{users.userId}}">
+                <div class="user-image">
+                    <img src="img/icon-user.png" />                
+                </div>
+                <h2>
+                    {{users.givenName}} /{{users.rate}}
+                </h2>
+            </a>
+        </li>
+    </ul>
+</div>

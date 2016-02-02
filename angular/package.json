@@ -25,6 +25,7 @@
     "shelljs": "^0.2.6"
   },
   "dependencies": {
+    "browser-sync": "^2.11.1",
     "reset.scss": "^1.0.0"
   },
   "scripts": {
