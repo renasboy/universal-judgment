@@ -1,6 +1,6 @@
-angular.callbacks._0([
+[
     {
-         "rate":"3.3v",
+         "rate":"3.3",
          "userId":"renatex",
          "imageUrl":"img/user.png",
          "url":"http:\/\/renatex.com",
@@ -97,4 +97,4 @@ angular.callbacks._0([
          "url":"http:\/\/renatex.com",
          "givenName":"Airton"
   }
-])
+]

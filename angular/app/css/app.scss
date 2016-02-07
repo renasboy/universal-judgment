@@ -1,14 +1,18 @@
-@import "../../node_modules/reset.scss/reset.scss",
-        "_variables.scss",
-        "_base.scss",
-        "_icons.scss",
-        "_home.scss",
-        "_nav.scss";
+@import "../../node_modules/reset.scss/reset",
+        "../../bower_components/bootstrap/scss/mixins",
+        "../../bower_components/bootstrap/scss/variables",
+        "../../bower_components/bootstrap/scss/grid",
+        "variables",
+        "base",
+        "icons",
+        "home",
+        "nav",
+        "user";
 
 @font-face {
   font-family: 'Ebony-bold';
-  src: url('/fonts/ebony.eot');
-  src: local('☺'), url('/fonts/ebony.woff') format('woff'), url('/fonts/ebony.ttf') format('truetype'), url('/fonts/ebony.svg') format('svg');
+  src: url('../fonts/ebony.eot');
+  src: local('☺'), url('../fonts/ebony.woff') format('woff'), url('../fonts/ebony.ttf') format('truetype'), url('../fonts/ebony.svg') format('svg');
   font-weight: normal;
   font-style: normal;
 }

@@ -7,7 +7,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Heaven & Hell</title>
+    <title>Heaven &amp; Hell</title>
     <meta name="description" content="">
     <meta name="viewport" content="user-scalable=0, width=device-width, initial-scale=1.0,  minimum-scale=1.0, maximum-scale=1.0">
     <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
@@ -16,34 +16,27 @@
 </head>
 <body>
 
-<!--[if lt IE 7]>
-<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-<![endif]-->
+    <!--[if lt IE 7]>
+    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
 
-<ng-view></ng-view>
+    <ng-view></ng-view>
 
-<nav>
-    <ul>
-        <div>
-            <li>
-                <a href="/" class="icon-home"><span>home</span></a>
-            </li>
-            <li>
-                <a href="/#search" class="icon-search"><span>search</span></a>
-            </li>
-        </div>
-        <div>
-            <li>
-                <a href="" class="icon-facebook"><span>facebook</span></a>
-            </li>
-        </div>            
-    </ul>
-</nav>
+    <div class="container-fluid">
+        <nav ng-controller="MenuController" ng-hide="mainMenu" class="row">
+                <a href="./#/"              class="col-xs-3 icon-home"        ng-class="menuClass('home')"></a>
+                <a href="#/search"          class="col-xs-3 icon-search"        ng-class="menuClass('user')"></a>
+                <a href="./#/"              class="col-xs-6 icon-facebook">       facebook</a>
+        </nav>
+    </div>
 
-<script src="bower_components/angular/angular.js"></script>
-<script src="bower_components/angular-route/angular-route.js"></script>
-<script src="js/app.js"></script>
-<script src="js/home/home.js"></script>
-<script src="js/services/services.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/services/services.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/home/home.js"></script>
+    <script src="js/user/user.js"></script>
+    
 </body>
 </html>

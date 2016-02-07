@@ -16,7 +16,7 @@ gulp.task('build', function () {
 gulp.task('serve', ['build'], function() {
     runSequence('browser-sync');
 
-    gulp.watch(['app/**/*.scss', 'app/**/*.html'], function (file) {
+    gulp.watch(['app/**/*'], function (file) {
         runSequence('sass', 'copy');
         browserSync.reload();
     });
@@ -52,7 +52,6 @@ gulp.task('sass', function () {
     .pipe(sourcemaps.init())
     .pipe(sass({outputStyle: 'compressed'}))
     .pipe(sourcemaps.write('./'))
-    .pipe(sourcemaps.write())
     .pipe(gulp.dest('./dist/css'));
 });
 
@@ -69,7 +68,7 @@ gulp.task('copy-img', function(){
     .pipe(gulp.dest('./dist/img'));
 });
 gulp.task('copy-data', function(){
-    return gulp.src('./app/data/**')
+    return gulp.src('./app/data/**/*')
     .pipe(gulp.dest('./dist/data'));
 });
 gulp.task('copy-html', function(){

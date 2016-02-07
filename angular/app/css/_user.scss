@@ -1,0 +1,11 @@
+.user-image {
+    border: 2px solid $blue-color;
+    width: 70px;
+    height: 70px;
+    border-radius: 35px;
+    overflow: hidden;
+
+    img {
+        width: 100%;
+    }
+}

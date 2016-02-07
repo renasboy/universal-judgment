@@ -1,0 +1,15 @@
+[
+  {
+    "name" : "Renato Cardoso",
+    "url" : "#user/renatex",
+    "image" : "/img/icon-user.png",
+    "status" : "heaven",
+    "rate" : 3.5,
+    "attributes" : {
+      "appearance" : 5,
+      "intelligence" : 2.5,
+      "honesty" : 3.3,
+      "professionalism" : 1.5
+    }
+  }
+]

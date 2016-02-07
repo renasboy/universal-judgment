@@ -1,0 +1,26 @@
+<div class="user-info">
+    <div class="user-image">
+    <img src="img/icon-user.png" />                
+    </div>
+    {{user.name}}
+    {{user.rate}}
+    {{user.status}}
+</div>
+
+<ul ng-repeat="(key, value) in user.attributes">
+    <li>
+        {{key}}: {{value}}
+    </li>
+</ul>
+
+
+<nav>
+    <div id="userMenu" class="row bottomNav">
+        <div class="col-xs-4">
+            <a href="./#/">go back</a>
+        </div>
+        <div class="col-xs-8">
+        <a href="#">judge</a>
+        </div>
+    </div>
+</nav>

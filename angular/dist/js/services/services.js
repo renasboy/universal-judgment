@@ -5,10 +5,17 @@ angular.module('heavenHell.services', [])
 
     heavenHellAPI.getUsers = function() {
       return $http({
-        method: 'JSONP',
-        url: 'data/users.json?callback=JSON_CALLBACK'
+        url: 'data/users.json'
+      });
+    }
+
+    heavenHellAPI.getUsersDetails = function(id) {
+      return $http({
+        url: 'data/'+ id +'.json'
       });
     }
 
     return heavenHellAPI;
+
   });
+  
