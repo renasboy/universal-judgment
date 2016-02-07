@@ -1,26 +1,16 @@
-<div class="user-info">
-    <div class="user-image">
-    <img src="img/icon-user.png" />                
-    </div>
-    {{user.name}}
-    {{user.rate}}
-    {{user.status}}
-</div>
+<div ng-include="'./js/partials/user.html'"></div>
 
-<ul ng-repeat="(key, value) in user.attributes">
-    <li>
+<ul>
+    <li ng-repeat="(key, value) in user.attributes">
         {{key}}: {{value}}
     </li>
 </ul>
 
+{{getMyLastName}}
 
-<nav>
-    <div id="userMenu" class="row bottomNav">
-        <div class="col-xs-4">
-            <a href="./#/">go back</a>
-        </div>
-        <div class="col-xs-8">
-        <a href="#">judge</a>
-        </div>
-    </div>
-</nav>
+<div class="container-fluid">
+    <nav class="row">
+        <a href="./#/"                          class="col-xs-4 icon-arrow-back"></a>
+        <a href="./#/judge/{{user.userId}}"     class="col-xs-8 judge">JUDGE NOW</a>
+    </nav>
+</div>

@@ -5,12 +5,13 @@ angular.module('heavenHell', [
     'heavenHell.services',
     'heavenHell.main',
     'heavenHell.home',
-    'heavenHell.user'
+    'heavenHell.user',
+    'heavenHell.judge'
     ]).
 
 config(['$routeProvider', function($routeProvider) {
     $routeProvider.
-    when('/', {
+    when('/home', {
         templateUrl: 'js/home/home.html',
         controller: 'HomeController'
     }).
@@ -18,5 +19,9 @@ config(['$routeProvider', function($routeProvider) {
         templateUrl: 'js/user/user.html',
         controller: 'UserController'
     }).
-    otherwise({redirectTo: '/'});
+    when('/judge/:id', {
+        templateUrl: 'js/judge/judge.html',
+        controller: 'JudgeController'
+    }).    
+    otherwise({redirectTo: '/home'});
 }]);

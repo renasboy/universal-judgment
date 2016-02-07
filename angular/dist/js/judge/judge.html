@@ -1,0 +1,16 @@
+<div ng-include="'./js/partials/user.html'"></div>
+
+
+<ul>
+    <li ng-repeat="(key, value) in user.attributes">
+        {{key}}: <input type="range" name="{{key}}" min="0" max="4" ng-model="$key.input.value">
+        <span>{{$key.input.value}}</span>
+    </li>
+</ul>
+
+<div class="container-fluid">
+    <nav class="row">
+        <a href="./#/user/{{user.userId}}"      class="col-xs-4 icon-close"></a>
+        <a href=""                             class="col-xs-8 judge">SUBMIT</a>
+    </nav>
+</div>

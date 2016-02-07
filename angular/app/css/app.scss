@@ -1,13 +1,14 @@
 @import "../../node_modules/reset.scss/reset",
-        "../../bower_components/bootstrap/scss/mixins",
-        "../../bower_components/bootstrap/scss/variables",
-        "../../bower_components/bootstrap/scss/grid",
+        "../../node_modules/bootstrap/scss/mixins",
+        "../../node_modules/bootstrap/scss/variables",
+        "../../node_modules/bootstrap/scss/grid",
         "variables",
         "base",
         "icons",
         "home",
         "nav",
-        "user";
+        "user",
+        "judge";
 
 @font-face {
   font-family: 'Ebony-bold';

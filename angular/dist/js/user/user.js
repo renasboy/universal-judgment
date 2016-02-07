@@ -11,4 +11,12 @@ controller('UserController', function($scope, $routeParams, $rootScope, heavenHe
         $scope.user = response[0];
     });
 
+	$scope.getMyLastName = function() {
+		facebookService.getMyLastName() 
+			.then(function(response) {
+				$scope.last_name = response.last_name;
+			}
+		);
+	};    
+
 });
