@@ -15,7 +15,7 @@
         <li ng-repeat="users in usersList | filter: searchFilter">
             <a href="#/user/{{users.userId}}">
                 <div class="user-image">
-                    <img src="img/icon-user.png" />                
+                    <img src="{{users.image}}" />                
                 </div>
                 <h2>
                     {{users.givenName}} /{{users.rate}}

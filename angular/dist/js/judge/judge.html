@@ -1,16 +1,35 @@
-<div ng-include="'./js/partials/user.html'"></div>
+<div ng-include="login"></div>
+
+<section ng-class="blur">
+    <div ng-include="'./js/partials/user.html'"></div>
+
+    <ul>
+        <li>
+            Appearance <input type="range" name="{{key}}" min="0" max="4" ng-model="input.appearance" ng-init="input.appearance=2">
+            <span>{{input.appearance}}</span>
+        </li>
+        <li>
+            Intelligence <input type="range" name="{{key}}" min="0" max="4" ng-model="input.intelligence" ng-init="input.intelligence=2">
+            <span>{{input.intelligence}}</span>
+        </li>
+        <li>
+            Honesty <input type="range" name="{{key}}" min="0" max="4" ng-model="input.honesty" ng-init="input.honesty=2">
+            <span>{{input.honesty}}</span>
+        </li>
+        <li>
+            Professionalism <input type="range" name="{{key}}" min="0" max="4" ng-model="input.professionalism" ng-init="input.professionalism=2">
+            <span>{{input.professionalism}}</span>
+        </li>    
+    </ul>
+
+    <span>{{formData | json}}</span>
 
 
-<ul>
-    <li ng-repeat="(key, value) in user.attributes">
-        {{key}}: <input type="range" name="{{key}}" min="0" max="4" ng-model="$key.input.value">
-        <span>{{$key.input.value}}</span>
-    </li>
-</ul>
+    <div class="container-fluid">
+        <nav class="row">
+            <a href="./#/user/{{user.userId}}" class="col-xs-4 icon-close"></a>
+            <a ng-click="sendForm(input)" class="col-xs-8 judge">SUBMIT</a>
+        </nav>
+    </div>
 
-<div class="container-fluid">
-    <nav class="row">
-        <a href="./#/user/{{user.userId}}"      class="col-xs-4 icon-close"></a>
-        <a href=""                             class="col-xs-8 judge">SUBMIT</a>
-    </nav>
-</div>
+</section>

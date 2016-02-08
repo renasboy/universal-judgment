@@ -15,5 +15,12 @@ angular.module('heavenHell.services', [])
         });
     }
 
+    heavenHellAPI.sendUsersDetails = function(data) {
+        return $http({
+            url: 'data/send.json?'+data
+        });
+    }
+
+
     return heavenHellAPI;
 });

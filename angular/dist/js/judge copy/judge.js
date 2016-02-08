@@ -21,11 +21,10 @@ controller('JudgeController', function($scope, $routeParams, $location, heavenHe
 
         if ($scope.userGetLogin() === true) {
             $scope.sendData();
-        } 
-        else {
-            $scope.blur = 'blur';
-            $scope.login = './js/login/login.html';
+        } else {
+            $location.path('/newValue');
         }
+
     };
 
     $scope.sendData = function (data) {
@@ -46,11 +45,5 @@ controller('JudgeController', function($scope, $routeParams, $location, heavenHe
     $scope.userGetLogin = function () {
         return false;
     };
-
-    $scope.cancel = function () {
-        $scope.blur = '';
-        $scope.login = '';
-    };
-
 
 });
