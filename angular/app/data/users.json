@@ -1,100 +1,86 @@
 [
     {
-         "rate":"3.3",
-         "userId":"renatex",
+         "score":"3.3",
+         "id":"renatex",
          "image":"img\/renato.jpg",
-         "url":"http:\/\/renatex.com",
-         "givenName":"Renatex"
+         "name":"Renatex"
   },
   {
-         "rate":"3.3",
-         "userId":"renas",
+         "score":"3.3",
+         "id":"renas",
          "image":"img\/icon-user.png",
-         "url":"http:\/\/renatex.com",
-         "givenName":"Cavallari"
+         "name":"Cavallari"
   },
   {
-         "rate":"3.3",
-         "userId":"renasboy",
+         "score":"3.3",
+         "id":"renasboy",
          "image":"img\/icon-user.png",
-         "url":"http:\/\/renatex.com",
-         "givenName":"Renato"
+         "name":"Renato"
   },
   {
-         "rate":"3.3",
-         "userId":"renasboy",
+         "score":"3.3",
+         "id":"renasboy",
          "image":"img\/icon-user.png",
-         "url":"http:\/\/renatex.com",
-         "givenName":"Cardoso"
+         "name":"Cardoso"
   },
   {
-         "rate":"3.3",
-         "userId":"renasboy",
+         "score":"3.3",
+         "id":"renasboy",
          "image":"img\/icon-user.png",
-         "url":"http:\/\/renatex.com",
-         "givenName":"Plínio"
+         "name":"Plínio"
   },
   {
-         "rate":"3.3",
-         "userId":"renasboy",
+         "score":"3.3",
+         "id":"renasboy",
          "image":"img\/icon-user.png",
-         "url":"http:\/\/renatex.com",
-         "givenName":"Renanzex"
+         "name":"Renanzex"
   },
   {
-         "rate":"3.3",
-         "userId":"renasboy",
+         "score":"3.3",
+         "id":"renasboy",
          "image":"img\/icon-user.png",
-         "url":"http:\/\/renatex.com",
-         "givenName":"Airton"
+         "name":"Airton"
   },
   {
-         "rate":"3.3v",
-         "userId":"renatex",
+         "score":"3.3v",
+         "id":"renatex",
          "image":"./img\/icon-user.png",
-         "url":"http:\/\/renatex.com",
-         "givenName":"Renatex"
+         "name":"Renatex"
   },
   {
-         "rate":"3.3",
-         "userId":"renasboy",
+         "score":"3.3",
+         "id":"renasboy",
          "image":"img\/icon-user.png",
-         "url":"http:\/\/renatex.com",
-         "givenName":"Cavallari"
+         "name":"Cavallari"
   },
   {
-         "rate":"3.3",
-         "userId":"renasboy",
+         "score":"3.3",
+         "id":"renasboy",
          "image":"img\/icon-user.png",
-         "url":"http:\/\/renatex.com",
-         "givenName":"Renato"
+         "name":"Renato"
   },
   {
-         "rate":"3.3",
-         "userId":"renasboy",
+         "score":"3.3",
+         "id":"renasboy",
          "image":"img\/icon-user.png",
-         "url":"http:\/\/renatex.com",
-         "givenName":"Cardoso"
+         "name":"Cardoso"
   },
   {
-         "rate":"3.3",
-         "userId":"renasboy",
+         "score":"3.3",
+         "id":"renasboy",
          "image":"img\/icon-user.png",
-         "url":"http:\/\/renatex.com",
-         "givenName":"Plínio"
+         "name":"Plínio"
   },
   {
-         "rate":"3.3",
-         "userId":"renasboy",
+         "score":"3.3",
+         "id":"renasboy",
          "image":"img\/icon-user.png",
-         "url":"http:\/\/renatex.com",
-         "givenName":"Renanzex"
+         "name":"Renanzex"
   },
   {
-         "rate":"3.3",
-         "userId":"renasboy",
+         "score":"3.3",
+         "id":"renasboy",
          "image":"img\/icon-user.png",
-         "url":"http:\/\/renatex.com",
-         "givenName":"Airton"
+         "name":"Airton"
   }
 ]
