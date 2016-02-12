@@ -1,15 +1,29 @@
-[
 {
-    "id":"renatex",
-    "name": "Renato Cardoso",
-    "image": "img/renato.jpg",
-    "status": "heaven",
-    "score": 3.5,
-    "qualities": {
-        "appearance": 5,
-        "intelligence": 2.5,
-        "honesty": 3.3,
-        "professionalism": 1.5
-    }
+    "id": "renatex",
+    "img": "img/renato.jpg",
+    "name": "Renatex",
+    "qualities": [
+        {
+            "id": "apperance",
+            "name": "Apperance",
+            "score": 0.8
+        },
+        {
+            "id": "intelligence",
+            "name": "Intelligence",
+            "score": 1.1
+        },
+        {
+            "id": "honesty",
+            "name": "Honesty",
+            "score": 1.8
+        },
+        {
+            "id": "professionalism",
+            "name": "Professionalism",
+            "score": 2.4
+        }
+    ],
+    "score": 1.5,
+    "status": "purgatory"
 }
-]
