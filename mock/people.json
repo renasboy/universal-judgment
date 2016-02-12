@@ -3,30 +3,35 @@
         "id": "renatex",
         "img": "img/renato.jpg",
         "name": "Renatex",
-        "score": 3.3
+        "score": 3.3,
+        "status": "purgatory"
     },
     {
         "id": "renatex",
         "img": "img/renato.jpg",
         "name": "Renatex",
-        "score": 3.3
+        "score": 3.3,
+        "status": "hell"
     },
     {
         "id": "renatex",
         "img": "img/renato.jpg",
         "name": "Renatex",
-        "score": 3.3
+        "score": 3.3,
+        "status": "purgatory"
     },
     {
         "id": "renatex",
         "img": "img/renato.jpg",
         "name": "Renatex",
-        "score": 3.3
+        "score": 3.3,
+        "status": "hell"
     },
     {
         "id": "renatex",
         "img": "img/renato.jpg",
         "name": "Renatex",
-        "score": 3.3
+        "score": 3.3,
+        "status": "heaven"
     }
 ]
