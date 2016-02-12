@@ -42,7 +42,7 @@ controller('JudgeController', function($scope, $routeParams, $location, heavenHe
     };
 
     $scope.userGetLogin = function () {
-        return true;
+        return false;
     };
 
     $scope.cancel = function () {
