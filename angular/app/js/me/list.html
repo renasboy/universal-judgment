@@ -3,7 +3,7 @@
 <div id="user-list">
     <ul>
         <li ng-repeat="users in friendsList | filter: searchFilter">
-            <a data-href="#/friend/{{users.id}}" ng-click="getFriendInfo(users.id)">
+            <a data-href="#/friend/{{users.id}}" ng-click="getFriendInfo('10150206501514036')">
                 <div class="user-image">
                     <img ng-src="{{users.picture.data.url}}">
                 </div>

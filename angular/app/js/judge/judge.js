@@ -9,7 +9,7 @@ controller('JudgeController', function($scope, $routeParams, $location, heavenHe
     heavenHellAPI.getUsersDetails($scope.id).
 
         success(function (response) {
-            $scope.user = response[0];
+            $scope.user = response;
         });
 
     $scope.sendForm = function (input) {
