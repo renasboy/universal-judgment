@@ -84,6 +84,7 @@
         - fields
             - name
             - img
+            - status
             - total score
             - quality
                 - name

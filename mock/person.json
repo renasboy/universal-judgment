@@ -1,0 +1,29 @@
+{
+    "id": "renatex",
+    "img": "img/renato.jpg",
+    "name": "Renatex",
+    "qualities": [
+        {
+            "id": "apperance",
+            "name": "Apperance",
+            "score": 0.8
+        },
+        {
+            "id": "intelligence",
+            "name": "Intelligence",
+            "score": 1.1
+        },
+        {
+            "id": "honesty",
+            "name": "Honesty",
+            "score": 1.8
+        },
+        {
+            "id": "professionalism",
+            "name": "Professionalism",
+            "score": 2.4
+        }
+    ],
+    "score": 1.5,
+    "status": "purgatory"
+}
