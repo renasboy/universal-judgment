@@ -15,7 +15,7 @@ controller('JudgeController', function($scope, $routeParams, $location, heavenHe
     $scope.sendForm = function (input) {
         $scope.formData = [];
         $scope.formData = angular.copy(input);
-        $scope.formData.user = angular.copy($scope.user.userId);
+        $scope.formData.user = angular.copy($scope.user.id);
 
         if ($scope.userGetLogin() === true) {
             $scope.sendData();
@@ -42,7 +42,7 @@ controller('JudgeController', function($scope, $routeParams, $location, heavenHe
     };
 
     $scope.userGetLogin = function () {
-        return false;
+        return true;
     };
 
     $scope.cancel = function () {

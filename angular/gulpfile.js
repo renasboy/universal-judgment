@@ -5,7 +5,7 @@ var
     uglify          = require('gulp-uglify'),
     sass            = require('gulp-sass'),
     sourcemaps      = require('gulp-sourcemaps'),
-    clean           = require('gulp-clean');
+    clean           = require('gulp-rimraf');
 
 gulp.task('default', ['serve'], function() {});
 

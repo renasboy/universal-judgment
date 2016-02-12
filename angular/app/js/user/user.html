@@ -1,7 +1,7 @@
 <div ng-include="'./js/partials/user.html'"></div>
 
 <ul>
-    <li ng-repeat="(key, value) in user.attributes">
+    <li ng-repeat="(key, value) in user.qualities">
         {{key}}: {{value}}
     </li>
 </ul>
@@ -11,6 +11,6 @@
 <div class="container-fluid">
     <nav class="row">
         <a href="./#/"                          class="col-xs-4 icon-arrow-back"></a>
-        <a href="./#/judge/{{user.userId}}"     class="col-xs-8 judge">JUDGE NOW</a>
+        <a href="./#/judge/{{user.id}}"     	class="col-xs-8 judge">JUDGE NOW</a>
     </nav>
 </div>
