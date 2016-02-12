@@ -91,12 +91,13 @@
                 - img
                 - score
         - used
-            - profile
+            - home (/person)
+            - profile (/person/id)
     judgement
         - fields
-            - fb judge
-            - fb judged
-            - list of quality / score
+            - judge id (fb id)
+            - judged id (fb id)
+            - list of qualities with id / score
             - why
 
 - create new html

@@ -1,0 +1,23 @@
+{
+    "judge": "renatex",
+    "judged": "renato",
+    "qualities": [
+        {
+            "id": "apperance",
+            "score": 0.8
+        },
+        {
+            "id": "intelligence",
+            "score": 1.1
+        },
+        {
+            "id": "honesty",
+            "score": 1.8
+        },
+        {
+            "id": "professionalism",
+            "score": 2.4
+        }
+    ],
+    "why": "Maybe why explanation?"
+}
