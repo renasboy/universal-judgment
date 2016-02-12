@@ -6,7 +6,9 @@ angular.module('heavenHell', [
     'heavenHell.main',
     'heavenHell.home',
     'heavenHell.user',
-    'heavenHell.judge'
+    'heavenHell.judge',
+    'heavenHell.facebook',
+    'heavenHell.me'
     ]).
 
 config(['$routeProvider', function($routeProvider) {
@@ -22,6 +24,10 @@ config(['$routeProvider', function($routeProvider) {
     when('/judge/:id', {
         templateUrl: 'js/judge/judge.html',
         controller: 'JudgeController'
-    }).    
+    }).
+    when('/me', {
+        templateUrl: 'js/me/me.html',
+        controller: 'MeController'
+    }). 
     otherwise({redirectTo: '/home'});
 }]);

@@ -17,8 +17,6 @@ controller('JudgeController', function($scope, $routeParams, $location, heavenHe
         $scope.formData = angular.copy(input);
         $scope.formData.user = angular.copy($scope.user.userId);
 
-        console.log($scope.userGetLogin());
-
         if ($scope.userGetLogin() === true) {
             $scope.sendData();
         } 

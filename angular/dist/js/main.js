@@ -2,7 +2,9 @@
 
 angular.module('heavenHell.main', []).
 
-controller("MenuController", function($scope, $location) {
+controller("MenuController", function($scope, $location, $rootScope) {
+
+	$rootScope.logged = false;
 
     $scope.menuClass = function(page) {
         var current = $location.path().substring(1);
