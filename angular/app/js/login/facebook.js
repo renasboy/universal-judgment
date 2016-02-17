@@ -12,8 +12,6 @@ config([
 
 controller('FacebookController', function($scope, $rootScope,  $timeout, Facebook, $q) {
 
-
-      console.log('re');
       // Define user empty data :/
       $scope.FBuser = {};
       

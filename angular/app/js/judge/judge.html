@@ -3,31 +3,19 @@
 <section ng-class="blur">
     <div ng-include="'./js/partials/user.html'"></div>
 
-    <ul>
-        <li>
-            Appearance <input type="range" name="{{key}}" min="0" max="4" ng-model="input.appearance" ng-init="input.appearance=2">
-            <span>{{input.appearance}}</span>
-        </li>
-        <li>
-            Intelligence <input type="range" name="{{key}}" min="0" max="4" ng-model="input.intelligence" ng-init="input.intelligence=2">
-            <span>{{input.intelligence}}</span>
-        </li>
-        <li>
-            Honesty <input type="range" name="{{key}}" min="0" max="4" ng-model="input.honesty" ng-init="input.honesty=2">
-            <span>{{input.honesty}}</span>
-        </li>
-        <li>
-            Professionalism <input type="range" name="{{key}}" min="0" max="4" ng-model="input.professionalism" ng-init="input.professionalism=2">
-            <span>{{input.professionalism}}</span>
-        </li>    
-    </ul>
+    <li ng-repeat="q in qualities"> 
+        {{q.name}}
+        <input type="range" name="{{q.id}}" min="0" max="4" ng-model="qualities[$index].score" ng-init="qualities[$index].score=2">
+        <span>{{qualities[$index].score}}</span>
+    </li>
 
     <span>{{formData | json}}</span>
+
 
     <div class="container-fluid">
         <nav class="row">
             <a href="./#/user/{{user.id}}" class="col-xs-4 icon-close"></a>
-            <a ng-click="sendForm(input)" class="col-xs-8 judge">SUBMIT</a>
+            <a ng-click="sendForm(q)" class="col-xs-8 judge">SUBMIT</a>
         </nav>
     </div>
 

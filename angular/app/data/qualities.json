@@ -1,0 +1,22 @@
+[
+    {
+        "id": "apperance",
+        "img": "img/apperance.png",
+        "name": "Apperance"
+    },
+    {
+        "id": "intelligence",
+        "img": "img/intelligence.png",
+        "name": "Intelligence"
+    },
+    {
+        "id": "honesty",
+        "img": "img/honesty.png",
+        "name": "Honesty"
+    },
+    {
+        "id": "professionalism",
+        "img": "img/professionalism.png",
+        "name": "Professionalism"
+    }
+]

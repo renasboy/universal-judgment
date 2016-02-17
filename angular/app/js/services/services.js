@@ -21,6 +21,12 @@ angular.module('heavenHell.services', [])
         });
     }
 
+    heavenHellAPI.getQualities = function(data) {
+        return $http({
+            url: 'data/qualities.json?'+data
+        });
+    }
+
 
     return heavenHellAPI;
 });

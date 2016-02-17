@@ -6,19 +6,31 @@ controller('JudgeController', function($scope, $routeParams, $location, heavenHe
 
     $scope.id = $routeParams.id;
     $scope.user = null;
-    heavenHellAPI.getUsersDetails($scope.id).
 
+    heavenHellAPI.getUsersDetails($scope.id).
         success(function (response) {
             $scope.user = response;
-        });
+        })
+    ;
 
     $scope.sendForm = function (input) {
         $scope.formData = [];
-        $scope.formData = angular.copy(input);
-        $scope.formData.user = angular.copy($scope.user.id);
+        $scope.formData.qualities = []
+
+        $scope.formData.push({
+                "judge": "renasBOY",
+                "judged": $scope.user.id
+        });
+
+        angular.forEach($scope.qualities, function(value, key) {
+            $scope.formData.qualities.push({
+                "id": value.id,
+                "score": value.score
+            });
+        });
 
         if ($scope.userGetLogin() === true) {
-            $scope.sendData();
+            $scope.sendData($scope.formData);
         } 
         else {
             $scope.blur = 'blur';
@@ -27,6 +39,8 @@ controller('JudgeController', function($scope, $routeParams, $location, heavenHe
     };
 
     $scope.sendData = function (data) {
+
+        console.log(data);
 
         $scope.sendUserData = null;
         heavenHellAPI.sendUsersDetails($scope.formData).
@@ -49,6 +63,12 @@ controller('JudgeController', function($scope, $routeParams, $location, heavenHe
         $scope.blur = '';
         $scope.login = '';
     };
+
+
+    heavenHellAPI.getQualities($scope.id).
+        success(function (response) {
+            $scope.qualities = response;
+        });
 
 
 });

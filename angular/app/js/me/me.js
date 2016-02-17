@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('heavenHell.me', ['facebook']).
+angular.module('heavenHell.me', ['facebook','angularLazyImg']).
 
 config([
     'FacebookProvider',
@@ -12,14 +12,15 @@ config([
 
 controller('MeController', function($scope, $q, Facebook) {
 
-
         $scope.getFriends = function() {
           FB.api(
               "/me/taggable_friends",
+              {"limit": 1000},
               function (response) {
                 if (response && !response.error) {
                   console.log(response.data);
                   $scope.friendsList = response.data;
+                  // $scope.paging = response.paging;
                 } else {
                     console.log('error');
                 }
@@ -33,9 +34,9 @@ controller('MeController', function($scope, $q, Facebook) {
 
       $scope.$on('Facebook:statusChange', function(ev, data) {
         console.log('Status: ', data);
+        $scope.userList = true;
         if (data.status == 'connected') {
           $scope.$apply(function() {
-                    $scope.userList = true;
                     $scope.getFriends();
           });
         } else {
@@ -55,10 +56,7 @@ controller('MeController', function($scope, $q, Facebook) {
           // This is for convenience, to notify if Facebook is loaded and ready to go.
           return Facebook.isReady();
         }, function(newVal) {
-            // You might want to use this to disable/show/hide buttons and else
-            $scope.facebookReady = true;
-            $scope.userList = true;
-            $scope.getFriends();
+            // $scope.facebookReady = true;
         });
 
 
