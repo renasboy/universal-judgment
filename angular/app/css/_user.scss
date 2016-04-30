@@ -1,17 +1,28 @@
+.user-info {
+    padding: 20px 0;
+}
 .user-image {
     border: 2px solid $blue-color;
     width: 70px;
     height: 70px;
-    border-radius: 35px;
+    border-radius: 100%;
     overflow: hidden;
 
     img {
         width: 100%;
     }
 }
+.user-name {
+    font-size: $fonts-lg;
+}
+.user-rate {
+    font-size: $fonts-md;   
+}
+.renatex {
+    font-size: 100px;
+}
 
 nav {
-
     .judge {
         font-size: 1.2rem;
     }

@@ -16,22 +16,19 @@
 </head>
 <body>
 
-    <!--[if lt IE 7]>
+    <!--[if lt IE 9]>
     <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-
+    
     <ng-view></ng-view>
 
-
-
     <div class="container-fluid">
-
         <nav ng-controller="MenuController" ng-hide="mainMenu" class="row">
                 <a href="./#/"              class="col-xs-3 icon-home2"         ng-class="menuClass('home')"></a>
                 <a href="./#/search"        class="col-xs-3 icon-search2"       ng-class="menuClass('search')"></a>
-                <a href="./#/"              class="col-xs-3"                    ng-show="!logged">JG</a>                
-                <a href="./#/me"            class="col-xs-3"                    ng-show="!logged">ME</a>
-                <a href="./#/"              class="col-xs-6 icon-facebook"      ng-show="logged">FACEBOOK</a>
+                <a href="./#/"              class="col-xs-3"                    ng-show="logged">JG</a>                
+                <a href="./#/me"            class="col-xs-3"                    ng-show="logged">ME</a>
+                <a href="./#/"              class="col-xs-6 icon-facebook"      ng-show="!logged">FACEBOOK</a>
         </nav>
     </div>
 

@@ -1,19 +1,22 @@
-@import "../../node_modules/reset.scss/reset",
-        "../../node_modules/bootstrap/scss/mixins",
-        "../../node_modules/bootstrap/scss/variables",
-        "../../node_modules/bootstrap/scss/grid",
-        "variables",
-        "base",
-        "icons",
-        "home",
-        "nav",
-        "user",
-        "judge";
+@import     "../../node_modules/reset.scss/reset",
+            // "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap",
+            "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins",
+            "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables",
+            "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/grid",
+            "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/buttons",
+            "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/utilities",
+            "variables",
+            "base",
+            "icons",
+            "home",
+            "nav",
+            "user",
+            "judge";
 
 @font-face {
-  font-family: 'Ebony-bold';
-  src: url('../fonts/ebony.eot');
-  src: local('☺'), url('../fonts/ebony.woff') format('woff'), url('../fonts/ebony.ttf') format('truetype'), url('../fonts/ebony.svg') format('svg');
-  font-weight: normal;
-  font-style: normal;
+    font-family: 'Ebony-bold';
+    src: url('../fonts/ebony.eot');
+    src: local('☺'), url('../fonts/ebony.woff') format('woff'), url('../fonts/ebony.ttf') format('truetype'), url('../fonts/ebony.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }

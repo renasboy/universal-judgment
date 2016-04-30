@@ -6,6 +6,8 @@ nav {
     background: $pink-color;
     width: 100%;
     text-align: center;
+    overflow: hidden;
+    height: 60px;
 
     a {
         color: $white-color;

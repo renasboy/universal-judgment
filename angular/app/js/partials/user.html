@@ -1,14 +1,19 @@
-<div class="user-info">
-    <div class="user-image">
-        <img src="{{user.img}}" />
+<div class="container-fluid">
+
+    <div class="row user-info">
+        <div class="col-xs-4">
+            <div class="user-image pull-right">
+                <img src="{{user.img}}" />
+            </div>
+        </div>
+        <div class="col-xs-8">
+            <h1 class="user-name">
+                {{user.name}}
+            </h1>
+            <h2 class="user-rate">
+                {{user.score}}        
+            </h2>
+            <div class="user-status {{user.status}}"></div>
+        </div>
     </div>
-    <h1 class="user-name">
-        {{user.name}}
-    </h1>
-    <h2 class="user-rate">
-        {{user.score}}        
-    </h2>
-    <div class="user-status">
-        {{user.status}}    
-    </div>    
 </div>
