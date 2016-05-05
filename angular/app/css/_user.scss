@@ -2,11 +2,18 @@
     padding: 20px 0;
 }
 .user-image {
-    border: 2px solid $blue-color;
     width: 70px;
     height: 70px;
     border-radius: 100%;
     overflow: hidden;
+    border: 2px solid $gray-3;
+
+    &.purgatory {
+        border: 2px solid $pink-color;
+    }
+    &.heaven {
+        border: 2px solid $blue-color;
+    }
 
     img {
         width: 100%;
@@ -16,14 +23,70 @@
     font-size: $fonts-lg;
 }
 .user-rate {
-    font-size: $fonts-md;   
-}
-.renatex {
-    font-size: 100px;
+    font-size: $fonts-md;
+    margin-top: 10px;
 }
 
 nav {
     .judge {
         font-size: 1.2rem;
+    }
+}
+
+
+// List items
+.list-items {
+    li {
+        padding: 25px 0 55px 0;
+        position: relative;
+        * {
+            line-height: $fonts-md;
+        }
+
+        > div:nth-of-type(1):before {
+            content: '';
+            right: -33%;
+            top: -20px;
+            position: absolute;
+            width: 52px;
+            height: 52px;
+            border-radius: 100%;
+            background: $white-color;
+        }
+        // .text-right {
+        //     line-height: $fonts-md;
+        // }
+        // .font-lg {
+        //     line-height: $fonts-md;   
+        // }
+    }
+
+}
+
+
+// Status icons
+.purgatory-icon {
+    &:before {
+        content: '';
+        right: 20px;
+        top: 10px;
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        border-radius: 100%;
+        background: $pink-color;
+    }
+}
+
+.heaven-icon {
+    &:before {
+        content: '';
+        right: 20px;
+        top: 10px;
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        border-radius: 100%;
+        background: $blue-color;
     }
 }

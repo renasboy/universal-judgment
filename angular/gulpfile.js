@@ -6,7 +6,9 @@ var
     sass            = require('gulp-sass'),
     sourcemaps      = require('gulp-sourcemaps'),
     clean           = require('gulp-rimraf'),
-    jslint          = require('gulp-jslint');
+    jslint          = require('gulp-jslint'),
+    requireDir      = require('require-dir'),
+    dir             = requireDir('./gulptasks');
 
 gulp.task('default', ['serve'], function() {});
 

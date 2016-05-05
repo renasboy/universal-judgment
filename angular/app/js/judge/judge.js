@@ -9,6 +9,19 @@ angular.module('heavenHell.judge', []).
         $scope.id = $routeParams.id;
         $scope.user = null;
 
+
+
+        $scope.focused = function (scope, element) {
+            console.log(scope, element);
+            $scope.active = true;
+        };
+
+        $scope.blurred = function () {
+            console.log("lost focus");
+            $scope.active = false;
+        };
+
+
         heavenHellAPI.getUsersDetails($scope.id).
             success(function (response) {
                 $scope.user = response;

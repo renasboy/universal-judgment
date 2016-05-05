@@ -1,19 +1,16 @@
-<div class="container-fluid">
-
-    <div class="row user-info">
-        <div class="col-xs-4">
-            <div class="user-image pull-right">
-                <img src="{{user.img}}" />
-            </div>
-        </div>
-        <div class="col-xs-8">
-            <h1 class="user-name">
-                {{user.name}}
-            </h1>
-            <h2 class="user-rate">
-                {{user.score}}        
-            </h2>
-            <div class="user-status {{user.status}}"></div>
+<div class="row user-info">
+    <div class="col-xs-4">
+        <div class="user-image pull-right {{user.status}}">
+            <img src="{{user.img}}" />
         </div>
     </div>
+    <div class="col-xs-6">
+        <h1 class="user-name">
+            {{user.name}}
+        </h1>
+        <h2 class="user-rate">
+            {{user.score}} <span class="font-xs">/ 4</span>
+        </h2>
+    </div>
+    <div class="col-xs-2 {{user.status}}-icon"></div>
 </div>

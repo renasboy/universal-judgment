@@ -1,23 +1,35 @@
-<div ng-include="login"></div>
+<div class="container-fluid">
 
-<section ng-class="blur">
-    <div ng-include="'./js/partials/user.html'"></div>
+    <div ng-include="login"></div>
 
-    <li ng-repeat="q in qualities"> 
-        {{q.name}}
-        <input type="range" name="{{q.id}}" min="0" max="4" ng-model="qualities[$index].score" ng-init="qualities[$index].score=2">
-        <span>{{qualities[$index].score}}</span>
-    </li>
+    <section ng-class="blur">
 
-    <span>{{formData | json}}</span>
+        <div ng-include="'./js/partials/user.html'"></div>
 
-    <input type="range" name="test">2</input>
+        <div class="row">        
+            <ul class="judge-list">
+                <li ng-repeat="q in qualities">
+                    <label class="col-xs-12">{{q.name}}</label>
+                    <div class="col-xs-3">
+                        <span ng-show="focus" class="judge-value">
+                            {{qualities[$index].score}}
+                        </span>
+                        <span class="icon-logo test-click" ng-class="q.name | lowercase"></span>
+                    </div>
+                    <div class="col-xs-9 col-xs-offset-3">
+                        <input ng-focus="focus=true" ng-blur="focus=false"  type="range" name="{{q.id}}" min="0" max="4" ng-model="qualities[$index].score" ng-init="qualities[$index].score=2">
+                    </div>
+                </li>
+            </ul>
+        </div>
 
-    <div class="container-fluid">
+        <span>{{formData | json}}</span>
+
         <nav class="row">
             <a href="./#/user/{{user.id}}" class="col-xs-4 icon-close"></a>
             <a ng-click="sendForm(q)" class="col-xs-8 judge">SUBMIT</a>
         </nav>
-    </div>
 
-</section>
+    </section>
+
+</div>
