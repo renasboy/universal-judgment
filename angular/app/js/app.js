@@ -9,7 +9,6 @@ angular.module('heavenHell', [
     'heavenHell.home',
     'heavenHell.user',
     'heavenHell.judge',
-    'heavenHell.facebook',
     'heavenHell.me'
 ]).
 

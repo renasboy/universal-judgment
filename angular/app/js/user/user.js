@@ -11,7 +11,6 @@ angular.module('heavenHell.user', []).
         heavenHellAPI.getUsersDetails($scope.id).
             success(function (response) {
                 $scope.user = response;
-                console.log(response);
             });
 
     });

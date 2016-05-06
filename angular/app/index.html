@@ -26,8 +26,8 @@
         <nav ng-controller="MenuController" ng-hide="mainMenu" class="row">
                 <a href="./#/"              class="col-xs-3 icon-home2"         ng-class="menuClass('home')"></a>
                 <a href="./#/search"        class="col-xs-3 icon-search2"       ng-class="menuClass('search')"></a>
-                <a href="./#/"              class="col-xs-3"                    ng-show="logged">JG</a>                
-                <a href="./#/me"            class="col-xs-3"                    ng-show="logged">ME</a>
+                <a href="./#/"              class="col-xs-3 icon-judges"        ng-show="logged"></a>
+                <a href="./#/me"            class="col-xs-3 icon-user"          ng-class="menuClass('me')" ng-show="logged">ME</a>
                 <a href="./#/"              class="col-xs-6 icon-facebook"      ng-show="!logged">FACEBOOK</a>
         </nav>
     </div>
@@ -38,12 +38,12 @@
     <script src="bower_components/angular-lazy-img/release/angular-lazy-img.min.js"></script>
     <script src="js/app.js"></script>
     <script src="js/services/services.js"></script>
+    <script src="js/directives/directives.js"></script>
     <script src="js/main.js"></script>
     <script src="js/home/home.js"></script>
     <script src="js/user/user.js"></script>
     <script src="js/judge/judge.js"></script>
     <script src="js/me/me.js"></script>
-    <script src="js/login/facebook.js"></script>
     
 </body>
 </html>

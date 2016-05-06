@@ -31,5 +31,11 @@ angular.module('heavenHell.services', [])
             });
         };
 
+        heavenHellAPI.getUserStatus = function () {
+            return $http({
+                url: 'data/person_not_logged_in.json'
+            });
+        };
+
         return heavenHellAPI;
     });

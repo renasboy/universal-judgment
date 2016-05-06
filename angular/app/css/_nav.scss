@@ -17,6 +17,10 @@ nav {
         &:before {
             color: $white-color;
         }
+
+        &:hover, &:active {
+            opacity: 0.5;
+        }
     }
 
     .icon-facebook {
@@ -43,6 +47,9 @@ nav {
     }
     .icon-search2.active {
         @extend .icon-search;
-    }    
+    }
+    .icon-user.active {
+        @extend .icon-user2;
+    }
 
 }

@@ -1,5 +1,19 @@
-<button ng-click="buildFriends()" ng-show="userList">get friends</button>
+<div ng-include="'./js/partials/user.html'"></div>
 
-<div ng-include="list">Loading...</div>
+<div class="row">
+    <ul class="list-items">
+        <li ng-repeat="(key, value) in user.qualities">            
+            <div class="col-xs-6 text-right">
+                {{value.name}}
+            </div>
+            <div class="col-xs-4 col-xs-offset-2 font-lg">
+                {{value.score}}
+            </div>
+        </li>
+    </ul>
+</div>
 
-
+<nav class="row">
+    <a href="./#/"                          class="col-xs-4 icon-arrow-back"></a>
+    <a href="./#/judge/{{user.id}}"     	class="col-xs-8 judge">JUDGE NOW</a>
+</nav>
