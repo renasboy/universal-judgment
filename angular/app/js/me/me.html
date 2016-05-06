@@ -5,6 +5,9 @@
         <li ng-repeat="(key, value) in user.qualities">            
             <div class="col-xs-6 text-right">
                 {{value.name}}
+                <span class="qualities-icon">
+                    <img ng-src="{{value.img}}" />
+                </span>
             </div>
             <div class="col-xs-4 col-xs-offset-2 font-lg">
                 {{value.score}}
