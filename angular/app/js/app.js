@@ -5,6 +5,7 @@
 angular.module('heavenHell', [
     'ngRoute',
     'heavenHell.services',
+    'heavenHell.directives',
     'heavenHell.main',
     'heavenHell.home',
     'heavenHell.user',

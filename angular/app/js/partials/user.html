@@ -1,8 +1,6 @@
-<div class="row user-info">
+<div class="row user-info" ng-model='userinfo'>
     <div class="col-xs-4">
-        <div class="user-image pull-right {{user.status}}">
-            <img src="{{user.img}}" />
-        </div>
+        <div ng-include="'./js/partials/user-image.html'" class="pull-right"></div>
     </div>
     <div class="col-xs-6">
         <h1 class="user-name">

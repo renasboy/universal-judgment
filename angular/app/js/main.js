@@ -8,10 +8,8 @@ angular.module('heavenHell.main', []).
 
         $rootScope.logged = false;
 
-
         heavenHellAPI.getUserStatus($scope.id).
             success(function (response) {
-                console.log(response.return);
                 if (response.return === false) {
                     $rootScope.logged = true;
                 }

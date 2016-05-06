@@ -4,12 +4,10 @@
 
 angular.module('heavenHell.judge', []).
 
-    controller('JudgeController', function ($scope, $routeParams, heavenHellAPI) {
+    controller('JudgeController', function ($scope, $rootScope, $routeParams, heavenHellAPI) {
 
         $scope.id = $routeParams.id;
         $scope.user = null;
-
-
 
         $scope.focused = function (scope, element) {
             console.log(scope, element);
@@ -43,24 +41,36 @@ angular.module('heavenHell.judge', []).
                 });
             });
 
-            if ($scope.userGetLogin() === true) {
-                $scope.sendData($scope.formData);
+            if ($rootScope.logged === true) {
+                $scope.sendData();
             } else {
                 $scope.blur = 'blur';
-                $scope.login = './js/login/login.html';
+                $scope.popup = './js/login/login.html';
             }
         };
 
-        $scope.sendData = function (data) {
+        $scope.calculateRatio = function () {
+            $scope.total = 0;
+            var value = 0;
+            $scope.formData.qualities.forEach(function (element) {
+                value = parseInt(element.score, 0);
+                $scope.total = $scope.total + value;
+            });
+            $scope.total = $scope.total / $scope.formData.qualities.length;
+        };
 
-            console.log(data);
+        $scope.sendData = function () {
+
+            $scope.calculateRatio();
 
             $scope.sendUserData = null;
+
             heavenHellAPI.sendUsersDetails($scope.formData).
 
                 success(function (response) {
                     $scope.sendUserData = response[0];
-                    console.log('uhuuu');
+                    $scope.blur = 'blur';
+                    $scope.popup = './js/judge/sent.html';
                 }).
 
                 error(function () {
@@ -80,5 +90,6 @@ angular.module('heavenHell.judge', []).
         heavenHellAPI.getQualities($scope.id).
             success(function (response) {
                 $scope.qualities = response;
+                console.log(response);
             });
     });

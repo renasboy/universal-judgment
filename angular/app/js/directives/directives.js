@@ -9,11 +9,11 @@ angular.module('heavenHell.directives', [])
         };
     }])
 
-    .directive('test-click', function () {
+    .directive('testclick', function () {
         return {
             link: function (scope, elem, attrs) {
                 elem.bind('click', function () {
-                    console.log('re' + scope, attrs);
+                    console.log('re', scope, attrs);
                 });
             }
         };

@@ -2,6 +2,7 @@
     padding: 20px 0;
 }
 .user-image {
+    margin: auto;
     width: 70px;
     height: 70px;
     border-radius: 100%;
@@ -27,23 +28,18 @@
     margin-top: 10px;
 }
 
-nav {
-    .judge {
-        font-size: 1.2rem;
-    }
-}
-
-
 // List items
 .list-items {
     li {
-        padding: 25px 0 55px 0;
+        padding: 35px 0 55px 0;
         position: relative;
         * {
             line-height: $fonts-md;
         }
 
-        > div:nth-of-type(1):before {
+        .qualities-icon {
+            text-align: center;
+            overflow: hidden;
             content: '';
             right: -33%;
             top: -20px;
@@ -52,13 +48,11 @@ nav {
             height: 52px;
             border-radius: 100%;
             background: $white-color;
+            img {
+                width: 70%;
+                margin-top: 8px;
+            }
         }
-        // .text-right {
-        //     line-height: $fonts-md;
-        // }
-        // .font-lg {
-        //     line-height: $fonts-md;   
-        // }
     }
 
 }

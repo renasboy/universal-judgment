@@ -1,22 +1,22 @@
 [
     {
-        "id": "apperance",
-        "img": "img/apperance.png",
-        "name": "Apperance"
+        "id": "professionalism",
+        "img": "/img/qualities/professionalism.png",
+        "name": "Professionalism"
     },
     {
         "id": "intelligence",
-        "img": "img/intelligence.png",
+        "img": "/img/qualities/intelligence.png",
         "name": "Intelligence"
     },
     {
-        "id": "honesty",
-        "img": "img/honesty.png",
-        "name": "Honesty"
+        "id": "apperance",
+        "img": "/img/qualities/apperance.png",
+        "name": "Apperance"
     },
     {
-        "id": "professionalism",
-        "img": "img/professionalism.png",
-        "name": "Professionalism"
+        "id": "honesty",
+        "img": "/img/qualities/honesty.png",
+        "name": "Honesty"
     }
 ]

@@ -7,6 +7,9 @@
             <li ng-repeat="(key, value) in user.qualities">            
                 <div class="col-xs-6 text-right">
                     {{value.name}}
+                    <div class="qualities-icon">
+                        <img ng-src="{{value.img}}" />
+                    </div>
                 </div>
                 <div class="col-xs-4 col-xs-offset-2 font-lg">
                     {{value.score}}
@@ -17,7 +20,7 @@
 
     <nav class="row">
         <a href="./#/"                          class="col-xs-4 icon-arrow-back"></a>
-        <a href="./#/judge/{{user.id}}"     	class="col-xs-8 judge">JUDGE NOW</a>
+        <a href="./#/judge/{{user.id}}"     	class="col-xs-8 btn">JUDGE NOW</a>
     </nav>
 
 </div>

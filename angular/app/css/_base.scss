@@ -1,5 +1,6 @@
 body {
 	background: $gray-1;
+	overflow-x: hidden;
 }
 
 *, a, button {
@@ -20,4 +21,39 @@ h2 {
 
 h1, h2, h3, h4, h5, h6 {
 	margin: 0;
+}
+
+
+.btn {
+    background: $blue-color;
+    cursor: pointer;
+    font-size: $fonts-lg;
+    border-radius: 0;
+    line-height: 2.8rem;
+    color: $white-color;
+}
+
+
+.blur {
+    * {
+        pointer-events: none;
+    }
+    z-index: 0;
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    position: fixed;
+}
+
+.popup {
+    position: fixed;
+    padding: 20px 0;
+    z-index: 10;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: $white-color-80;
 }
