@@ -5,25 +5,25 @@
     "qualities": [
         {
             "id": "professionalism",
-            "img": "/img/qualities/professionalism.png",
+            "img": "img/qualities/professionalism.png",
             "name": "Professionalism",
             "score": 2.4
         },
         {
             "id": "intelligence",
-            "img": "/img/qualities/intelligence.png",
+            "img": "img/qualities/intelligence.png",
             "name": "Intelligence",
             "score": 1.1
         },
         {
             "id": "apperance",
-            "img": "/img/qualities/apperance.png",
+            "img": "img/qualities/apperance.png",
             "name": "Apperance",
             "score": 0.8
         },
         {
             "id": "honesty",
-            "img": "/img/qualities/honesty.png",
+            "img": "img/qualities/honesty.png",
             "name": "Honesty",
             "score": 1.8
         }
