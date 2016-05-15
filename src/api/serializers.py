@@ -10,7 +10,7 @@ class QualityInput(serializers.Serializer):
 class QualityOutput(serializers.ModelSerializer):
     class Meta:
         model = models.Quality
-        fields = ('id', 'name')
+        fields = ('id', 'name', 'img')
 
 
 class PeopleInput(serializers.Serializer):
@@ -20,16 +20,17 @@ class PeopleInput(serializers.Serializer):
 class PeopleOutput(serializers.ModelSerializer):
     class Meta:
         model = models.Person
-        fields = ('id', 'name', 'img', 'score')
+        fields = ('id', 'name', 'img', 'score', 'status')
 
 
 class PersonInput(serializers.ModelSerializer):
     class Meta:
         model = models.Person
-        fields = ('fb')
+        fields = ('fb',)
 
 
 class PersonQuality(serializers.Serializer):
+    id = serializers.IntegerField()
     name = serializers.CharField()
     img = serializers.CharField()
     score = serializers.FloatField()
@@ -37,11 +38,12 @@ class PersonQuality(serializers.Serializer):
 
 class PersonOutput(serializers.ModelSerializer):
 
-    qualities = PersonQuality(many=True)
+    #qualities = PersonQuality(many=True)
 
     class Meta:
         model = models.Person
-        fields = ('id', 'name', 'img', 'score')
+        #fields = ('id', 'name', 'img', 'score', 'status', 'qualities')
+        fields = ('id', 'name', 'img', 'score', 'status')
 
 
 class JudgementInput(serializers.Serializer):

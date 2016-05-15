@@ -1,3 +1,5 @@
+from django.http import Http404
+
 from api import models
 
 class Quality(object):
@@ -15,7 +17,7 @@ class People(object):
     def __init__(self, input=None, many=False):
         if many:
             if input.get('search'):
-                self.data = models.Person.filter(name__icontains=input.get('search'))
+                self.data = models.Person.objects.filter(name__icontains=input.get('search'))
             else:
                 self.data = models.Person.objects.all()
 
@@ -25,11 +27,13 @@ class People(object):
 
 class Person(object):
 
-    def __init__(self, input=None):
-        self.data = models.Person.filter(fb__iexact=input.get('fb'))
+    def __init__(self, input=None, many=False):
+        self.data = models.Person.objects.filter(fb__iexact=input.get('fb'))
 
     def get_data(self):
-        return self.data
+        if not self.data:
+            raise Http404()
+        return self.data[0]
 
 
 class Judgement(object):

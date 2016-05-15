@@ -1,3 +1,5 @@
+from copy import copy
+
 from django.views.generic import TemplateView
 from rest_framework import generics
 from rest_framework import permissions
@@ -18,8 +20,12 @@ class GetView(APIView):
     view_model = None
     many = False
 
-    def get(self, request):
-        input_serializer = self.input_serializer(data=request.data)
+    def get(self, request, *args, **kwargs):
+        data = copy(request.data)
+        data.update(request.GET)
+        data.update(*args)
+        data.update(kwargs)
+        input_serializer = self.input_serializer(data=data)
         if not input_serializer.is_valid():
             return Response(input_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         view_model = self.view_model(input=input_serializer.data, many=self.many)
@@ -33,7 +39,7 @@ class PostView(APIView):
     output_serializer = None
     view_model = None
 
-    def post(self, request):
+    def post(self, request, *args, **kwargs):
         input_serializer = self.input_serializer(data=request.data)
         if not input_serializer.is_valid():
             return Response(input_serializer.errors, status=status.HTTP_400_BAD_REQUEST)

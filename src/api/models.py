@@ -17,8 +17,16 @@ class Person(models.Model):
     img = models.URLField()
     score = models.FloatField()
 
-    def get_qualities(self):
+    def status(self):
+        if self.score > 75:
+            return 'heaven'
+        if self.score < 24:
+            return 'hell'
+        return 'purgatory'
+
+    def qualities(self):
         return []
+
 
 class Judgement(models.Model):
     created = models.DateTimeField(auto_now_add=True)
