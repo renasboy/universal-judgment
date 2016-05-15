@@ -28,7 +28,8 @@ resetdb:
 	@rm -f src/api/migrations/0001_initial.py src/db/db.sqlite3
 	$(PYTHON) src/manage.py makemigrations
 	$(PYTHON) src/manage.py migrate
-	@chmod 666 src/db/db.sqlite3
+	$(PYTHON) src/manage.py createsuperuser
+	@chown -R www-data src/db
 
 clean:
 	@find src -name *.pyc -delete
