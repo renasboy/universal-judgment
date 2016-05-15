@@ -3,7 +3,7 @@ PYTHON=`. venv/bin/activate; which python`
 NPM=`which npm`
 N=`which n`
 
-deps:
+frontend_deps:
 	$(NPM) cache clean -f
 	$(NPM) install -g npm
 	$(NPM) install -g n
@@ -24,6 +24,7 @@ virtualenv:
 	$(PIP) install -r etc/freeze.txt
 
 resetdb:
+	@mkdir -p src/db
 	@rm -f src/api/migrations/0001_initial.py src/db/db.sqlite3
 	$(PYTHON) src/manage.py makemigrations
 	$(PYTHON) src/manage.py migrate
