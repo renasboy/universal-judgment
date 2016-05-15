@@ -1,37 +1,37 @@
-[
+
     {
         "id": "renatex",
-        "img": "img/renato.jpg",
         "name": "Renatex",
+        "img": "img/renato.jpg",
         "score": 3.3,
         "status": "purgatory"
     },
     {
         "id": "renatex",
-        "img": "img/renato.jpg",
         "name": "Renatex",
-        "score": 3.3,
+        "img": "img/renato.jpg",
+        "score": 1.3,
         "status": "hell"
     },
     {
         "id": "renatex",
-        "img": "img/renato.jpg",
         "name": "Renatex",
-        "score": 3.3,
+        "img": "img/renato.jpg",
+        "score": 3.0,
         "status": "purgatory"
     },
     {
         "id": "renatex",
-        "img": "img/renato.jpg",
         "name": "Renatex",
-        "score": 3.3,
+        "img": "img/renato.jpg",
+        "score": 1.0,
         "status": "hell"
     },
     {
         "id": "renatex",
-        "img": "img/renato.jpg",
         "name": "Renatex",
-        "score": 3.3,
+        "img": "img/renato.jpg",
+        "score": 5.0,
         "status": "heaven"
     }
 ]
