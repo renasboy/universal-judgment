@@ -45,7 +45,6 @@ class Judgement(object):
             # TODO get judge from session
             judge = models.Person.objects.get(id=input.get('judge'))
             qualities = input.get('qualities')
-            print(qualities)
         except:
             raise HttpResponseBadRequest()
 
@@ -64,7 +63,6 @@ class Judgement(object):
                 
                 # save judgement qualities
                 for quality_item in qualities:
-                    print(quality_item.get('id'))
                     quality = models.Quality.objects.get(id=quality_item.get('id'))
                     judgement_quality = models.JudgementQuality(
                         judgement=judgement,
@@ -82,5 +80,5 @@ class Judgement(object):
 
     def get_data(self):
         return dict(
-            return=True
+            result=True
         )
