@@ -1,4 +1,4 @@
-from django.http import Http404
+from django.http import Http404, HttpResponseBadRequest, HttpResponseServerError
 
 from api import models
 
@@ -37,4 +37,50 @@ class Person(object):
 
 
 class Judgement(object):
-    pass
+
+    def __init__(self, input=None):
+        # TODO check if logged in and get judge data from session
+        try:
+            judged = models.Person.objects.get(id=input.get('judged'))
+            # TODO get judge from session
+            judge = models.Person.objects.get(id=input.get('judge'))
+            qualities = input.get('qualities')
+            print(qualities)
+        except:
+            raise HttpResponseBadRequest()
+
+        if judged and judge and qualities:
+            try:
+                # calculate score for this judgement
+                score = sum([quality.get('score') for quality in qualities]) / len(qualities)
+                # save judgement
+                judgement = models.Judgement(
+                    judged=judged,
+                    judge=judge,
+                    score=score,
+                    why=input.get('why')
+                )
+                judgement.save()
+                
+                # save judgement qualities
+                for quality_item in qualities:
+                    print(quality_item.get('id'))
+                    quality = models.Quality.objects.get(id=quality_item.get('id'))
+                    judgement_quality = models.JudgementQuality(
+                        judgement=judgement,
+                        quality=quality,
+                        score=quality_item.get('score')
+                    )
+                    judgement_quality.save()
+
+                # update Person.score with new total score
+                qualities = judged.qualities()
+                judged.score = sum([quality.get('score') for quality in qualities]) / len(qualities)
+                judged.save()
+            except:
+                raise HttpResponseServerError()
+
+    def get_data(self):
+        return dict(
+            return=True
+        )

@@ -37,18 +37,30 @@ class PersonQuality(serializers.Serializer):
 
 
 class PersonOutput(serializers.ModelSerializer):
-
-    #qualities = PersonQuality(many=True)
+    qualities = PersonQuality(many=True)
 
     class Meta:
         model = models.Person
-        #fields = ('id', 'name', 'img', 'score', 'status', 'qualities')
-        fields = ('id', 'name', 'img', 'score', 'status')
+        fields = ('id', 'name', 'img', 'score', 'status', 'qualities')
 
 
-class JudgementInput(serializers.Serializer):
-    pass
+class JudgementQualityInput(serializers.ModelSerializer):
+    # TODO why id is necessary here?
+    id = serializers.IntegerField()
+    score = serializers.IntegerField(min_value=0, max_value=5)
+
+    class Meta:
+        model = models.Quality
+        fields = ('id', 'score')
+
+
+class JudgementInput(serializers.ModelSerializer):
+    qualities = JudgementQualityInput(many=True)
+    
+    class Meta:
+        model = models.Judgement
+        fields = ('judged', 'judge', 'why', 'qualities')
 
 
 class JudgementOutput(serializers.Serializer):
-    pass
+    result = serializers.CharField()

@@ -8,6 +8,35 @@ class Quality(models.Model):
     img = models.URLField()
     active = models.BooleanField(default=False)
 
+    def __str__(self):
+        return self.name
+
+
+class Judgement(models.Model):
+    created = models.DateTimeField(auto_now_add=True)
+    judged = models.ForeignKey('Person', related_name='judgements')
+    judge = models.ForeignKey('Person', related_name='opinions')
+    score = models.FloatField()
+    why = models.CharField(max_length=255)
+    qualities = models.ManyToManyField(
+        'Quality',
+        through='JudgementQuality',
+        through_fields=('judgement', 'quality')
+    )
+
+    def __str__(self):
+        return '{} - {} judged {}'.format(
+            self.id,
+            self.judge.name,
+            self.judged.name)
+
+
+class JudgementQuality(models.Model):
+    created = models.DateTimeField(auto_now_add=True)
+    judgement = models.ForeignKey('Judgement')
+    quality = models.ForeignKey('Quality')
+    score = models.PositiveSmallIntegerField()
+
 
 class Person(models.Model):
     created = models.DateTimeField(auto_now_add=True)
@@ -25,24 +54,17 @@ class Person(models.Model):
         return 'purgatory'
 
     def qualities(self):
-        return []
+        qualities = []
+        scores = JudgementQuality.objects.filter(judgement__judged__id=self.id).values('quality').annotate(models.Avg('score'))
+        for score in scores:
+            quality = Quality.objects.get(id=score.get('quality'))
+            qualities.append(dict(
+                id=quality.id,
+                name=quality.name,
+                img=quality.img,
+                score=score.get('score__avg')
+            ))
+        return qualities
 
-
-class Judgement(models.Model):
-    created = models.DateTimeField(auto_now_add=True)
-    judged = models.ForeignKey('Person', related_name='judgements')
-    judge = models.ForeignKey('Person', related_name='opinions')
-    score = models.FloatField()
-    why = models.CharField(max_length=255)
-    qualities = models.ManyToManyField(
-        'Quality',
-        through='JudgementQuality',
-        through_fields=('judgement', 'quality')
-    )
-
-
-class JudgementQuality(models.Model):
-    created = models.DateTimeField(auto_now_add=True)
-    judgement = models.ForeignKey('Judgement')
-    quality = models.ForeignKey('Quality')
-    score = models.PositiveSmallIntegerField()
+    def __str__(self):
+        return self.name
