@@ -7,7 +7,8 @@ angular.module('heavenHell.judge', []).
     controller('JudgeController', function ($scope, $rootScope, $routeParams, heavenHellAPI) {
 
         $scope.id = $routeParams.id;
-        $scope.user = null;
+        $scope.person = null;
+        $scope.why = null;
 
         $scope.focused = function (scope, element) {
             console.log(scope, element);
@@ -20,24 +21,25 @@ angular.module('heavenHell.judge', []).
         };
 
 
-        heavenHellAPI.getUsersDetails($scope.id).
+        heavenHellAPI.getPerson($scope.id).
             success(function (response) {
-                $scope.user = response;
+                $scope.person = response;
             });
 
         $scope.sendForm = function () {
-            $scope.formData = [];
-            $scope.formData.qualities = [];
-
-            $scope.formData.push({
-                "judge": "renasBOY",
-                "judged": $scope.user.id
-            });
-
+            $scope.formData = {
+                "judged": null,
+                "qualities": [],
+                "why": ''
+            };
+            $scope.formData.judged = $scope.person.id
+            if ($scope.why) {
+                $scope.formData.why = $scope.why
+            }
             angular.forEach($scope.qualities, function (value) {
                 $scope.formData.qualities.push({
                     "id": value.id,
-                    "score": value.score
+                    "score": parseInt(value.score)
                 });
             });
 
@@ -65,7 +67,7 @@ angular.module('heavenHell.judge', []).
 
             $scope.sendUserData = null;
 
-            heavenHellAPI.sendUsersDetails($scope.formData).
+            heavenHellAPI.sendJudgement($scope.formData).
 
                 success(function (response) {
                     $scope.sendUserData = response[0];
@@ -78,7 +80,7 @@ angular.module('heavenHell.judge', []).
                 });
         };
 
-        $scope.userGetLogin = function () {
+        $scope.personGetLogin = function () {
             return false;
         };
 

@@ -1,0 +1,82 @@
+[
+    {
+        "fields": {
+            "active": true,
+            "created": "2016-08-07T11:40:48.167Z",
+            "img": "http://www.universaljudgment.com/dist/img/qualities/apperance.png",
+            "modified": "2016-08-08T14:47:04.085Z",
+            "name": "Apperance"
+        },
+        "model": "api.quality",
+        "pk": 1
+    },
+    {
+        "fields": {
+            "active": true,
+            "created": "2016-08-07T11:41:04.889Z",
+            "img": "http://www.universaljudgment.com/dist/img/qualities/intelligence.png",
+            "modified": "2016-08-08T14:46:33.771Z",
+            "name": "Intelligence"
+        },
+        "model": "api.quality",
+        "pk": 2
+    },
+    {
+        "fields": {
+            "active": true,
+            "created": "2016-08-07T11:41:24.709Z",
+            "img": "http://www.universaljudgment.com/dist/img/qualities/honesty.png",
+            "modified": "2016-08-08T14:46:27.886Z",
+            "name": "Honesty"
+        },
+        "model": "api.quality",
+        "pk": 3
+    },
+    {
+        "fields": {
+            "active": true,
+            "created": "2016-08-07T11:41:39.807Z",
+            "img": "http://www.universaljudgment.com/dist/img/qualities/professionalism.png",
+            "modified": "2016-08-08T14:46:14.184Z",
+            "name": "Professionalism"
+        },
+        "model": "api.quality",
+        "pk": 4
+    },
+    {
+        "fields": {
+            "created": "2016-08-07T11:45:33.427Z",
+            "fb": "0",
+            "img": "http://www.universaljudgment.com/dist/img/favicon.png",
+            "modified": "2016-08-08T14:43:19.735Z",
+            "name": "Anonymous",
+            "score": 0.00
+        },
+        "model": "api.person",
+        "pk": 0
+    },
+    {
+        "fields": {
+            "created": "2016-08-07T11:45:33.427Z",
+            "fb": "1",
+            "img": "http://1.gravatar.com/avatar/bdd950cb95810dc774a7836d86ef2038",
+            "modified": "2016-08-08T14:43:19.735Z",
+            "name": "Renas",
+            "score": 0
+        },
+        "model": "api.person",
+        "pk": 1
+    },
+    {
+        "fields": {
+            "created": "2016-08-07T11:45:52.676Z",
+            "fb": "2",
+            "img": "https://secure.gravatar.com/avatar/180f578ec057362fefdbe9bdb36f2cd9",
+            "modified": "2016-08-08T14:43:43.912Z",
+            "name": "Renatex",
+            "score": 0
+        },
+        "model": "api.person",
+        "pk": 2
+    }
+]

@@ -8,7 +8,7 @@ angular.module('heavenHell', [
     'heavenHell.directives',
     'heavenHell.main',
     'heavenHell.home',
-    'heavenHell.user',
+    'heavenHell.person',
     'heavenHell.judge',
     'heavenHell.me'
 ]).
@@ -19,9 +19,9 @@ angular.module('heavenHell', [
                 templateUrl: 'js/home/home.html',
                 controller: 'HomeController'
             }).
-            when('/user/:id', {
-                templateUrl: 'js/user/user.html',
-                controller: 'UserController'
+            when('/person/:id', {
+                templateUrl: 'js/person/person.html',
+                controller: 'PersonController'
             }).
             when('/judge/:id', {
                 templateUrl: 'js/judge/judge.html',

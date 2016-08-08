@@ -15,11 +15,19 @@ angular.module('heavenHell.me', ['angularLazyImg']).
 
     controller('MeController', function ($scope, heavenHellAPI) {
 
-        heavenHellAPI.getUsersDetails('renatex').
-            success(function (response) {
-                $scope.user = response;
-                console.log(response);
-            });
+        $scope.person = {
+            "id": 0,
+            "name": "Anonymous",
+            "img": "/dist/img/favicon.png",
+            "score": 0,
+            "qualities": [],
+        };
+
+        //heavenHellAPI.getPerson(0).
+        //    success(function (response) {
+        //        $scope.person = response;
+        //        console.log(response);
+        //    });
         // $scope.getFriends = function () {
         //     FB.api(
         //         "/me/taggable_friends",

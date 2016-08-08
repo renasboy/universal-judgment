@@ -28,12 +28,14 @@ resetdb:
 	@rm -f src/api/migrations/0001_initial.py src/db/db.sqlite3
 	$(PYTHON) src/manage.py makemigrations
 	$(PYTHON) src/manage.py migrate
+	$(PYTHON) src/manage.py loaddata src/api/fixtures/initial_data.json
 	$(PYTHON) src/manage.py createsuperuser
 	@chown -R www-data src/db
 
 clean:
 	@find src -name *.pyc -delete
 	@find src -name __pycache__ -delete
+	@find src -name .*.swp -delete
 
 test: clean
 	$(PYTHON) src/manage.py test api

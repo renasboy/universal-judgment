@@ -10,13 +10,13 @@
 
 <div id="user-list">
     <ul>
-        <li ng-repeat="users in usersList">
-            <a href="#/user/{{users.id}}">
-                <div class="user-image">
-                    <img ng-src="{{users.image}}" alt="{{users.name}}" />
+        <li ng-repeat="person in people">
+            <a href="#/person/{{person.id}}">
+                <div class="user-image {{person.status}}">
+                    <img ng-src="{{person.img}}" alt="{{person.name}}" />
                 </div>
                 <h2 class="font-xs">
-                    {{users.name}} /{{users.score}}
+                    {{person.name}} /{{person.score}}
                 </h2>
             </a>
         </li>

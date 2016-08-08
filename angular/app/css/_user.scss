@@ -9,7 +9,7 @@
     overflow: hidden;
     border: 2px solid $gray-3;
 
-    &.purgatory {
+    &.hell {
         border: 2px solid $pink-color;
     }
     &.heaven {
@@ -38,6 +38,10 @@
             line-height: $fonts-md;
         }
 
+        .score{
+            float: right;
+        }
+
         .qualities-icon {
             text-align: center;
             overflow: hidden;
@@ -60,7 +64,7 @@
 
 
 // Status icons
-.purgatory-icon {
+.hell-icon {
     &:before {
         content: '';
         right: 20px;

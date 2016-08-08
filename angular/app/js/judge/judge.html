@@ -4,7 +4,7 @@
 
     <section ng-class="blur">
 
-        <div ng-include="'./js/partials/user.html'"></div>
+        <div ng-include="'./js/partials/person.html'"></div>
 
         <div class="row">        
             <ul class="judge-list">
@@ -25,10 +25,11 @@
                 <li>
                 </li>
             </ul>
+            <textarea name="why" ng-model="why"></textarea>
         </div>
 
         <nav class="row">
-            <a href="./#/user/{{user.id}}" class="col-xs-4 icon-close"></a>
+            <a href="./#/person/{{person.id}}" class="col-xs-4 icon-close"></a>
             <a ng-click="sendForm(q)" class="col-xs-8 btn">SUBMIT</a>
         </nav>
 

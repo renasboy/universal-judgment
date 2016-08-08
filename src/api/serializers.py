@@ -59,7 +59,7 @@ class JudgementInput(serializers.ModelSerializer):
     
     class Meta:
         model = models.Judgement
-        fields = ('judged', 'judge', 'why', 'qualities')
+        fields = ('judged', 'why', 'qualities')
 
 
 class JudgementOutput(serializers.Serializer):

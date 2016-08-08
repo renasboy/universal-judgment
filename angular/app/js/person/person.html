@@ -1,18 +1,18 @@
 <div class="container-fluid">
 
-    <div ng-include="'./js/partials/user.html'"></div>
+    <div ng-include="'./js/partials/person.html'"></div>
 
     <div class="row">
         <ul class="list-items">
-            <li ng-repeat="(key, value) in user.qualities">            
+            <li ng-repeat="(key, quality) in person.qualities">            
                 <div class="col-xs-6 text-right">
-                    {{value.name}}
+                    {{quality.name}}
                     <div class="qualities-icon">
-                        <img ng-src="{{value.img}}" />
+                        <img ng-src="{{quality.img}}" />
                     </div>
                 </div>
-                <div class="col-xs-4 col-xs-offset-2 font-lg">
-                    {{value.score}}
+                <div class="col-xs-4 col-xs-offset-2 font-lg score">
+                    {{quality.score}}
                 </div>
             </li>
         </ul>
@@ -20,7 +20,7 @@
 
     <nav class="row">
         <a href="./#/"                          class="col-xs-4 icon-arrow-back"></a>
-        <a href="./#/judge/{{user.id}}"     	class="col-xs-8 btn">JUDGE NOW</a>
+        <a href="./#/judge/{{person.id}}"     	class="col-xs-8 btn">JUDGE NOW</a>
     </nav>
 
 </div>

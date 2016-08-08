@@ -12,10 +12,10 @@ angular.module('heavenHell.home', []).
         //     return !$scope.nameFilter || re.test(user.givenName);
         // };
 
-        $scope.usersList = [];
-        heavenHellAPI.getUsers().
+        $scope.people = [];
+        heavenHellAPI.getPeople().
             success(function (response) {
-                $scope.usersList = response;
+                $scope.people = response;
             }).
             error(function () {
                 console.log('error');

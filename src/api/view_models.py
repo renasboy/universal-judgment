@@ -17,9 +17,9 @@ class People(object):
     def __init__(self, input=None, many=False):
         if many:
             if input.get('search'):
-                self.data = models.Person.objects.filter(name__icontains=input.get('search'))
+                self.data = models.Person.objects.filter(name__icontains=input.get('search')).exclude(id=0)
             else:
-                self.data = models.Person.objects.all()
+                self.data = models.Person.objects.all().exclude(id=0)
 
     def get_data(self):
         return self.data
@@ -28,7 +28,7 @@ class People(object):
 class Person(object):
 
     def __init__(self, input=None, many=False):
-        self.data = models.Person.objects.filter(fb__iexact=input.get('fb'))
+        self.data = models.Person.objects.filter(id__iexact=input.get('fb')).exclude(id=0)
 
     def get_data(self):
         if not self.data:
@@ -42,8 +42,8 @@ class Judgement(object):
         # TODO check if logged in and get judge data from session
         try:
             judged = models.Person.objects.get(id=input.get('judged'))
-            # TODO get judge from session
-            judge = models.Person.objects.get(id=input.get('judge'))
+            # TODO for now only Anonymous
+            judge = models.Person.objects.get(id=0)
             qualities = input.get('qualities')
         except:
             raise HttpResponseBadRequest()
@@ -56,7 +56,7 @@ class Judgement(object):
                 judgement = models.Judgement(
                     judged=judged,
                     judge=judge,
-                    score=score,
+                    score=round(score, 2),
                     why=input.get('why')
                 )
                 judgement.save()
@@ -73,7 +73,8 @@ class Judgement(object):
 
                 # update Person.score with new total score
                 qualities = judged.qualities()
-                judged.score = sum([quality.get('score') for quality in qualities]) / len(qualities)
+                total = sum([quality.get('score') for quality in qualities]) / len(qualities)
+                judged.score = round(total, 2) 
                 judged.save()
             except:
                 raise HttpResponseServerError()

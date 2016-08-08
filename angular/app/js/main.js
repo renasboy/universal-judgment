@@ -6,9 +6,10 @@ angular.module('heavenHell.main', []).
 
     controller("MenuController", function ($scope, $location, $rootScope, heavenHellAPI) {
 
-        $rootScope.logged = false;
+        // TODO default to true, should be false
+        $rootScope.logged = true;
 
-        heavenHellAPI.getUserStatus($scope.id).
+        heavenHellAPI.getLoginStatus($scope.id).
             success(function (response) {
                 if (response.return === false) {
                     $rootScope.logged = true;
@@ -20,7 +21,7 @@ angular.module('heavenHell.main', []).
                 menu = current.split('/', 1).toString();
 
             $scope.mainMenu = false;
-            if (menu === "user" || menu === "judge") {
+            if (menu === "person" || menu === "judge") {
                 $scope.mainMenu = true;
             }
             return page === current ? "active" : "";

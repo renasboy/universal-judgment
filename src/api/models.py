@@ -15,9 +15,9 @@ class Quality(models.Model):
 class Judgement(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     judged = models.ForeignKey('Person', related_name='judgements')
-    judge = models.ForeignKey('Person', related_name='opinions')
+    judge = models.ForeignKey('Person', related_name='opinions', default=0)
     score = models.FloatField()
-    why = models.CharField(max_length=255)
+    why = models.CharField(max_length=255, blank=True)
     qualities = models.ManyToManyField(
         'Quality',
         through='JudgementQuality',
@@ -47,9 +47,9 @@ class Person(models.Model):
     score = models.FloatField()
 
     def status(self):
-        if self.score > 75:
+        if self.score > 2.5:
             return 'heaven'
-        if self.score < 24:
+        if self.score < 1.5:
             return 'hell'
         return 'purgatory'
 
@@ -62,7 +62,7 @@ class Person(models.Model):
                 id=quality.id,
                 name=quality.name,
                 img=quality.img,
-                score=score.get('score__avg')
+                score=round(score.get('score__avg'), 2)
             ))
         return qualities
 

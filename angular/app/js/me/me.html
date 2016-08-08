@@ -1,16 +1,19 @@
-<div ng-include="'./js/partials/user.html'"></div>
+<div ng-include="'./js/partials/person.html'"></div>
 
 <div class="row">
+    <div class="col-xs-12 text-center">
+        <span class="font-md clearfix">We are all anonymous.</span>
+    </div>
     <ul class="list-items">
-        <li ng-repeat="(key, value) in user.qualities">            
+        <li ng-repeat="(key, quality) in person.qualities">            
             <div class="col-xs-6 text-right">
-                {{value.name}}
+                {{quality.name}}
                 <span class="qualities-icon">
-                    <img ng-src="{{value.img}}" />
+                    <img ng-src="{{quality.img}}" />
                 </span>
             </div>
             <div class="col-xs-4 col-xs-offset-2 font-lg">
-                {{value.score}}
+                {{quality.score}}
             </div>
         </li>
     </ul>
@@ -18,5 +21,5 @@
 
 <nav class="row">
     <a href="./#/"                          class="col-xs-4 icon-arrow-back"></a>
-    <a href="./#/judge/{{user.id}}"     	class="col-xs-8 judge">JUDGE NOW</a>
+    <a href="./#/judge/{{person.id}}"     	class="col-xs-8 judge">JUDGE NOW</a>
 </nav>
