@@ -1,8 +1,8 @@
 {
-  "name": "Heaven & Hell",
+  "name": "heaven_hell",
   "description": "Universal Judgment",
   "version": "0.0.0",
-  "homepage": "https://heaven&hell.com",
+  "homepage": "https://heavenhell.com",
   "license": "MIT",
   "private": true,
   "dependencies": {
