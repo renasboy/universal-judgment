@@ -1,5 +1,5 @@
+import facebook
 from django.http import Http404, HttpResponseBadRequest, HttpResponseServerError
-
 from api import models
 
 class Quality(object):
@@ -53,7 +53,6 @@ class Judgement(object):
 
             # if logged with facebook access_token
             if not judge and access_token:
-                import facebook
                 graph = facebook.GraphAPI(access_token)
                 profile = graph.get_object('me')
                 picture = graph.get_connections(id='me', connection_name='picture')
