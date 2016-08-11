@@ -28,7 +28,7 @@ class GetView(APIView):
         input_serializer = self.input_serializer(data=data)
         if not input_serializer.is_valid():
             return Response(input_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-        view_model = self.view_model(input=input_serializer.data, many=self.many)
+        view_model = self.view_model(input=input_serializer.data, session=request.session, many=self.many)
         output_serializer = self.output_serializer(view_model.get_data(), many=self.many)
         return Response(output_serializer.data)
 
@@ -43,7 +43,7 @@ class PostView(APIView):
         input_serializer = self.input_serializer(data=request.data)
         if not input_serializer.is_valid():
             return Response(input_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-        view_model = self.view_model(input=input_serializer.data)
+        view_model = self.view_model(input=input_serializer.data, session=request.session, cookies=request.COOKIES)
         output_serializer = self.output_serializer(view_model.get_data())
         return Response(output_serializer.data)
 

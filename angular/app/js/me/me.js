@@ -15,19 +15,19 @@ angular.module('heavenHell.me', ['angularLazyImg']).
 
     controller('MeController', function ($scope, heavenHellAPI) {
 
-        $scope.person = {
-            "id": 0,
-            "name": "Anonymous",
-            "img": "/dist/img/favicon.png",
-            "score": 0,
-            "qualities": [],
-        };
+        //$scope.person = {
+        //    "id": 0,
+        //    "name": "Anonymous",
+        //    "img": "/dist/img/favicon.png",
+        //    "score": 0,
+        //    "qualities": [],
+        //};
 
-        //heavenHellAPI.getPerson(0).
-        //    success(function (response) {
-        //        $scope.person = response;
-        //        console.log(response);
-        //    });
+        heavenHellAPI.getPerson(0).
+            success(function (response) {
+                $scope.person = response;
+                console.log(response);
+            });
         // $scope.getFriends = function () {
         //     FB.api(
         //         "/me/taggable_friends",

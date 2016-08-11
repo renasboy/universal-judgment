@@ -4,7 +4,7 @@ from api import models
 
 class Quality(object):
 
-    def __init__(self, input=None, many=False):
+    def __init__(self, input=None, session=None, many=False):
         if many:
             self.data = models.Quality.objects.all()
 
@@ -14,7 +14,7 @@ class Quality(object):
 
 class People(object):
 
-    def __init__(self, input=None, many=False):
+    def __init__(self, input=None, session=None, many=False):
         if many:
             if input.get('search'):
                 self.data = models.Person.objects.filter(name__icontains=input.get('search')).exclude(id=0)
@@ -27,8 +27,11 @@ class People(object):
 
 class Person(object):
 
-    def __init__(self, input=None, many=False):
-        self.data = models.Person.objects.filter(id__iexact=input.get('fb')).exclude(id=0)
+    def __init__(self, input=None, session=None, many=False):
+        fb = int(input.get('fb'))
+        if not fb and 'fbid' in session:
+            fb = session['fbid']
+        self.data = models.Person.objects.filter(fb__iexact=fb)
 
     def get_data(self):
         if not self.data:
@@ -38,12 +41,33 @@ class Person(object):
 
 class Judgement(object):
 
-    def __init__(self, input=None):
-        # TODO check if logged in and get judge data from session
+    def __init__(self, input=None, session=None, cookies=None):
+        access_token = cookies.get('fbat')
         try:
-            judged = models.Person.objects.get(id=input.get('judged'))
-            # TODO for now only Anonymous
-            judge = models.Person.objects.get(id=0)
+            if input.get('judged'):
+                judged = models.Person.objects.get(id=input.get('judged'))
+
+            judge = None
+            if 'fbid' in session:
+                judge = models.Person.objects.get(fb=session['fbid'])
+
+            # if logged with facebook access_token
+            if not judge and access_token:
+                import facebook
+                graph = facebook.GraphAPI(access_token)
+                profile = graph.get_object('me')
+                picture = graph.get_connections(id='me', connection_name='picture')
+                if profile and picture:
+                    session['fbid'] = profile['id']
+                    judge = models.Person(
+                        name=profile['name'],
+                        fb=profile['id'],
+                        img=picture['url'],
+                        score=2
+                    )
+                    judge.save()
+            if not judge:
+                judge = models.Person.objects.get(id=0)
             qualities = input.get('qualities')
         except:
             raise HttpResponseBadRequest()
