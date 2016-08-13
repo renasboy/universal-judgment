@@ -2,9 +2,34 @@ import facebook
 from django.http import Http404, HttpResponseBadRequest, HttpResponseServerError
 from api import models
 
+
+class BaseViewModel(object):
+
+    def __init__(self, input=None, session=None, cookies=None):
+        access_token = cookies.get('fbat')
+        if access_token and 'id' not in session:
+            graph = facebook.GraphAPI(access_token)
+            profile = graph.get_object('me')
+            picture = graph.get_connections(id='me', connection_name='picture')
+            if profile and picture:
+                session['fbid'] = profile['id']
+                try:
+                    person = models.Person.objects.get(fb=session['fbid'])
+                except models.Person.DoesNotExist:
+                    person = models.Person(
+                        name=profile['name'],
+                        fb=profile['id'],
+                        img=picture['url'],
+                        score=2
+                    )
+                    person.save()
+                if person:
+                    session['id'] = person.id
+
+
 class Quality(object):
 
-    def __init__(self, input=None, session=None, many=False):
+    def __init__(self, input=None, session=None, cookies=None, many=False):
         if many:
             self.data = models.Quality.objects.all()
 
@@ -14,7 +39,7 @@ class Quality(object):
 
 class People(object):
 
-    def __init__(self, input=None, session=None, many=False):
+    def __init__(self, input=None, session=None, cookies=None, many=False):
         if many:
             if input.get('search'):
                 self.data = models.Person.objects.filter(name__icontains=input.get('search')).exclude(id=0)
@@ -25,48 +50,31 @@ class People(object):
         return self.data
 
 
-class Person(object):
+class Person(BaseViewModel):
 
-    def __init__(self, input=None, session=None, many=False):
-        fb = int(input.get('fb'))
-        if not fb and 'fbid' in session:
-            fb = session['fbid']
-        self.data = models.Person.objects.filter(fb__iexact=fb)
+    def __init__(self, input=None, session=None, cookies=None, many=False):
+        super(Person, self).__init__(input=input, session=session, cookies=cookies)
+        id = input.get('id', 0)
+        if not id and 'id' in session:
+            id = session['id']
+        self.data = models.Person.objects.get(id=id)
 
     def get_data(self):
         if not self.data:
             raise Http404()
-        return self.data[0]
+        return self.data
 
 
-class Judgement(object):
+class Judgement(BaseViewModel):
 
     def __init__(self, input=None, session=None, cookies=None):
-        access_token = cookies.get('fbat')
+        super(Judgement, self).__init__(input=input, session=session, cookies=cookies)
         try:
+            # TODO validate in the serialzier
             if input.get('judged'):
                 judged = models.Person.objects.get(id=input.get('judged'))
-
-            judge = None
-            if 'fbid' in session:
-                judge = models.Person.objects.get(fb=session['fbid'])
-
-            # if logged with facebook access_token
-            if not judge and access_token:
-                graph = facebook.GraphAPI(access_token)
-                profile = graph.get_object('me')
-                picture = graph.get_connections(id='me', connection_name='picture')
-                if profile and picture:
-                    session['fbid'] = profile['id']
-                    judge = models.Person(
-                        name=profile['name'],
-                        fb=profile['id'],
-                        img=picture['url'],
-                        score=2
-                    )
-                    judge.save()
-            if not judge:
-                judge = models.Person.objects.get(id=0)
+            judge_id = session['id'] if 'id' in session else 0
+            judge = models.Person.objects.get(id=judge_id)
             qualities = input.get('qualities')
         except:
             raise HttpResponseBadRequest()

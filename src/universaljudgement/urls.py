@@ -10,7 +10,7 @@ urlpatterns = [
     url(r'^qualities/?$', views.Qualities.as_view()),
     url(r'^judgement/?$', views.Judgement.as_view()),
     url(r'^people/?$', views.People.as_view()),
-    url(r'^person/(?P<fb>.+)/?$', views.Person.as_view()),
+    url(r'^person/(?P<id>[0-9]+)/?$', views.Person.as_view()),
     url(r'^auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]
 

@@ -24,9 +24,10 @@ class PeopleOutput(serializers.ModelSerializer):
 
 
 class PersonInput(serializers.ModelSerializer):
+    id = serializers.IntegerField()
     class Meta:
         model = models.Person
-        fields = ('fb',)
+        fields = ('id',)
 
 
 class PersonQuality(serializers.Serializer):
@@ -56,6 +57,8 @@ class JudgementQualityInput(serializers.ModelSerializer):
 
 class JudgementInput(serializers.ModelSerializer):
     qualities = JudgementQualityInput(many=True)
+
+    # TODO validate judged not to be 0
     
     class Meta:
         model = models.Judgement
