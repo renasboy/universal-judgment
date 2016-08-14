@@ -37,7 +37,8 @@ function styles() {
     // inject post library styles
     var injectFiles = gulp.src([
         path.join(conf.paths.src, '/static/css/post/**/*.scss'),
-        path.join(conf.paths.src, '/app/states/**/*.scss')
+        path.join(conf.paths.src, '/app/states/**/*.scss'),
+        path.join(conf.paths.src, '/app/components/**/*.scss')
     ], {read: false});
 
     var injectOptions = {
