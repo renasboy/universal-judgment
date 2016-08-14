@@ -4,7 +4,7 @@
 
     <div class="row">
         <ul class="list-items">
-            <li ng-repeat="(key, quality) in person.qualities">
+            <li ng-repeat="(key, quality) in ctrl.person.qualities">
                 <div class="col-xs-6 text-right">
                     {{quality.name}}
                     <div class="qualities-icon">
@@ -19,8 +19,10 @@
     </div>
 
     <nav class="row">
-        <a ui-sref="home"                          class="col-xs-4 icon-arrow-back"></a>
-        <a href="./#/judge/{{person.id}}"     	class="col-xs-8 btn">JUDGE NOW</a>
+        <a ui-sref="home"
+           class="col-xs-4 icon-arrow-back"></a>
+        <a href="./#/judge/{{person.id}}"
+           class="col-xs-8 btn">JUDGE NOW</a>
     </nav>
 
 </div>
