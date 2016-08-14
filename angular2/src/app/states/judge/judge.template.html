@@ -1,44 +1,48 @@
 <div class="container-fluid judge">
+    
+    <app-judge-sent data-ng-show="ctrl.judgeSent"
+                    class="popup"></app-judge-sent>
 
-    <div ng-include="popup" class="popup"></div>
+    <!--<div ng-include="popup" class="popup"></div>-->
 
-    <section ng-class="blur">
+    <section data-ng-class="ctrl.blur">
 
         <app-person-profile></app-person-profile>
 
         <div class="row">
             <ul class="judge-list">
-                <li ng-repeat="quality in ctrl.qualities">
+                <li data-ng-repeat="quality in ctrl.qualities">
                     <label class="col-xs-12">{{quality.name}}</label>
                     <div class="col-xs-3">
-                        <span ng-show="focus" class="judge-value">
+                        <span data-ng-show="focus" class="judge-value">
                             {{ctrl.qualities[$index].score}}
                         </span>
                         <span class="icons-qualities">
-                            <img ng-src="{{quality.img}}"/>
+                            <img data-ng-src="{{quality.img}}"/>
                         </span>
                     </div>
                     <div class="col-xs-9 col-xs-offset-3">
-                        <input ng-focus="focus = true"
-                               ng-blur="focus = false"
+                        <input data-ng-focus="focus = true"
+                               data-ng-blur="focus = false"
                                type="range"
                                min="0"
                                max="4"
-                               ng-model="ctrl.qualities[$index].score"
-                               ng-init="ctrl.qualities[$index].score = 2">
+                               data-ng-model="ctrl.qualities[$index].score"
+                               data-ng-init="ctrl.qualities[$index].score = 2">
                     </div>
                 </li>
             </ul>
             <div class="col-xs-12 why">
                 <h3>Why?</h3>
-                <textarea name="why" ng-model="ctrl.why" rows="4"></textarea>
+                <textarea name="why" data-ng-model="ctrl.why" rows="4"></textarea>
             </div>
         </div>
 
+
         <nav class="row">
-            <a ui-sref="person({id:ctrl.person.id})"
+            <a ui-sref="person({id:ctrl.getPersonId()})"
                class="col-xs-4 icon-close"></a>
-            <a ng-click="ctrl.submitForm()"
+            <a data-ng-click="ctrl.submitForm()"
                class="col-xs-8 btn">SUBMIT</a>
         </nav>
 
