@@ -11,10 +11,6 @@ a {
 	text-decoration: none;
 }
 
-h1 {
-
-}
-
 h2 {
 	font-size: $fonts-md;
 }
@@ -59,4 +55,18 @@ h1, h2, h3, h4, h5, h6 {
     left: 0;
     right: 0;
     background: $white-color-80;
+}
+
+
+
+// Make icon-fonts smooth
+[class^="icon-"]:before, [class*=" icon-"]:before {
+
+    //  Better Font Rendering
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    // Reset the automatic generated Fontello CSS
+    margin-left: 0;
+    width: auto;
 }
