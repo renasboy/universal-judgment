@@ -13,7 +13,7 @@
      */
     function HomeController(peopleService) {
 
-        this.peopleService = peopleService;
+        this._peopleService = peopleService;
 
         //Bootstrap
         this.getPeople();
@@ -23,10 +23,10 @@
 
     HomeController.prototype.getPeople = function () {
         var that = this;
-        this.peopleService.getPeople().then(function (data) {
-            that.people = data.data;
+        this._peopleService.getPeople().then(function (data) {
+            return that.people = data.data;
         }).catch(function () {
-            throw Error('Api is not available')
+            throw Error('Get people API is not available')
         });
     };
 
