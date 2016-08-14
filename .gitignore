@@ -7,3 +7,5 @@ node_modules
 dist
 *.swp
 .idea
+**/.tmp
+**/dist
