@@ -1,10 +1,10 @@
 @font-face {
     font-family: 'Ebony-bold';
-    src: url('static/fonts/ebony.eot');
+    src: url('../static/fonts/ebony.eot');
     src: local('☺'),
-    url('static/fonts/ebony.woff') format('woff'),
-    url('static/fonts/ebony.ttf') format('truetype'),
-    url('static/fonts/ebony.svg') format('svg');
+    url('../static/fonts/ebony.woff') format('woff'),
+    url('../static/fonts/ebony.ttf') format('truetype'),
+    url('../static/fonts/ebony.svg') format('svg');
     font-weight: normal;
     font-style: normal;
 }
