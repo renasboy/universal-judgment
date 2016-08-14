@@ -8,19 +8,17 @@
 
     /**
      * The menu page controller
-     * @param {AuthService} authService
+     * @param {Object} $state
      * @constructor
      */
     function MenuController($state) {
-
         this.menuActive = $state.current.name;
         this.logged = true;
-    };
+    }
 
     MenuController.prototype.isActive = function (menuName) {
         return (menuName === this.menuActive) ? 'active' : '';
     };
 
     angular.module('app').controller('menuController', MenuController);
-
 }(window.angular));

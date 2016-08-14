@@ -12,7 +12,7 @@
      */
     function PeopleService($http) {
         this.$http = $http;
-    };
+    }
 
     PeopleService.prototype.constants = {
         apiHost: 'http://www.universaljudgment.com/tuj/people'
@@ -23,7 +23,6 @@
             url: this.constants.apiHost
         });
     };
-
 
     angular.module('app').service('peopleService', PeopleService);
 }(window.angular));

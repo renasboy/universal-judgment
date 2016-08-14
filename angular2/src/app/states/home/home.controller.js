@@ -12,24 +12,22 @@
      * @constructor
      */
     function HomeController(peopleService) {
-
         this._peopleService = peopleService;
 
-        //Bootstrap
+        // Bootstrap
         this.getPeople();
-    };
+    }
 
     HomeController.prototype.people = {};
 
     HomeController.prototype.getPeople = function () {
         var that = this;
         this._peopleService.getPeople().then(function (data) {
-            return that.people = data.data;
+            return (that.people = data.data);
         }).catch(function () {
-            throw Error('Get people API is not available')
+            throw Error('Get people API is not available');
         });
     };
 
     angular.module('app').controller('homeController', HomeController);
-
 }(window.angular));

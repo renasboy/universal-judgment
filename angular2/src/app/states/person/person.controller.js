@@ -14,31 +14,26 @@
      */
     function PersonController($stateParams,
                               personService) {
-
         this._personService = personService;
-
         // Bootstrap
-        var personId = $stateParams.id
+        var personId = $stateParams.id;
         this.getPerson(personId);
-    };
-
+    }
 
     PersonController.prototype.person = {};
 
     /**
-     *
+     * Gets user info from API call
      * @param id
      */
     PersonController.prototype.getPerson = function (id) {
         var that = this;
         this._personService.getPerson(id).then(function (person) {
-            return that.person = person.data;
+            return (that.person = person.data);
         }).catch(function () {
-            throw Error('Get person API is not available')
+            throw Error('Get person API is not available');
         });
-
     };
 
     angular.module('app').controller('personController', PersonController);
-
 }(window.angular));
