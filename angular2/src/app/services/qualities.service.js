@@ -18,7 +18,7 @@
         apiHost: 'http://www.universaljudgment.com/tuj/qualities'
     };
 
-    QualitiesService.prototype.getQualities = function (id) {
+    QualitiesService.prototype.getQualities = function () {
         return this.$http({
             url: this.constants.apiHost
         });
