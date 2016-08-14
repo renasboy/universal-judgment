@@ -1,6 +1,6 @@
-<div class="container-fluid">
+<div class="container-fluid person">
 
-    <!--<div ng-include="'./js/partials/person.html'"></div>-->
+    <app-person-profile></app-person-profile>
 
     <div class="row">
         <ul class="list-items">
@@ -8,7 +8,7 @@
                 <div class="col-xs-6 text-right">
                     {{quality.name}}
                     <div class="qualities-icon">
-                        <img ng-src="{{quality.img}}" />
+                        <img ng-src="{{quality.img}}"/>
                     </div>
                 </div>
                 <div class="col-xs-4 col-xs-offset-2 font-lg score">
@@ -21,7 +21,7 @@
     <nav class="row">
         <a ui-sref="home"
            class="col-xs-4 icon-arrow-back"></a>
-        <a href="./#/judge/{{person.id}}"
+        <a ui-sref="judge({id:ctrl.person.id})"
            class="col-xs-8 btn">JUDGE NOW</a>
     </nav>
 
