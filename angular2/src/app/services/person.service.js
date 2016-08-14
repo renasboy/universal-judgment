@@ -26,4 +26,3 @@
 
     angular.module('app').service('personService', PersonService);
 }(window.angular));
-
