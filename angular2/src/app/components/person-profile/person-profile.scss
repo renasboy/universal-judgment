@@ -1,6 +1,7 @@
 .user-info {
     padding: 20px 0;
 }
+
 .user-image {
     margin: auto;
     width: 70px;
@@ -20,12 +21,20 @@
         width: 100%;
     }
 }
+
 .user-name {
     font-size: $fonts-lg;
 }
+
 .user-rate {
     font-size: $fonts-md;
     margin-top: 10px;
+
+    & ~ span{
+        color: $gray-3;
+        font-size: $fonts-xs;
+        margin: 15px 0 0 10px;
+    }
 }
 
 // List items
@@ -38,7 +47,7 @@
             line-height: $fonts-md;
         }
 
-        .score{
+        .score {
             float: right;
         }
 
@@ -61,7 +70,6 @@
     }
 
 }
-
 
 // Status icons
 .hell-icon {
