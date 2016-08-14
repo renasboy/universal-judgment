@@ -50,7 +50,6 @@
         });
     };
 
-
     /**
      *
      * @returns {Array} Person qualities
@@ -60,8 +59,8 @@
         var userQualities = [];
         angular.forEach(that.qualities, function (value) {
             userQualities.push({
-                "id": value.id,
-                "score": parseInt(value.score)
+                id: value.id,
+                score: parseInt(value.score, 10)
             });
         });
         return userQualities;
@@ -73,24 +72,41 @@
      */
     JudgeController.prototype.sendPersonData = function (personData) {
         var that = this;
-        that._judgementService.sendJudgment(personData).then( function () {
-            console.log('sent');
-        }).catch( function (e) {
+        that._judgementService.sendJudgment(personData).then(function () {
+            that.judgementWasSent();
+        }).catch(function () {
             throw Error('Person judgment was not sent');
-        })
+        });
     };
-
 
     JudgeController.prototype.submitForm = function () {
         var that = this;
-
         var personData = {
-            "judged": that.getPersonId(),
-            "qualities": that.setQualities(),
-            "why": this.why
+            judged: that.getPersonId(),
+            qualities: that.setQualities(),
+            why: this.why
         };
-
         this.sendPersonData(personData);
+    };
+
+    JudgeController.prototype.judgementWasSent = function () {
+        var that = this;
+        that.judgeSent = true;
+        that.blur = 'blur';
+        that.personTotalScore();
+    };
+
+    JudgeController.prototype.personTotalScore = function () {
+        var that = this;
+        var totalScore = 0;
+        var qualitiesLength = that.setQualities().length;
+
+        angular.forEach(that.setQualities(), function (value) {
+            totalScore = (totalScore += value.score);
+        });
+        var totalScore = totalScore / qualitiesLength
+        console.log(totalScore);
+        that.total = totalScore;
     };
 
     angular.module('app').controller('judgeController', JudgeController);
