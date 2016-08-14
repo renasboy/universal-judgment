@@ -1,0 +1,13 @@
+{
+  "name": "heaven-hell",
+  "version": "0.0.1",
+  "dependencies": {
+    "reset.scss": "^1.0.1",
+    "angular": "^1.5.8",
+    "angular-ui-router": "^0.3.1",
+    "bootstrap-sass-grid": "^4.0.0"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.5.0"
+  }
+}

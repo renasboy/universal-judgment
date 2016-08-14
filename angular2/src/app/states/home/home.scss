@@ -1,0 +1,91 @@
+header {
+    text-align: center;
+    padding: 10px 0 16px;
+    position: relative;
+    background: rgb(237,237,237);
+    background: -moz-linear-gradient(top,  rgba(237,237,237,1) 0%, rgba(237,237,237,1) 74%, rgba(216,216,216,1) 100%);
+    background: -webkit-linear-gradient(top,  rgba(237,237,237,1) 0%,rgba(237,237,237,1) 74%,rgba(216,216,216,1) 100%);
+    background: linear-gradient(to bottom,  rgba(237,237,237,1) 0%,rgba(237,237,237,1) 74%,rgba(216,216,216,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ededed', endColorstr='#d8d8d8',GradientType=0 );
+
+    &:before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 4px;
+        position: absolute;
+        background: $white-color;
+        width: 100%;
+    }       
+
+    .logo {
+
+        span {
+            font-size: 3.2rem;
+
+            &:first-child {
+                color: $blue-color;
+
+                &:before {
+                    position: absolute;
+                    margin: 0 0 0 -32px;
+                }
+            }
+            &:last-child {
+                color: $pink-color;
+
+                &:before {
+                    margin: 16px -32px 0 0;
+                    transform: rotate(180deg);
+                    -webkit-transform: rotate(180deg);
+                    -moz-transform: rotate(180deg);
+                    -o-transform: rotate(180deg);
+                    -ms-transform: rotate(180deg);
+                }
+            }
+        }
+    }
+
+    h1 {
+        font-size: 1.3rem;
+        color: $blue-color;
+
+        span {
+            color: $pink-color;
+        }
+    }
+
+}
+
+
+#user-list {
+    background: $gray-2;
+    padding: 20px 0 100px;
+    text-align: center;
+
+    ul {
+        margin: auto;
+        width: 90%;
+    }
+
+    li {
+        text-align: center;
+        display: inline-block;
+        width: 33%;
+        margin-bottom: 24px;
+
+        a {
+            font-size: .9rem;
+            color: $gray-3;
+
+            h2 {
+                margin-top: 10px;
+            }
+        }
+    }
+
+    .user-image {
+        margin: auto;
+    }
+}

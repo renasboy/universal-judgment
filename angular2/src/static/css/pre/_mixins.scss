@@ -1,0 +1,125 @@
+@mixin rounded($radius: 0.5em) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -khtml-border-radius: $radius;
+    border-radius: $radius;
+}
+
+@mixin border-radius($top-left, $top-right, $bottom-left, $bottom-right, $border-widths) {
+    border-style: solid;
+    border-width: $border-widths;
+
+    border-radius: 100%;
+    -moz-border-top-left-radius: $top-left;
+    -webkit-border-top-left-radius: $top-left;
+    border-top-left-radius: $top-left;
+    -moz-border-top-right-radius: $top-right;
+    -webkit-border-top-right-radius: $top-right;
+    border-top-right-radius: $top-right;
+    -moz-border-bottom-left-radius: $bottom-left;
+    -webkit-border-bottom-left-radius: $bottom-left;
+    border-bottom-left-radius: $bottom-left;
+    -moz-border-bottom-right-radius: $bottom-right;
+    -webkit-border-bottom-right-radius: $bottom-right;
+    border-bottom-right-radius: $bottom-right;
+
+}
+
+@mixin opacity($trans: 1) {
+    filter: alpha(opactiy=($trans * 100));
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$trans * 100})";
+    -moz-opacity: $trans;
+    -khtml-opacity: $trans;
+    opacity: $trans;
+}
+
+@mixin disable-selection() {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+@mixin breakpoint($class) {
+    @if $class == xs {
+        @media (max-width: $screen-xs-max) {
+            @content;
+        }
+    } @else if $class == sm {
+        @media (min-width: $screen-sm-min) {
+            @content;
+        }
+    } @else if $class == md {
+        @media (min-width: $screen-md-min) {
+            @content;
+        }
+    } @else if $class == lg {
+        @media (min-width: $screen-lg-min) {
+            @content;
+        }
+    } @else {
+        @warn "Breakpoint mixin supports: xs, sm, md, lg";
+    }
+}
+
+@mixin breakpoint_max($class) {
+    @if $class == sm {
+        @media (max-width: $screen-xs-max) {
+            @content;
+        }
+    } @else if $class == md {
+        @media (max-width: $screen-sm-max) {
+            @content;
+        }
+    } @else if $class == lg {
+        @media (max-width: $screen-md-max) {
+            @content;
+        }
+    } @else {
+        @warn "Breakpoint max mixin supports:  sm, md, lg";
+    }
+}
+
+@mixin button-styled($colorFrom, $colorTo, $backgroundColor, $borderColor: $color-white) {
+    background-clip: padding-box;
+    border: 2px solid rgba($borderColor, 0.5);
+
+    @include box-shadow(0 1px 5px rgba(0, 0, 0, 0.1));
+    @include gradient-vertical($colorFrom, $colorTo, 0%, 100%);
+
+    &:hover {
+        background-clip: padding-box;
+        background-image: none;
+        border: 2px solid rgba($borderColor, 0.5);
+        background-color: $backgroundColor;
+    }
+
+    @include breakpoint(xs) {
+        width: 100%;
+    }
+}
+
+@mixin arrow($size, $color, $position) {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -$size;
+    margin-top: -1px;
+    width: 0;
+    height: 0;
+    border-left: $size solid transparent;
+    border-right: $size solid transparent;
+
+    @if $position == down {
+        border-top: none;
+        border-top: $size solid $color-white;
+    }
+    @if $position == up {
+        margin-top: -$size;
+        border-bottom: none;
+        border-bottom: $size solid $color-white;
+    }
+}

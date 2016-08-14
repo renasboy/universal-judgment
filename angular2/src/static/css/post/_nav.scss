@@ -1,0 +1,55 @@
+nav {
+    position: fixed;
+    z-index: 10;
+    bottom: 0;
+    font-size: 2rem;
+    background: $pink-color;
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+    height: 60px;
+
+    a {
+        color: $white-color;
+        height: 60px;
+        line-height: 60px;
+
+        &:before {
+            color: $white-color;
+        }
+
+        &:hover, &:active {
+            opacity: 0.9;
+        }
+    }
+
+    .icon-facebook {
+        background: $blue-color;
+        font-family: $font-ebony;
+        font-size: 0.9rem;
+        position: relative;
+
+        span {
+            top: 0px;
+            position: absolute;
+            display: inline-block;
+        }
+         &:before {
+            vertical-align: top;
+            margin-top: 4px;
+            line-height: 50px;
+            font-size: 2.1rem;
+         }
+    }
+
+    .icon-home2.active {
+        @extend .icon-home;
+    }
+    .icon-search2.active {
+        @extend .icon-search;
+    }
+    .icon-user.active {
+        @extend .icon-user2;
+    }
+
+}

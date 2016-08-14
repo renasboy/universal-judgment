@@ -1,0 +1,26 @@
+<div class="container-fluid">
+
+    <!--<div ng-include="'./js/partials/person.html'"></div>-->
+
+    <div class="row">
+        <ul class="list-items">
+            <li ng-repeat="(key, quality) in person.qualities">
+                <div class="col-xs-6 text-right">
+                    {{quality.name}}
+                    <div class="qualities-icon">
+                        <img ng-src="{{quality.img}}" />
+                    </div>
+                </div>
+                <div class="col-xs-4 col-xs-offset-2 font-lg score">
+                    {{quality.score}}
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <nav class="row">
+        <a ui-sref="home"                          class="col-xs-4 icon-arrow-back"></a>
+        <a href="./#/judge/{{person.id}}"     	class="col-xs-8 btn">JUDGE NOW</a>
+    </nav>
+
+</div>

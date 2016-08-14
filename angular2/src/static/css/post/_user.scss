@@ -1,0 +1,91 @@
+.user-info {
+    padding: 20px 0;
+}
+.user-image {
+    margin: auto;
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+    overflow: hidden;
+    border: 2px solid $gray-3;
+
+    &.hell {
+        border: 2px solid $pink-color;
+    }
+    &.heaven {
+        border: 2px solid $blue-color;
+    }
+
+    img {
+        width: 100%;
+    }
+}
+.user-name {
+    font-size: $fonts-lg;
+}
+.user-rate {
+    font-size: $fonts-md;
+    margin-top: 10px;
+}
+
+// List items
+.list-items {
+    margin-bottom: 90px;
+    li {
+        padding: 35px 0 55px 0;
+        position: relative;
+        * {
+            line-height: $fonts-md;
+        }
+
+        .score{
+            float: right;
+        }
+
+        .qualities-icon {
+            text-align: center;
+            overflow: hidden;
+            content: '';
+            right: -33%;
+            top: -20px;
+            position: absolute;
+            width: 52px;
+            height: 52px;
+            border-radius: 100%;
+            background: $white-color;
+            img {
+                width: 70%;
+                margin-top: 8px;
+            }
+        }
+    }
+
+}
+
+
+// Status icons
+.hell-icon {
+    &:before {
+        content: '';
+        right: 20px;
+        top: 10px;
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        border-radius: 100%;
+        background: $pink-color;
+    }
+}
+
+.heaven-icon {
+    &:before {
+        content: '';
+        right: 20px;
+        top: 10px;
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        border-radius: 100%;
+        background: $blue-color;
+    }
+}
