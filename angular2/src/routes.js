@@ -16,5 +16,9 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
         .state('person', {
             url: '/person/:id',
             template: '<app-person></app-person>'
+        })
+        .state('judge', {
+            url: '/judge/:id',
+            template: '<app-judge></app-judge>'
         });
 }
