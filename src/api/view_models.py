@@ -8,9 +8,15 @@ class BaseViewModel(object):
     def __init__(self, input=None, session=None, cookies=None):
         access_token = cookies.get('fbat')
         if access_token and 'id' not in session:
-            graph = facebook.GraphAPI(access_token)
-            profile = graph.get_object('me')
-            picture = graph.get_connections(id='me', connection_name='picture')
+            profile = None
+            picture = None
+            try:
+                graph = facebook.GraphAPI(access_token)
+                profile = graph.get_object('me')
+                picture = graph.get_connections(id='me', connection_name='picture')
+            except GraphAPIError:
+                del(session['id'])
+
             if profile and picture:
                 session['fbid'] = profile['id']
                 try:
