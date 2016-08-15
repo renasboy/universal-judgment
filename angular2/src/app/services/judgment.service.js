@@ -34,9 +34,8 @@
         //         'X-CSRFToken': csrfToken
         //     }
         // };
-        // return this.$http.post(this.constants.apiHost, data);
+        return this.$http.post(this.constants.apiHost, data);
         // TODO change API to accept cross domain post
-        return Promise.resolve();
     };
 
     angular.module('app').service('judgementService', JudgementService);
