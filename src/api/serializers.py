@@ -24,10 +24,13 @@ class PeopleOutput(serializers.ModelSerializer):
 
 
 class PersonInput(serializers.ModelSerializer):
-    id = serializers.IntegerField()
+    id = serializers.IntegerField(default=0)
     class Meta:
         model = models.Person
         fields = ('id',)
+
+    def get_validation_exclusions(self):
+        return ['id']
 
 
 class PersonQuality(serializers.Serializer):
