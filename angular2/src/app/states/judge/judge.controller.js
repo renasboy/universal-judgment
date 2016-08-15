@@ -27,7 +27,7 @@
      *
      * @type {undefined}
      */
-    JudgeController.prototype.why = undefined;
+    JudgeController.prototype.why = '';
 
     /**
      *
@@ -104,9 +104,8 @@
         angular.forEach(that.setQualities(), function (value) {
             totalScore = (totalScore += value.score);
         });
-        var totalScore = totalScore / qualitiesLength
-        console.log(totalScore);
-        that.total = totalScore;
+        var finalScore = totalScore / qualitiesLength;
+        that.total = finalScore;
     };
 
     angular.module('app').controller('judgeController', JudgeController);
