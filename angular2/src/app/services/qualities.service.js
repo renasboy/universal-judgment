@@ -15,7 +15,7 @@
     }
 
     QualitiesService.prototype.constants = {
-        apiHost: 'http://www.universaljudgment.com/tuj/qualities'
+        apiHost: 'http://test.universaljudgment.com/tuj/qualities'
     };
 
     QualitiesService.prototype.getQualities = function () {
