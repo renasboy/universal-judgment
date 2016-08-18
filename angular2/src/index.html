@@ -42,8 +42,8 @@
 
   <body ng-app="app">
 
-<!-- sonerinha, please move this somewhere else -->
 <script>
+    // sonerinha, please move this somewhere else
     window.fbAsyncInit = function() {
         FB.init({
             appId  : '993028097483020',
@@ -68,6 +68,7 @@
         });
     }
     function setCookie(token) {
+        // sonerinha, here you can change cntrl.logged=True
         var today = new Date();
         var expiry = new Date(today.getTime() + 30 * 24 * 3600 * 1000);
         document.cookie = 'fbat=' + token + '; expires=' + expiry + '; path=/;'
