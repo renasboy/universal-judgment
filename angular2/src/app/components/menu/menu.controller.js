@@ -11,9 +11,17 @@
      * @param {Object} $state
      * @constructor
      */
-    function MenuController($state) {
+    function MenuController($state, personService) {
         this.menuActive = $state.current.name;
-        this.logged = true;
+        this.logged = false;
+        var that = this;
+        personService.getMe().then(function (person) {
+            if (person.data.id !== 0) {
+                that.logged = true;
+            }
+        }).catch(function () {
+            throw Error('Get person API is not available');
+        });
     }
 
     MenuController.prototype.isActive = function (menuName) {

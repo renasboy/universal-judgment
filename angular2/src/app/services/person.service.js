@@ -15,12 +15,18 @@
     }
 
     PersonService.prototype.constants = {
-        apiHost: 'http://test.universaljudgment.com/tuj/person/'
+        apiHost: 'http://test.universaljudgement.com/tuj/person'
     };
 
     PersonService.prototype.getPerson = function (id) {
         return this.$http({
-            url: this.constants.apiHost + id
+            url: this.constants.apiHost + '/' + id
+        });
+    };
+
+    PersonService.prototype.getMe = function () {
+        return this.$http({
+            url: this.constants.apiHost
         });
     };
 

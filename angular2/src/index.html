@@ -41,6 +41,60 @@
 
 
   <body ng-app="app">
+
+<!-- sonerinha, please move this somewhere else -->
+<script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId  : '993028097483020',
+            cookie : true,
+            xfbml  : true,
+            version: 'v2.5'
+        });
+    }
+    /*
+    FB.getLoginStatus(function(response) {
+        if (response.status === 'connected') {
+            FB.api('/me', function(response) {
+                var at = FB.getAuthResponse()['accessToken'];
+                var today = new Date();
+                var expiry = new Date(today.getTime() + 30 * 24 * 3600 * 1000);
+                document.cookie = 'fbat=' + at + '; expires=' + expiry + '; path=/;'
+            });
+        }
+        else if (response.status === 'not_authorized') {
+            console.log('logged in on facebook but has not authorized the app yet');
+        }
+        else {
+            console.log('not logged in on facebook');
+        }
+    });
+    */
+    function fbLogin() {
+        console.log('fb login')
+        FB.login(function(response) {
+            console.log('got response')
+            if (response.authResponse) {
+                console.log('response is auth')
+                var access_token = response.authResponse.accessToken;
+                var today = new Date();
+                var expiry = new Date(today.getTime() + 30 * 24 * 3600 * 1000);
+                document.cookie = 'fbat=' + access_token + '; expires=' + expiry + '; path=/;'
+                console.log('access_token')
+                console.log(access_token)
+            }
+        });
+    }
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
     <ui-view></ui-view>
   </body>
 
