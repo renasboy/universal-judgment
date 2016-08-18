@@ -51,37 +51,32 @@
             xfbml  : true,
             version: 'v2.5'
         });
+
+        FB.getLoginStatus(function(response) {
+            if (response.status === 'connected') {
+                FB.api('/me', function(response) {
+                    var access_token = FB.getAuthResponse()['accessToken'];
+                    setCookie(access_token);
+                });
+            }
+            else if (response.status === 'not_authorized') {
+                console.log('logged in on facebook but has not authorized the app yet');
+            }
+            else {
+                console.log('not logged in on facebook');
+            }
+        });
     }
-    /*
-    FB.getLoginStatus(function(response) {
-        if (response.status === 'connected') {
-            FB.api('/me', function(response) {
-                var at = FB.getAuthResponse()['accessToken'];
-                var today = new Date();
-                var expiry = new Date(today.getTime() + 30 * 24 * 3600 * 1000);
-                document.cookie = 'fbat=' + at + '; expires=' + expiry + '; path=/;'
-            });
-        }
-        else if (response.status === 'not_authorized') {
-            console.log('logged in on facebook but has not authorized the app yet');
-        }
-        else {
-            console.log('not logged in on facebook');
-        }
-    });
-    */
+    function setCookie(token) {
+        var today = new Date();
+        var expiry = new Date(today.getTime() + 30 * 24 * 3600 * 1000);
+        document.cookie = 'fbat=' + token + '; expires=' + expiry + '; path=/;'
+    }
     function fbLogin() {
-        console.log('fb login')
         FB.login(function(response) {
-            console.log('got response')
             if (response.authResponse) {
-                console.log('response is auth')
                 var access_token = response.authResponse.accessToken;
-                var today = new Date();
-                var expiry = new Date(today.getTime() + 30 * 24 * 3600 * 1000);
-                document.cookie = 'fbat=' + access_token + '; expires=' + expiry + '; path=/;'
-                console.log('access_token')
-                console.log(access_token)
+                setCookie(access_token);
             }
         });
     }
