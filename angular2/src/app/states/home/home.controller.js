@@ -13,9 +13,7 @@
      */
     function HomeController(peopleService, Facebook, $scope, authService) {
         this._peopleService = peopleService;
-
-        // Bootstrap
-        this.getPeople();
+        var that = this;
 
         $scope.$watch(
             function() {
@@ -24,6 +22,7 @@
             function(newVal) {
                 if (newVal)
                     authService.makeFacebookLogin();
+                    that.getPeople();
             }
         );
     }
@@ -32,6 +31,7 @@
 
     HomeController.prototype.getPeople = function () {
         var that = this;
+
         this._peopleService.getPeople().then(function (data) {
             return (that.people = data.data);
         }).catch(function () {
