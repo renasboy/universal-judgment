@@ -10,6 +10,6 @@
     }
 
     angular
-        .module('app')
+        .module('app', ['facebook'])
         .config(config);
 }(window.angular));

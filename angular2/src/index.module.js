@@ -2,9 +2,6 @@
 
     'use strict';
 
-    angular.module('app', [
-        'ui.router',
-        'facebook'
-    ]);
+    angular.module('app', ['ui.router']);
 
 })(window.angular);
