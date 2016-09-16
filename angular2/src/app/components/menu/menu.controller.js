@@ -12,14 +12,13 @@
      * @constructor
      */
     function MenuController($state, authService) {
-
         this.menuActive = $state.current.name;
         this._authService = authService;
         this.logged = false;
         var that = this;
 
         authService.isFacebookConnected().then(function (data) {
-            data.status ==='connected' ? that.logged = true : that.logged = false;
+            that.logged = data.status === 'connected';
         });
     }
 
@@ -35,10 +34,8 @@
             } else {
                 that._authService.setFacebookLogin();
             }
-
         });
     };
-
 
     angular.module('app').controller('menuController', MenuController);
 }(window.angular));

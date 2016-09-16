@@ -20,8 +20,9 @@
                 return Facebook.isReady();
             },
             function (newVal) {
-                if (newVal)
+                if (newVal) {
                     authService.makeFacebookLogin();
+                }
                 that.getPeople();
             }
         );
