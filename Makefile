@@ -11,12 +11,16 @@ frontend_deps:
 
 .ONESHELL:
 frontend:
-	cd angular
+	cd angular2
 	$(NPM) install
 	$(NPM) install bower
 	$(NPM) install gulp
 	./node_modules/bower/bin/bower install --allow-root
 	./node_modules/gulp/bin/gulp.js build
+
+frontend_clean:
+	@rm -rf angular2/node_modules
+	@rm -rf angular2/bower_components
 
 virtualenv:
 	test -d venv || pyvenv venv
