@@ -1,12 +1,13 @@
 <!doctype html>
 <html>
-  <head>
+<head>
     <base href="/">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Universal Judgement</title>
     <meta name="description" content="">
-    <meta name="viewport" content="user-scalable=0, width=device-width, initial-scale=1.0,  minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="viewport"
+          content="user-scalable=0, width=device-width, initial-scale=1.0,  minimum-scale=1.0, maximum-scale=1.0">
     <link rel="apple-touch-icon" sizes="57x57" href="static/img/favicons/apple-touch-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="static/img/favicons/apple-touch-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="static/img/favicons/apple-touch-icon-72x72.png">
@@ -27,7 +28,7 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="msapplication-TileImage" content="/mstile-144x144.png">
     <meta name="theme-color" content="#ffffff">
-  
+
     <!-- build:css({.tmp,src}) styles/vendor.css -->
     <!-- bower:css -->
     <!-- run `gulp inject` to automatically populate bower styles dependencies -->
@@ -37,76 +38,25 @@
     <!-- build:css({.tmp,src}) styles/app.css -->
     <link rel="stylesheet" href="index.css"/>
     <!-- endbuild -->
-  </head>
+</head>
 
-
-  <body ng-app="app">
-
-<script>
-    // sonerinha, please move this somewhere else
-    window.fbAsyncInit = function() {
-        FB.init({
-            appId  : '993028097483020',
-            cookie : true,
-            xfbml  : true,
-            version: 'v2.5'
-        });
-
-        FB.getLoginStatus(function(response) {
-            if (response.status === 'connected') {
-                FB.api('/me', function(response) {
-                    var access_token = FB.getAuthResponse()['accessToken'];
-                    setCookie(access_token);
-                });
-            }
-            else if (response.status === 'not_authorized') {
-                console.log('logged in on facebook but has not authorized the app yet');
-            }
-            else {
-                console.log('not logged in on facebook');
-            }
-        });
-    }
-    function setCookie(token) {
-        // sonerinha, here you can change cntrl.logged=True
-        var today = new Date();
-        var expiry = new Date(today.getTime() + 30 * 24 * 3600 * 1000);
-        document.cookie = 'fbat=' + token + '; expires=' + expiry + '; path=/;'
-    }
-    function fbLogin() {
-        FB.login(function(response) {
-            if (response.authResponse) {
-                var access_token = response.authResponse.accessToken;
-                setCookie(access_token);
-            }
-        });
-    }
-    (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/en_US/sdk.js";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-</script>
-
-
+<body ng-app="app">
     <ui-view></ui-view>
-  </body>
+</body>
 
-  <!-- build:js({.tmp,src}) scripts/vendor.js -->
-  <!-- bower:js -->
-  <!-- run `gulp inject` to automatically populate bower script dependencies -->
-  <!-- endbower -->
-  <!-- endbuild -->
+<!-- build:js({.tmp,src}) scripts/vendor.js -->
+<!-- bower:js -->
+<!-- run `gulp inject` to automatically populate bower script dependencies -->
+<!-- endbower -->
+<!-- endbuild -->
 
-  <!-- build:js({.tmp,src}) scripts/app.js -->
-  <!-- inject:js -->
-  <!-- js files will be automatically insert here -->
-  <!-- endinject -->
-  <!-- inject:partials -->
-  <!-- angular templates will be automatically converted in js and inserted here -->
-  <!-- endinject -->
-  <!-- endbuild -->
+<!-- build:js({.tmp,src}) scripts/app.js -->
+<!-- inject:js -->
+<!-- js files will be automatically insert here -->
+<!-- endinject -->
+<!-- inject:partials -->
+<!-- angular templates will be automatically converted in js and inserted here -->
+<!-- endinject -->
+<!-- endbuild -->
 </html>
 
