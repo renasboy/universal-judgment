@@ -11,22 +11,34 @@
      * @param {Object} $state
      * @constructor
      */
-    function MenuController($state, personService) {
+    function MenuController($state, authService) {
+
         this.menuActive = $state.current.name;
+        this._authService = authService;
         this.logged = false;
         var that = this;
-        personService.getMe().then(function (person) {
-            if (person.data.id !== 0) {
-                that.logged = true;
-            }
-        }).catch(function () {
-            throw Error('Get person API is not available');
+
+        authService.isFacebookConnected().then(function (data) {
+            data.status ==='connected' ? that.logged = true : that.logged = false;
         });
     }
 
     MenuController.prototype.isActive = function (menuName) {
         return (menuName === this.menuActive) ? 'active' : '';
     };
+
+    MenuController.prototype.facebookLogin = function () {
+        var that = this;
+        that._authService.isFacebookConnected().then(function (data) {
+            if (data.status === 'connected') {
+                console.log('User is already logged');
+            } else {
+                that._authService.setFacebookLogin()
+            }
+
+        });
+    }
+
 
     angular.module('app').controller('menuController', MenuController);
 }(window.angular));
