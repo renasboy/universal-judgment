@@ -34,7 +34,7 @@
                     console.log('not logged in on facebook');
                 }
             });
-        }
+        };
     };
 
 
@@ -54,11 +54,10 @@
 
 
     AuthService.prototype.setFacebookCookie = function (token) {
-        debugger
         var today = new Date();
         var expiry = new Date(today.getTime() + 30 * 24 * 3600 * 1000);
-        document.cookie = 'fbat=' + token + '; expires=' + expiry + '; path=/;'
-    }
+        document.cookie = 'fbat=' + token + '; expires=' + expiry + '; path=/;';
+    };
 
     AuthService.prototype.setFacebookLogin = function () {
         var that = this;
@@ -70,7 +69,7 @@
                 that.$state.reload();
             }
         });
-    }
+    };
 
     angular.module('app')
         .service('authService', AuthService);

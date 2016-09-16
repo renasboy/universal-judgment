@@ -16,13 +16,13 @@
         var that = this;
 
         $scope.$watch(
-            function() {
+            function () {
                 return Facebook.isReady();
             },
-            function(newVal) {
+            function (newVal) {
                 if (newVal)
                     authService.makeFacebookLogin();
-                    that.getPeople();
+                that.getPeople();
             }
         );
     }

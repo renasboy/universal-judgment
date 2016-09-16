@@ -33,11 +33,11 @@
             if (data.status === 'connected') {
                 console.log('User is already logged');
             } else {
-                that._authService.setFacebookLogin()
+                that._authService.setFacebookLogin();
             }
 
         });
-    }
+    };
 
 
     angular.module('app').controller('menuController', MenuController);
