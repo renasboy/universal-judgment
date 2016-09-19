@@ -46,11 +46,26 @@ class Quality(object):
 class People(object):
 
     def __init__(self, input=None, session=None, cookies=None, many=False):
+        order = ''
+        score_start = 0
+        score_end = 4
+        if input.get('heaven'):
+            score_start = 2.5
+            score_end = 4
+            order = '-'
+        elif input.get('purgatory'):
+            score_start = 1.5
+            score_end = 2.5
+            order = '-'
+        elif input.get('hell'):
+            score_start = 0
+            score_end = 1.5
+
         if many:
             if input.get('search'):
-                self.data = models.Person.objects.filter(name__icontains=input.get('search')).exclude(id=0)
+                self.data = models.Person.objects.filter(name__icontains=input.get('search'), score__gt=score_start, score__lt=score_end).exclude(id=0).order_by('{}score'.format(order))
             else:
-                self.data = models.Person.objects.all().exclude(id=0)
+                self.data = models.Person.objects.filter(score__gt=score_start, score__lt=score_end).exclude(id=0).order_by('{}score'.format(order))
 
     def get_data(self):
         return self.data

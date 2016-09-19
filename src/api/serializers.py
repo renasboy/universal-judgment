@@ -15,6 +15,9 @@ class QualityOutput(serializers.ModelSerializer):
 
 class PeopleInput(serializers.Serializer):
     search = serializers.CharField(max_length=40, required=False)
+    heaven = serializers.BooleanField(required=False, default=False)
+    hell = serializers.BooleanField(required=False, default=False)
+    purgatory = serializers.BooleanField(required=False, default=False)
 
 
 class PeopleOutput(serializers.ModelSerializer):
