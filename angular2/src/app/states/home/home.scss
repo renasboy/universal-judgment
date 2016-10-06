@@ -1,12 +1,13 @@
 header {
+    z-index: 10;
     text-align: center;
     padding: 10px 0 16px;
     position: relative;
-    background: rgb(237,237,237);
-    background: -moz-linear-gradient(top,  rgba(237,237,237,1) 0%, rgba(237,237,237,1) 74%, rgba(216,216,216,1) 100%);
-    background: -webkit-linear-gradient(top,  rgba(237,237,237,1) 0%,rgba(237,237,237,1) 74%,rgba(216,216,216,1) 100%);
-    background: linear-gradient(to bottom,  rgba(237,237,237,1) 0%,rgba(237,237,237,1) 74%,rgba(216,216,216,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ededed', endColorstr='#d8d8d8',GradientType=0 );
+    background: rgb(237, 237, 237);
+    background: -moz-linear-gradient(top, rgba(237, 237, 237, 1) 0%, rgba(237, 237, 237, 1) 74%, rgba(216, 216, 216, 1) 100%);
+    background: -webkit-linear-gradient(top, rgba(237, 237, 237, 1) 0%, rgba(237, 237, 237, 1) 74%, rgba(216, 216, 216, 1) 100%);
+    background: linear-gradient(to bottom, rgba(237, 237, 237, 1) 0%, rgba(237, 237, 237, 1) 74%, rgba(216, 216, 216, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#d8d8d8', GradientType=0);
 
     &:before {
         content: '';
@@ -17,7 +18,7 @@ header {
         position: absolute;
         background: $white-color;
         width: 100%;
-    }       
+    }
 
     .logo {
 
@@ -55,9 +56,7 @@ header {
             color: $pink-color;
         }
     }
-
 }
-
 
 #user-list {
     padding: 20px 0 100px;
@@ -73,6 +72,16 @@ header {
         display: inline-block;
         width: 50%;
         margin-bottom: 24px;
+
+        @include breakpoint(sm) {
+            width: 33.3%;
+        }
+        @include breakpoint(md) {
+            width: 25%;
+        }
+        @include breakpoint(lg) {
+            width: 16.6%;
+        }
 
         a {
             font-size: .9rem;

@@ -10,29 +10,33 @@
      *
      * @param {Object} $state
      */
-    function AuthService($state, Facebook) {
+    function AuthService($state, Facebook, personService) {
         this.$state = $state;
         this._facebook = Facebook;
+        this._personService = personService;
     }
 
     AuthService.prototype.makeFacebookLogin = function () {
         var that = this;
 
-        window.fbAsyncInit = function () {
-            FB.getLoginStatus(function (response) {
-                if (response.status === 'connected') {
-                    FB.api('/me', function (response) {
-                        console.log(response);
-                        var accessToken = FB.getAuthResponse();
-                        that.setFacebookCookie(accessToken.accessToken);
-                    });
-                } else if (response.status === 'not_authorized') {
-                    console.log('logged in on facebook but has not authorized the app yet');
-                } else {
-                    console.log('not logged in on facebook');
-                }
-            });
-        };
+        // window.fbAsyncInit = function () {
+        //     FB.getLoginStatus(function (response) {
+        //         if (response.status === 'connected') {
+        //             FB.api('/me', function (response) {
+        //                 console.log(response);
+        //                 var accessToken = FB.getAuthResponse();
+        //                 // that._personService.getMe().then(function (data) {
+        //                 //     console.log(data);
+        //                 // });
+        //                 that.setFacebookCookie(accessToken.accessToken);
+        //             });
+        //         } else if (response.status === 'not_authorized') {
+        //             console.log('logged in on facebook but has not authorized the app yet');
+        //         } else {
+        //             console.log('not logged in on facebook');
+        //         }
+        //     });
+        // };
     };
 
     /**

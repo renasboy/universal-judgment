@@ -11,7 +11,6 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
         .state('home', {
             url: '/',
             template: '<app-home></app-home>'
-
         })
         .state('person', {
             url: '/person/:id',
@@ -20,6 +19,10 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
         .state('judge', {
             url: '/judge/:id',
             template: '<app-judge></app-judge>'
+        })
+        .state('me', {
+            url: '/me',
+            template: '<app-me></app-me>'
         });
 }
 

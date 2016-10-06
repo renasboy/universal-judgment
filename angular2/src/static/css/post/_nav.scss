@@ -1,6 +1,6 @@
 nav {
     position: fixed;
-    z-index: 10;
+    z-index: 9;
     bottom: 0;
     font-size: 2rem;
     background: $pink-color;
@@ -8,6 +8,15 @@ nav {
     text-align: center;
     overflow: hidden;
     height: 60px;
+
+    @include breakpoint(sm) {
+        top:0;
+        bottom: 0;
+        left: 0;
+        width: $menu-size;
+        min-height: 100%;
+        padding-top: 150px;
+    }
 
     a {
         color: $white-color;

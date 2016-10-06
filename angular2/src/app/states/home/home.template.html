@@ -8,18 +8,20 @@
     </h1>
 </header>
 
-<div id="user-list">
-    <ul>
-        <li data-ng-repeat="person in ctrl.people">
-            <a ui-sref="person({id:person.id})">
-                <div class="user-image {{person.status}}">
-                    <img data-ng-src="{{person.img}}" alt="{{person.name}}"/>
-                </div>
-                <h2 class="font-xs" data-ng-bind="person.name"></h2>
-                <span data-ng-bind="person.score"></span>
-            </a>
-        </li>
-    </ul>
+<div class="container-fluid">
+    <div id="user-list">
+        <ul>
+            <li data-ng-repeat="person in ctrl.people">
+                <a ui-sref="person({id:person.id})">
+                    <div class="user-image {{person.status}}">
+                        <img data-ng-src="{{person.img}}" alt="{{person.name}}"/>
+                    </div>
+                    <h2 class="font-xs" data-ng-bind="person.name"></h2>
+                    <span data-ng-bind="person.score"></span>
+                </a>
+            </li>
+        </ul>
+    </div>
 </div>
-
 <app-menu></app-menu>
+
