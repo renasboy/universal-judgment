@@ -1,0 +1,22 @@
+<div class="container-fluid person">
+
+    <app-person-profile></app-person-profile>
+
+    <div class="row">
+        <ul class="list-items">
+            <li ng-repeat="(key, quality) in ctrl.me.qualities">
+                <div class="col-xs-6 text-right">
+                    {{quality.name}}
+                    <div class="qualities-icon">
+                        <img ng-src="{{quality.img}}"/>
+                    </div>
+                </div>
+                <div class="col-xs-4 col-xs-offset-2 font-lg score">
+                    {{quality.score}}
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<app-menu></app-menu>
