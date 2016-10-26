@@ -6,7 +6,5 @@
 angular
     .module('app')
     .component('appHeader', {
-        templateUrl: 'app/components/header/header.template.html',
-        controller: 'homeController',
-        controllerAs: 'ctrl'
+        templateUrl: 'app/components/header/header.template.html'
     });
