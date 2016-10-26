@@ -8,13 +8,12 @@
            data-ng-class="ctrl.isActive('search')"></a>
         <a href="./#/"
            class="col-xs-3 col-sm-12 icon-judges"
-           data-ng-show="ctrl.logged"></a>
+           data-ng-show="$root.logged"></a>
         <a href="./#/me"
            class="col-xs-3 col-sm-12 icon-user"
            data-ng-class="ctrl.isActive('me')"
-           data-ng-show="ctrl.logged"></a>
+           data-ng-show="$root.logged"></a>
         <a href="/" data-ng-click="ctrl.facebookLogin()"
            class="col-xs-6 col-sm-12 icon-facebook"
-           data-ng-show="!ctrl.logged">FACEBOOK</a>
-    </nav>
-</div>
+           data-ng-show="!$root.logged">FACEBOOK</a>
+        logged</div>

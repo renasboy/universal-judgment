@@ -11,15 +11,15 @@
      * @param {Object} $state
      * @constructor
      */
-    function MenuController($state, authService) {
+    function MenuController($state, authService, $rootScope) {
+
         this.menuActive = $state.current.name;
         this._authService = authService;
+        this._rootScope = $rootScope;
         this.logged = false;
         var that = this;
 
         this.isSearchOpen = false;
-
-        this.logged = authService.isFacebookConnected();
     }
 
     MenuController.prototype.isActive = function (menuName) {
@@ -27,7 +27,8 @@
     };
 
     MenuController.prototype.facebookLogin = function () {
-        this._authService.setFacebookLogin();
+        var that = this;
+        this._rootScope.logged || that._authService.setFacebookLogin();
     };
 
     angular.module('app').controller('menuController', MenuController);
