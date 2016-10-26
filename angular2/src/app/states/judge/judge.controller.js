@@ -14,10 +14,12 @@
      */
     function JudgeController($stateParams,
                              qualitiesService,
-                             judgmentService) {
+                             judgmentService,
+                             personService) {
         this.$stateParams = $stateParams;
         this._qualitiesService = qualitiesService;
         this._judgmentService = judgmentService;
+        this._personService = personService;
 
         // Bootstrap
         this.getQualities();
@@ -96,16 +98,15 @@
         that.personTotalScore();
     };
 
+    JudgeController.prototype.person = {};
+
     JudgeController.prototype.personTotalScore = function () {
         var that = this;
-        var totalScore = 0;
-        var qualitiesLength = that.setQualities().length;
-
-        angular.forEach(that.setQualities(), function (value) {
-            totalScore = (totalScore += value.score);
+        this._personService.getPerson(this.getPersonId()).then(function (person) {
+            return (that.person = person.data);
+        }).catch(function () {
+            throw Error('Get person API is not available');
         });
-        var finalScore = totalScore / qualitiesLength;
-        that.total = finalScore;
     };
 
     angular.module('app').controller('judgeController', JudgeController);
