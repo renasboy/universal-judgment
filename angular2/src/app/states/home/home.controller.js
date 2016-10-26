@@ -18,12 +18,10 @@
                             $state) {
 
         this._peopleService = peopleService;
-        var that = this;
         this.state = $state;
         this._authService = authService;
         this.isSearchOpen = $state.current.name === 'search';
-
-        that.getPeople();
+        this.getPeople();
     }
 
     /**

@@ -11,19 +11,20 @@
      * @param {HeavenHellAPI} heavenHellAPI
      * @constructor
      */
-    function RankController(peopleService,
+    function RankController($stateParams,
+                            peopleService,
                             Facebook,
                             $scope,
                             authService,
                             $state) {
 
         this._peopleService = peopleService;
-        var that = this;
         this.state = $state;
         this._authService = authService;
-        this.isSearchOpen = $state.current.name === 'search';
-
-        that.getPeople();
+        this.isSearchOpen = $state.current.name === 'rank';
+        var rank = $stateParams.rank;
+        console.log(rank);
+        this.getPeople(rank);
     }
 
     /**
@@ -39,10 +40,10 @@
     RankController.prototype.isSearchOpen = false;
 
 
-    RankController.prototype.getPeople = function () {
+    RankController.prototype.getPeople = function (rank) {
         var that = this;
 
-        this._peopleService.getPeople().then(function (data) {
+        this._peopleService.getRank(rank).then(function (data) {
             return (that.people = data.data);
         }).catch(function () {
             throw Error('Get people API is not available');
