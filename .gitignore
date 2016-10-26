@@ -10,3 +10,4 @@ dist
 **/.tmp
 **/dist
 .eslintrc
+.DS_Store
