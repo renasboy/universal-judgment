@@ -15,7 +15,7 @@
     }
 
     PeopleService.prototype.constants = {
-        apiHost: 'http://test.universaljudgment.com/tuj/people'
+        apiHost: angular.apiHost + '/tuj/people'
     };
 
     PeopleService.prototype.getPeople = function () {
