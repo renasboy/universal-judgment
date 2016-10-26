@@ -16,6 +16,7 @@
                              qualitiesService,
                              judgmentService,
                              personService) {
+
         this.$stateParams = $stateParams;
         this._qualitiesService = qualitiesService;
         this._judgmentService = judgmentService;
@@ -24,6 +25,15 @@
         // Bootstrap
         this.getQualities();
     }
+
+
+    /**
+     *
+     * @type {{}}
+     */
+    JudgeController.prototype.contants = {
+        PERSON_SCORE: 'personScore'
+    };
 
     /**
      *
@@ -93,17 +103,16 @@
 
     JudgeController.prototype.judgmentWasSent = function () {
         var that = this;
-        that.judgeSent = true;
-        that.blur = 'blur';
-        that.personTotalScore();
+        this.judgeSent = true;
+        this.blur = 'blur';
+        this.personTotalScore();
     };
 
-    JudgeController.prototype.personScore = undefined;
 
     JudgeController.prototype.personTotalScore = function () {
         var that = this;
         this._personService.getPerson(this.getPersonId()).then(function (person) {
-            that.personScore = person.data.score;
+            that.personScoreTest = person.data.score;
         }).catch(function () {
             throw Error('Get person API is not available');
         });

@@ -7,6 +7,6 @@ angular
     .module('app')
     .component('appJudgeSent', {
         templateUrl: 'app/components/judge-sent/judge-sent.template.html',
-        controller: 'judgeSentController',
+        controller: 'judgeController',
         controllerAs: 'ctrl'
     });

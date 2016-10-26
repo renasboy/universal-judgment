@@ -1,10 +1,26 @@
 <div class="container-fluid judge">
 
-    <app-judge-sent data-ng-show="ctrl.judgeSent"
-                    score="{{ctrl.personData}}"
-                    class="popup"></app-judge-sent>
+    <!--<app-judge-sent data-ng-show="ctrl.judgeSent"-->
+                    <!--score="{{ctrl.personData}}"-->
+                    <!--class="popup"></app-judge-sent>-->
+    <!---->
+    <!---->
 
-    <!--<div ng-include="popup" class="popup"></div>-->
+    <div data-ng-show="ctrl.judgeSent" class="popup">
+        <div class="text-center row sent-judge">
+            <div class="col-xs-12 text-center">
+                <app-person-profile></app-person-profile>
+                <h1>New score</h1>
+                <h2 class="font-xxl" data-ng-bind="ctrl.personScoreTest"></h2>
+            </div>
+        </div>
+
+        <nav>
+            <a ui-sref="home">FINISH</a>
+        </nav>
+
+    </div>
+
 
     <section data-ng-class="ctrl.blur">
 
