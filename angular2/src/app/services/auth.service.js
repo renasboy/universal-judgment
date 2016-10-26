@@ -14,49 +14,28 @@
         this.$state = $state;
         this._facebook = Facebook;
         this._personService = personService;
+        this.logged = false;
     }
 
-    AuthService.prototype.makeFacebookLogin = function () {
-        var that = this;
 
-        // window.fbAsyncInit = function () {
-        //     FB.getLoginStatus(function (response) {
-        //         if (response.status === 'connected') {
-        //             FB.api('/me', function (response) {
-        //                 console.log(response);
-        //                 var accessToken = FB.getAuthResponse();
-        //                 // that._personService.getMe().then(function (data) {
-        //                 //     console.log(data);
-        //                 // });
-        //                 that.setFacebookCookie(accessToken.accessToken);
-        //             });
-        //         } else if (response.status === 'not_authorized') {
-        //             console.log('logged in on facebook but has not authorized the app yet');
-        //         } else {
-        //             console.log('not logged in on facebook');
-        //         }
-        //     });
-        // };
+    AuthService.prototype.getLoginStatus = function () {
+        var that = this;
+        return this._facebook.getLoginStatus(function (response) {
+            that.logged = response.status === 'connected';
+        });
     };
 
     /**
      * @return{Promise}
      */
     AuthService.prototype.isFacebookConnected = function () {
-        var that = this;
-        return that._facebook.getLoginStatus(function (response) {
-            that.setFacebookCookie(response.authResponse.accessToken);
-        });
+        return this.logged;
     };
 
-    AuthService.prototype.listenNeedsValidation = function (listener) {
-        return this._eventDispatcher.listen('needValidation', listener);
-    };
-
-    AuthService.prototype.setFacebookCookie = function (token) {
+    AuthService.prototype.setFacebookCookie = function (accessToken) {
         var today = new Date();
         var expiry = new Date(today.getTime() + 30 * 24 * 3600 * 1000);
-        document.cookie = 'fbat=' + token + '; expires=' + expiry + '; path=/;';
+        document.cookie = 'fbat=' + accessToken + '; expires=' + expiry + '; path=/;';
     };
 
     AuthService.prototype.setFacebookLogin = function () {

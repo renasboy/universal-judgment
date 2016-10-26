@@ -19,9 +19,7 @@
 
         this.isSearchOpen = false;
 
-        authService.isFacebookConnected().then(function (data) {
-            that.logged = data.status === 'connected';
-        });
+        this.logged = authService.isFacebookConnected();
     }
 
     MenuController.prototype.isActive = function (menuName) {
@@ -29,14 +27,7 @@
     };
 
     MenuController.prototype.facebookLogin = function () {
-        var that = this;
-        that._authService.isFacebookConnected().then(function (data) {
-            if (data.status === 'connected') {
-                console.log('User is already logged');
-            } else {
-                that._authService.setFacebookLogin();
-            }
-        });
+        this._authService.setFacebookLogin();
     };
 
     angular.module('app').controller('menuController', MenuController);

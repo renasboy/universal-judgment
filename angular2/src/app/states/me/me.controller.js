@@ -15,8 +15,8 @@
     function MeController($stateParams,
                               personService) {
         this._personService = personService;
+
         // Bootstrap
-        var personId = $stateParams.id;
         this.getMe();
     }
 
@@ -24,7 +24,6 @@
 
     /**
      * Gets user info from API call
-     * @param id
      */
     MeController.prototype.getMe = function () {
         var that = this;

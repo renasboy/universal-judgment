@@ -16,28 +16,37 @@
                             $scope,
                             authService,
                             $state) {
+
         this._peopleService = peopleService;
         var that = this;
-
         this.state = $state;
-
-        this.isSearchOpen = ($state.current.name === 'search') ? true : false;
+        this._authService = authService;
+        this.isSearchOpen = $state.current.name === 'search';
 
         $scope.$watch(
             function () {
                 return Facebook.isReady();
             },
             function (newVal) {
+
                 if (newVal) {
-                    authService.makeFacebookLogin();
+                    that._authService.getLoginStatus();
                 }
                 that.getPeople();
             }
         );
     }
 
+    /**
+     *
+     * @type {Array}
+     */
     HomeController.prototype.people = [];
 
+    /**
+     *
+     * @type {boolean}
+     */
     HomeController.prototype.isSearchOpen = false;
 
 
