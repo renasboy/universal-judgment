@@ -27,6 +27,15 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
         .state('me', {
             url: '/me',
             template: '<app-me></app-me>'
-        });
+        })
+        .state('rankMenu', {
+            url: '/rank',
+            template: '<app-rank></app-rank>'
+        })
+        .state('rank', {
+                url: '/rank/{rank:hell|heaven|purgatory}',
+                template: '<app-rank></app-rank>'
+            }
+        );
 }
 
