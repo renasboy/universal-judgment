@@ -16,6 +16,9 @@ frontend:
 	$(NPM) install bower
 	$(NPM) install gulp
 	./node_modules/bower/bin/bower install --allow-root
+
+frontend_build:
+	cd angular2
 	./node_modules/gulp/bin/gulp.js build
 
 frontend_clean:
