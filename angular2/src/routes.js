@@ -12,6 +12,10 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
             url: '/',
             template: '<app-home></app-home>'
         })
+        .state('search', {
+            url: '/search',
+            template: '<app-home></app-home>'
+        })
         .state('person', {
             url: '/person/:id',
             template: '<app-person></app-person>'

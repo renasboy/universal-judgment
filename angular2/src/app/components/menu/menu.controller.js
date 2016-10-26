@@ -39,9 +39,5 @@
         });
     };
 
-    MenuController.prototype.openSearch = function () {
-        this.isSearchOpen = !this.isSearchOpen;
-    };
-
     angular.module('app').controller('menuController', MenuController);
 }(window.angular));

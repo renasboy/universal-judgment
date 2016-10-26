@@ -98,12 +98,12 @@
         that.personTotalScore();
     };
 
-    JudgeController.prototype.person = {};
+    JudgeController.prototype.personScore = undefined;
 
     JudgeController.prototype.personTotalScore = function () {
         var that = this;
         this._personService.getPerson(this.getPersonId()).then(function (person) {
-            return (that.person = person.data);
+            that.personScore = person.data.score;
         }).catch(function () {
             throw Error('Get person API is not available');
         });

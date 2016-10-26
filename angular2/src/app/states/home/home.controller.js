@@ -11,9 +11,15 @@
      * @param {HeavenHellAPI} heavenHellAPI
      * @constructor
      */
-    function HomeController(peopleService, Facebook, $scope, authService) {
+    function HomeController(peopleService,
+                            Facebook,
+                            $scope,
+                            authService,
+                            $state) {
         this._peopleService = peopleService;
         var that = this;
+
+        this.state = $state
 
         $scope.$watch(
             function () {
