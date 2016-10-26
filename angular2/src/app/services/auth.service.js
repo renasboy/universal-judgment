@@ -45,7 +45,7 @@
     AuthService.prototype.isFacebookConnected = function () {
         var that = this;
         return that._facebook.getLoginStatus(function (response) {
-            console.log(response);
+            that.setFacebookCookie(response.authResponse.accessToken);
         });
     };
 
