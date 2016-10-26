@@ -24,5 +24,14 @@
         });
     };
 
+    PeopleService.prototype.getRank = function (rank) {
+        var config = {};
+        config[rank] = true;
+        return this.$http({
+            url: this.constants.apiHost,
+            config: config
+        });
+    };
+
     angular.module('app').service('peopleService', PeopleService);
 }(window.angular));
