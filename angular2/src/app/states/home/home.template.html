@@ -14,7 +14,8 @@
             </li>
         </ul>
     </div>
-    <div class="userSearch row" data-ng-if="ctrl.isSearchOpen">
+
+    <div class="userSearch row" data-ng-show="ctrl.isSearchOpen">
         <div class="col-xs-9 col-xs-offset-1">
             <input type="text" data-ng-model="userSearch">
         </div>
@@ -23,6 +24,6 @@
                class="icon-close btn"></a>
         </div>
     </div>
+
 </div>
 <app-menu class="home"></app-menu>
-
