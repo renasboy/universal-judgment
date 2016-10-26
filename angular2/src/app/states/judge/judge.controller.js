@@ -14,10 +14,10 @@
      */
     function JudgeController($stateParams,
                              qualitiesService,
-                             judgementService) {
+                             judgmentService) {
         this.$stateParams = $stateParams;
         this._qualitiesService = qualitiesService;
-        this._judgementService = judgementService;
+        this._judgmentService = judgmentService;
 
         // Bootstrap
         this.getQualities();
@@ -72,8 +72,8 @@
      */
     JudgeController.prototype.sendPersonData = function (personData) {
         var that = this;
-        that._judgementService.sendJudgment(personData).then(function () {
-            that.judgementWasSent();
+        that._judgmentService.sendJudgment(personData).then(function () {
+            that.judgmentWasSent();
         }).catch(function () {
             throw Error('Person judgment was not sent');
         });
@@ -89,7 +89,7 @@
         this.sendPersonData(personData);
     };
 
-    JudgeController.prototype.judgementWasSent = function () {
+    JudgeController.prototype.judgmentWasSent = function () {
         var that = this;
         that.judgeSent = true;
         that.blur = 'blur';

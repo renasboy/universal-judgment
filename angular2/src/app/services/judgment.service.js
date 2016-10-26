@@ -10,7 +10,7 @@
      *
      * @param {Object} $http
      */
-    function JudgementService($http) {
+    function JudgmentService($http) {
         this.$http = $http;
     }
 
@@ -18,15 +18,15 @@
      *
      * @type {{apiHost: string}}
      */
-    JudgementService.prototype.constants = {
-        apiHost: angular.apiHost + '/tuj/judgement'
+    JudgmentService.prototype.constants = {
+        apiHost: angular.apiHost + '/tuj/judgment'
     };
 
     /**
      *
      * @returns {Promise}
      */
-    JudgementService.prototype.sendJudgment = function (data) {
+    JudgmentService.prototype.sendJudgment = function (data) {
         // TODO Implement get cookie
         // var csrfToken = getCookie('csrftoken');
         // var config = {
@@ -38,5 +38,5 @@
         // TODO change API to accept cross domain post
     };
 
-    angular.module('app').service('judgementService', JudgementService);
+    angular.module('app').service('judgmentService', JudgmentService);
 }(window.angular));
