@@ -28,7 +28,7 @@
         );
     }
 
-    HomeController.prototype.people = {};
+    HomeController.prototype.people = [];
 
     HomeController.prototype.getPeople = function () {
         var that = this;
