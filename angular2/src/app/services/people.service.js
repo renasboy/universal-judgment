@@ -25,11 +25,11 @@
     };
 
     PeopleService.prototype.getRank = function (rank) {
-        var config = {};
-        config[rank] = true;
+        var params = {};
+        params[rank] = true;
         return this.$http({
             url: this.constants.apiHost,
-            config: config
+            params: params
         });
     };
 
