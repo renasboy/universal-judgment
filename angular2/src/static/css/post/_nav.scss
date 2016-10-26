@@ -60,5 +60,7 @@ nav {
     .icon-user.active {
         @extend .icon-user2;
     }
-
+    .icon-rank_off.active {
+        @extend .icon-rank_on;
+    }
 }
