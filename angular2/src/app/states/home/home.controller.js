@@ -23,18 +23,7 @@
         this._authService = authService;
         this.isSearchOpen = $state.current.name === 'search';
 
-        $scope.$watch(
-            function () {
-                return Facebook.isReady();
-            },
-            function (newVal) {
-
-                if (newVal) {
-                    that._authService.getLoginStatus();
-                }
-                that.getPeople();
-            }
-        );
+        that.getPeople();
     }
 
     /**
