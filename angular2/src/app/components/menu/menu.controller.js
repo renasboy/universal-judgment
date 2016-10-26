@@ -17,6 +17,8 @@
         this.logged = false;
         var that = this;
 
+        this.isSearchOpen = false;
+
         authService.isFacebookConnected().then(function (data) {
             that.logged = data.status === 'connected';
         });
@@ -35,6 +37,10 @@
                 that._authService.setFacebookLogin();
             }
         });
+    };
+
+    MenuController.prototype.openSearch = function () {
+        this.isSearchOpen = !this.isSearchOpen;
     };
 
     angular.module('app').controller('menuController', MenuController);

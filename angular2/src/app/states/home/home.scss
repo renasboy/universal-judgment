@@ -114,3 +114,18 @@ header {
         }
     }
 }
+
+
+.userSearch {
+    position: fixed;
+    bottom: 60px;
+    left: 0;
+    right: 0;
+    background: $blue-color-90;
+    padding: 20px 0;
+
+    input {
+        padding: 3px 0;
+        width: 100%;
+    }
+}

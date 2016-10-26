@@ -3,7 +3,7 @@
 <div class="container-fluid">
     <div id="user-list">
         <ul>
-            <li data-ng-repeat="person in ctrl.people">
+            <li data-ng-repeat="person in ctrl.people | filter : userSearch">
                 <a ui-sref="person({id:person.id})">
                     <div class="user-image {{person.status}}">
                         <img data-ng-src="{{person.img}}" alt="{{person.name}}"/>
@@ -13,6 +13,11 @@
                 </a>
             </li>
         </ul>
+    </div>
+    <div class="userSearch row">
+        <div class="col-xs-10 col-xs-offset-1">
+            <input type="text" data-ng-model="userSearch">
+        </div>
     </div>
 </div>
 <app-menu class="home"></app-menu>
