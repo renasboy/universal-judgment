@@ -10,27 +10,20 @@
      *
      * @param {Object} $state
      */
-    function AuthService($state, Facebook, personService) {
-        this.$state = $state;
+    function AuthService($state, Facebook, personService, $rootScope) {
+        this._state = $state;
         this._facebook = Facebook;
         this._personService = personService;
-        this.logged = false;
+        this._rootScope = $rootScope;
     }
 
 
-    AuthService.prototype.getLoginStatus = function () {
-        var that = this;
+    AuthService.prototype.isFacebookConnected = function () {
         return this._facebook.getLoginStatus(function (response) {
-            that.logged = response.status === 'connected';
+            return response;
         });
     };
 
-    /**
-     * @return{Promise}
-     */
-    AuthService.prototype.isFacebookConnected = function () {
-        return this.logged;
-    };
 
     AuthService.prototype.setFacebookCookie = function (accessToken) {
         var today = new Date();
@@ -45,7 +38,7 @@
             if (response.authResponse) {
                 var accessToken = response.authResponse.accessToken;
                 that.setFacebookCookie(accessToken);
-                that.$state.reload();
+                that._rootScope.logged = true;
             }
         });
     };
