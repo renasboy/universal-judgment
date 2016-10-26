@@ -56,6 +56,15 @@ header {
             color: $pink-color;
         }
     }
+
+    @include breakpoint(sm) {
+        nav & {
+            .logo, h1 {
+                transform: scale(.6);
+            }
+
+        }
+    }
 }
 
 #user-list {
@@ -95,5 +104,13 @@ header {
 
     .user-image {
         margin: auto;
+    }
+}
+
+.home {
+    nav {
+        @include breakpoint(sm) {
+            padding-top: 140px;
+        }
     }
 }
