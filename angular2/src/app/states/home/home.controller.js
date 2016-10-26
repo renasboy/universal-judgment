@@ -19,7 +19,9 @@
         this._peopleService = peopleService;
         var that = this;
 
-        this.state = $state
+        this.state = $state;
+
+        this.isSearchOpen = ($state.current.name === 'search') ? true : false;
 
         $scope.$watch(
             function () {
@@ -35,6 +37,9 @@
     }
 
     HomeController.prototype.people = [];
+
+    HomeController.prototype.isSearchOpen = false;
+
 
     HomeController.prototype.getPeople = function () {
         var that = this;
