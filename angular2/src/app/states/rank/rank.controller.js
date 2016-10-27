@@ -8,13 +8,14 @@
 
     /**
      * The home page controller
-     * @param {HeavenHellAPI} heavenHellAPI
+     * @param $stateParams
+     * @param peopleService
+     * @param authService
+     * @param $state
      * @constructor
      */
     function RankController($stateParams,
                             peopleService,
-                            Facebook,
-                            $scope,
                             authService,
                             $state) {
 
@@ -23,7 +24,6 @@
         this._authService = authService;
         this.isSearchOpen = $state.current.name === 'rank';
         var rank = $stateParams.rank;
-        console.log(rank);
         this.getPeople(rank);
     }
 
@@ -40,6 +40,10 @@
     RankController.prototype.isSearchOpen = false;
 
 
+    /**
+     *
+     * @param rank
+     */
     RankController.prototype.getPeople = function (rank) {
         var that = this;
 

@@ -19,11 +19,20 @@
         this.logged = false;
         var that = this;
 
+
         this.isSearchOpen = false;
     }
 
     MenuController.prototype.isActive = function (menuName) {
-        return (menuName === this.menuActive) ? 'active' : '';
+        var that = this;
+        var menu = menuName.split(',');
+        var menuIsActive = '';
+        angular.forEach(menu, function (menuItem) {
+            if (menuIsActive === '') {
+                menuIsActive = (menuItem === that.menuActive) ? 'active' : '';
+            }
+        });
+        return menuIsActive
     };
 
     MenuController.prototype.facebookLogin = function () {

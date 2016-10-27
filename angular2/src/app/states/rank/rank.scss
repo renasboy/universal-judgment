@@ -1,3 +1,17 @@
 .rank {
 
+  .rank-menu {
+    position: fixed;
+    bottom: 60px;
+    left: 0;
+    right: 0;
+    background: $blue-color-90;
+    padding: 20px 0;
+    text-align: center;
+  }
+
+  .btn {
+    background: none;
+    display: block;
+  }
 }

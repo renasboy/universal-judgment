@@ -28,7 +28,7 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
             url: '/me',
             template: '<app-me></app-me>'
         })
-        .state('rankMenu', {
+        .state('rank-menu', {
             url: '/rank',
             template: '<app-rank></app-rank>'
         })
