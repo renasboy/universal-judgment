@@ -40,7 +40,7 @@
     AuthService.prototype.setFacebookLogin = function () {
         var that = this;
 
-        FB.login(function (response) {
+        this._facebook.login(function (response) {
             that.handleFacebookLogin(response);
         });
     };
