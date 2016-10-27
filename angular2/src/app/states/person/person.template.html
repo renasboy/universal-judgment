@@ -6,7 +6,7 @@
         <ul class="list-items">
             <li ng-repeat="(key, quality) in ctrl.person.qualities">
                 <div class="col-xs-6 text-right">
-                    {{quality.name}}
+                    <span translate="{{quality.name|uppercase}}"></span>
                     <div class="qualities-icon">
                         <img ng-src="{{quality.img}}"/>
                     </div>
@@ -22,7 +22,7 @@
         <a ui-sref="home"
            class="col-xs-4 col-sm-12 icon-arrow-back"></a>
         <a ui-sref="judge({id:ctrl.person.id})"
-           class="col-xs-8 col-sm-12 btn">JUDGE NOW</a>
+           class="col-xs-8 col-sm-12 btn" translate="JUDGE_NOW"></a>
     </nav>
 
 </div>

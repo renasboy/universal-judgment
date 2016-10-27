@@ -10,13 +10,13 @@
         <div class="text-center row sent-judge">
             <div class="col-xs-12 text-center">
                 <app-person-profile></app-person-profile>
-                <h1>New score</h1>
+                <h1 translate="NEW_SCORE"></h1>
                 <h2 class="font-xxl" data-ng-bind="ctrl.personScoreTest"></h2>
             </div>
         </div>
 
         <nav>
-            <a ui-sref="home">FINISH</a>
+            <a ui-sref="home" translate="DONE"></a>
         </nav>
 
     </div>
@@ -29,7 +29,7 @@
         <div class="row">
             <ul class="judge-list">
                 <li data-ng-repeat="quality in ctrl.qualities">
-                    <label class="col-xs-12">{{quality.name}}</label>
+                    <label class="col-xs-12" translate="{{quality.name|uppercase}}"></label>
                     <div class="col-xs-3">
                         <span data-ng-show="focus" class="judge-value">
                             {{ctrl.qualities[$index].score}}
@@ -50,7 +50,7 @@
                 </li>
             </ul>
             <div class="col-xs-12 why">
-                <h3>Why?</h3>
+                <h3 translate="WHY"></h3>
                 <textarea name="why" data-ng-model="ctrl.why" rows="4"></textarea>
             </div>
         </div>
@@ -60,7 +60,7 @@
             <a ui-sref="person({id:ctrl.getPersonId()})"
                class="col-xs-4 col-sm-12 icon-close"></a>
             <a data-ng-click="ctrl.submitForm()"
-               class="col-xs-8 col-sm-12 btn">SUBMIT</a>
+               class="col-xs-8 col-sm-12 btn" translate="SUBMIT"></a>
         </nav>
 
     </section>
