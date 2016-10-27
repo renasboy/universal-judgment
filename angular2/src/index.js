@@ -13,7 +13,10 @@
             APPERANCE: 'Apperance',
             INTELLIGENCE: 'Intelligence',
             HONESTY: 'Honesty',
-            PROFESSIONALISM: 'Professionalism'
+            PROFESSIONALISM: 'Professionalism',
+            HELL: 'Hell',
+            HEAVEN: 'Heaven',
+            PURGATORY: 'Purgatory'
         });
         $translateProvider.translations('it', {
             JUDGE_NOW: 'Giudica',
@@ -24,7 +27,10 @@
             APPERANCE: 'Apparenza',
             INTELLIGENCE: 'Intelligenza',
             HONESTY: 'Onesta',
-            PROFESSIONALISM: 'Professionalismo'
+            PROFESSIONALISM: 'Professionalismo',
+            HELL: 'Inferno',
+            HEAVEN: 'Paradiso',
+            PURGATORY: 'Purgatorio'
         });
         var langs = ['en', 'it'];
         var lang = (navigator.userLanguage ||
