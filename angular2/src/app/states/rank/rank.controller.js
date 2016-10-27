@@ -18,7 +18,6 @@
                             peopleService,
                             authService,
                             $state) {
-
         this._peopleService = peopleService;
         this.state = $state;
         this._authService = authService;
@@ -38,7 +37,6 @@
      * @type {boolean}
      */
     RankController.prototype.isSearchOpen = false;
-
 
     /**
      *
@@ -63,7 +61,7 @@
                 menuIsActive = (menuItem === that.menuActive) ? 'active' : '';
             }
         });
-        return menuIsActive
+        return menuIsActive;
     };
 
     angular.module('app').controller('rankController', RankController);

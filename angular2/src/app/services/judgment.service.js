@@ -27,7 +27,7 @@
      * @returns {Promise}
      */
     JudgmentService.prototype.sendJudgment = function (data) {
-        // TODO Implement get cookie
+        // Implement get cookie
         // var csrfToken = getCookie('csrftoken');
         // var config = {
         //     headers: {
@@ -35,7 +35,7 @@
         //     }
         // };
         return this.$http.post(this.constants.apiHost, data);
-        // TODO change API to accept cross domain post
+        // change API to accept cross domain post
     };
 
     angular.module('app').service('judgmentService', JudgmentService);

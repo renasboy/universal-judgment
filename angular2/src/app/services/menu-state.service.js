@@ -15,10 +15,7 @@
     }
 
     MenuStateService.prototype.getMenuState = function () {
-
-        
     };
-
 
     angular.module('app')
         .service('menuStateService', MenuStateService);

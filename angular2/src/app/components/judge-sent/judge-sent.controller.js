@@ -16,7 +16,6 @@
     function JudgeSentController($stateParams,
                                  personService,
                                  eventDispatcherFactory) {
-
         this.$stateParams = $stateParams;
         this._personService = personService;
         this._eventDispatcher = eventDispatcherFactory.make();
@@ -25,8 +24,6 @@
         this.personTotalScore();
 
         this.listenScoreChange(this.personTotalScore.bind(this));
-
-        console.log('sentController');
     }
 
     /**
@@ -41,10 +38,6 @@
         return this._eventDispatcher.listen(this.constants.PERSON_SCORE, listener);
     };
 
-    JudgeSentController.prototype.onChange = function (data) {
-        console.log(data);
-    };
-
     /**
      *
      * @returns {Numeric}
@@ -53,13 +46,10 @@
         return this.$stateParams.id;
     };
 
-
-    JudgeSentController.prototype.personTotalScore = function (data) {
-        console.log(data);
+    JudgeSentController.prototype.personTotalScore = function () {
         var that = this;
         this._personService.getPerson(this.getPersonId()).then(function (person) {
             that.personScoreTest = person.data.score;
-            debugger
         }).catch(function () {
             throw Error('Get person API is not available');
         });

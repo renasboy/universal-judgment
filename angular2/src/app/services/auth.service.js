@@ -17,13 +17,11 @@
         this._rootScope = $rootScope;
     }
 
-
     AuthService.prototype.isFacebookConnected = function () {
         return this._facebook.getLoginStatus(function (response) {
             return response;
         });
     };
-
 
     AuthService.prototype.setFacebookCookie = function (accessToken) {
         var today = new Date();

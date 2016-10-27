@@ -1,8 +1,7 @@
 (function (angular) {
     'use strict';
 
-    function run($rootScope, authService, Facebook, $state) {
-
+    function run($rootScope, authService, Facebook) {
         $rootScope.$watch(
             function () {
                 return Facebook.isReady();
@@ -18,5 +17,4 @@
     }
 
     angular.module('app').run(run);
-
 }(window.angular));

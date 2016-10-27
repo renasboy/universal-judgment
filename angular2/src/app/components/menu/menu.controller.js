@@ -12,13 +12,10 @@
      * @constructor
      */
     function MenuController($state, authService, $rootScope) {
-
         this.menuActive = $state.current.name;
         this._authService = authService;
         this._rootScope = $rootScope;
         this.logged = false;
-        var that = this;
-
 
         this.isSearchOpen = false;
     }
@@ -32,12 +29,13 @@
                 menuIsActive = (menuItem === that.menuActive) ? 'active' : '';
             }
         });
-        return menuIsActive
+        return menuIsActive;
     };
 
     MenuController.prototype.facebookLogin = function () {
-        var that = this;
-        this._rootScope.logged || that._authService.setFacebookLogin();
+        if (!this._rootScope.logged) {
+            this._authService.setFacebookLogin();
+        }
     };
 
     angular.module('app').controller('menuController', MenuController);

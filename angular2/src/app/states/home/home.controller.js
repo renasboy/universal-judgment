@@ -16,7 +16,6 @@
                             $scope,
                             authService,
                             $state) {
-
         this._peopleService = peopleService;
         this.state = $state;
         this._authService = authService;
@@ -35,7 +34,6 @@
      * @type {boolean}
      */
     HomeController.prototype.isSearchOpen = false;
-
 
     HomeController.prototype.getPeople = function () {
         var that = this;

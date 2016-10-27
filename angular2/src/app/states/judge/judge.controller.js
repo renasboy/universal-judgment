@@ -16,7 +16,6 @@
                              qualitiesService,
                              judgmentService,
                              personService) {
-
         this.$stateParams = $stateParams;
         this._qualitiesService = qualitiesService;
         this._judgmentService = judgmentService;
@@ -25,7 +24,6 @@
         // Bootstrap
         this.getQualities();
     }
-
 
     /**
      *
@@ -102,12 +100,10 @@
     };
 
     JudgeController.prototype.judgmentWasSent = function () {
-        var that = this;
         this.judgeSent = true;
         this.blur = 'blur';
         this.personTotalScore();
     };
-
 
     JudgeController.prototype.personTotalScore = function () {
         var that = this;

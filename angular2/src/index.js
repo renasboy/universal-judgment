@@ -13,7 +13,7 @@
             APPERANCE: 'Apperance',
             INTELLIGENCE: 'Intelligence',
             HONESTY: 'Honesty',
-            PROFESSIONALISM: 'Professionalism',
+            PROFESSIONALISM: 'Professionalism'
         });
         $translateProvider.translations('it', {
             JUDGE_NOW: 'Giudica',
@@ -24,21 +24,21 @@
             APPERANCE: 'Apparenza',
             INTELLIGENCE: 'Intelligenza',
             HONESTY: 'Onesta',
-            PROFESSIONALISM: 'Professionalismo',
+            PROFESSIONALISM: 'Professionalismo'
         });
         var langs = ['en', 'it'];
-        var lang = (navigator.userLanguage 
-                    || navigator.language
-                    || navigator.browserLanguage
-                    || navigator.systemLanguage).split('-')[0]
+        var lang = (navigator.userLanguage ||
+                    navigator.language ||
+                    navigator.browserLanguage ||
+                    navigator.systemLanguage).split('-')[0];
         if (langs.indexOf(lang) === -1) {
             lang = langs[0];
         }
-        $translateProvider.preferredLanguage(lang); 
-        //$translateProvider.useSanitizeValueStrategy('sanitize');
+        $translateProvider.preferredLanguage(lang);
+        // $translateProvider.useSanitizeValueStrategy('sanitize');
     }
 
-    // TODO [Renato] move to gulp config
+    // move to gulp config
     angular.apiHost = 'http://test.universaljudgment.com';
 
     angular.module('app', [
