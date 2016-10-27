@@ -31,15 +31,19 @@
         document.cookie = 'fbat=' + accessToken + '; expires=' + expiry + '; path=/;';
     };
 
+    AuthService.prototype.handleFacebookLogin = function (response) {
+        if (response.authResponse) {
+            var accessToken = response.authResponse.accessToken;
+            this.setFacebookCookie(accessToken);
+            this._rootScope.logged = true;
+        }
+    };
+
     AuthService.prototype.setFacebookLogin = function () {
         var that = this;
 
         FB.login(function (response) {
-            if (response.authResponse) {
-                var accessToken = response.authResponse.accessToken;
-                that.setFacebookCookie(accessToken);
-                that._rootScope.logged = true;
-            }
+            that.handleFacebookLogin(response);
         });
     };
 

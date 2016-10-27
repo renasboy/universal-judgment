@@ -10,7 +10,7 @@
             function (newVal) {
                 if (newVal) {
                     authService.isFacebookConnected().then(function (response) {
-                        $rootScope.logged = response.status === 'connected';
+                        authService.handleFacebookLogin(response);
                     });
                 }
             }
