@@ -1,17 +1,27 @@
 .rank {
 
+  h1 {
+    text-align: center;
+    padding: 20px 0;
+    text-transform: capitalize;
+  }
   .rank-menu {
     position: fixed;
     bottom: 60px;
     left: 0;
     right: 0;
     background: $blue-color-90;
-    padding: 20px 0;
     text-align: center;
   }
 
   .btn {
     background: none;
     display: block;
+    padding: 5px 0;
+  }
+
+  .active {
+    background: $pink-color;
+    padding-bottom: 10px;
   }
 }

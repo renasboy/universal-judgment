@@ -23,8 +23,8 @@
         this.state = $state;
         this._authService = authService;
         this.isSearchOpen = $state.current.name === 'rank';
-        var rank = $stateParams.rank;
-        this.getPeople(rank);
+        this.rank = $stateParams.rank;
+        this.getPeople(this.rank);
     }
 
     /**
@@ -52,6 +52,18 @@
         }).catch(function () {
             throw Error('Get people API is not available');
         });
+    };
+
+    RankController.prototype.isActive = function (menuName) {
+        var that = this;
+        var menu = menuName.split(',');
+        var menuIsActive = '';
+        angular.forEach(menu, function (menuItem) {
+            if (menuIsActive === '') {
+                menuIsActive = (menuItem === that.menuActive) ? 'active' : '';
+            }
+        });
+        return menuIsActive
     };
 
     angular.module('app').controller('rankController', RankController);

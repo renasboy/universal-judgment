@@ -2,7 +2,8 @@
 
 <div class="container-fluid rank">
 
-    <h1>Rank</h1>
+    <h1>{{ctrl.rank}}</h1>
+
     <div id="user-list">
         <ul>
             <li data-ng-repeat="person in ctrl.people | filter : userSearch">
@@ -20,15 +21,18 @@
     <div class="rank-menu row">
         <div class="col-xs-4">
             <a ui-sref="rank({rank:'hell'})"
-               class="icon-emo-devil btn"></a>
+               class="icon-emo-devil btn"
+               data-ng-class="{'active' : ctrl.rank === 'hell'}"></a>
         </div>
         <div class="col-xs-4">
             <a ui-sref="rank({rank:'purgatory'})"
-               class="icon-emo-sleep btn"></a>
+               class="icon-emo-sleep btn"
+               data-ng-class="{'active' : ctrl.rank === 'purgatory'}"></a>
         </div>
         <div class="col-xs-4">
             <a ui-sref="rank({rank:'heaven'})"
-               class="icon-emo-saint btn"></a>
+               class="icon-emo-saint btn"
+               data-ng-class="{'active' : ctrl.rank === 'heaven'}"></a>
         </div>
     </div>
 

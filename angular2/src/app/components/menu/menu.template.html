@@ -6,7 +6,7 @@
         <a href="./#/search"
            class="col-xs-3 col-sm-12 icon-search2"
            data-ng-class="ctrl.isActive('search')"></a>
-        <a href="./#/rank"
+        <a ui-sref="rank({rank:'purgatory'})"
            class="col-xs-3 col-sm-12 icon-rank_off"
            data-ng-show="$root.logged"
            data-ng-class="ctrl.isActive('rank-menu,rank')"></a>
