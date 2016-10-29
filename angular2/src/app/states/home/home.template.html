@@ -1,7 +1,8 @@
 <app-header></app-header>
 
 <div class="container-fluid">
-    <div id="user-list">
+    <div id="user-list" ng-class="ctrl.isSearchOpen ? 'search' : ''">
+
         <ul>
             <li data-ng-repeat="person in ctrl.people | filter : userSearch">
                 <a ui-sref="person({id:person.id})">
