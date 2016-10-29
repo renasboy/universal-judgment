@@ -15,7 +15,7 @@ nav {
         left: 0;
         width: $menu-size;
         min-height: 100%;
-        //padding-top: 150px;
+        padding-top: 150px;
     }
 
     a {
@@ -29,6 +29,11 @@ nav {
 
         &:hover, &:active {
             opacity: 0.9;
+        }
+
+        @include breakpoint(sm) {
+            text-align: left;
+            margin-left: $menu-size /10;
         }
     }
 

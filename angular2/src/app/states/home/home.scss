@@ -105,16 +105,11 @@ header {
     .user-image {
         margin: auto;
     }
-}
-
-.home {
-    nav {
-        @include breakpoint(sm) {
-            padding-top: 140px;
-        }
+    // Search
+    &.search {
+        padding-top: 130px;
     }
 }
-
 
 .userSearch {
     position: fixed;
@@ -123,6 +118,12 @@ header {
     right: 0;
     background: $blue-color-90;
     padding: 20px 0;
+
+    @include breakpoint(sm) {
+        top: 113px;
+        padding-left: 240px;
+        bottom: initial;
+    }
 
     input {
         padding: 3px 0;
