@@ -84,13 +84,17 @@
         var that = this;
         that._judgmentService.sendJudgment(personData).then(function () {
             that.judgmentWasSent();
+            that.isLoading = false;
         }).catch(function () {
             throw Error('Person judgment was not sent');
         });
     };
 
+    JudgeController.prototype.isLoading = false;
+
     JudgeController.prototype.submitForm = function () {
         var that = this;
+        this.isLoading = true;
         var personData = {
             judged: that.getPersonId(),
             qualities: that.setQualities(),
