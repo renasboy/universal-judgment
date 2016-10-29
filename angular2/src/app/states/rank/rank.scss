@@ -1,27 +1,41 @@
 .rank {
 
-  h1 {
-    text-align: center;
-    padding: 20px 0;
-    text-transform: capitalize;
-  }
-  .rank-menu {
-    position: fixed;
-    bottom: 60px;
-    left: 0;
-    right: 0;
-    background: $blue-color-90;
-    text-align: center;
-  }
+    h1 {
+        text-align: center;
+        padding: 20px 0;
+        text-transform: capitalize;
+    }
+    .rank-menu {
+        position: fixed;
+        bottom: 60px;
+        left: 0;
+        right: 0;
+        background: $blue-color-90;
+        text-align: center;
 
-  .btn {
-    background: none;
-    display: block;
-    padding: 5px 0;
-  }
+        @include breakpoint(sm) {
+            top: 113px;
+            padding-left: 240px;
+            bottom: initial;
+        }
+    }
 
-  .active {
-    background: $pink-color;
-    padding-bottom: 10px;
-  }
+    .btn {
+        background: none;
+        display: block;
+        padding: 5px 0;
+        &:before {
+            margin-right: 20px;
+        }
+
+    }
+
+    .active {
+        background: $pink-color;
+        padding-bottom: 10px;
+    }
+
+    @include breakpoint(sm) {
+        padding-top: 80px;
+    }
 }

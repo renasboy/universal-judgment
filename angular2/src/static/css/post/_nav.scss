@@ -25,6 +25,7 @@ nav {
 
         &:before {
             color: $white-color;
+            margin-right: $menu-size /12 !important;
         }
 
         &:hover, &:active {
@@ -33,7 +34,7 @@ nav {
 
         @include breakpoint(sm) {
             text-align: left;
-            margin-left: $menu-size /10;
+            padding-left: $menu-size /9 !important;
         }
     }
 

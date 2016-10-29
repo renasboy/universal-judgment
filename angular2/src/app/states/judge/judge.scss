@@ -174,4 +174,13 @@
             }
         }
     }
+
+    .loading {
+        text-align: center;
+        padding-top: 200px;
+    }
+    .icon-spin3 {
+        font-size: $fonts-xxxl;
+        color: $white-color;
+    }
 }

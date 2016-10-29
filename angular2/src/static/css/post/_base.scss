@@ -55,6 +55,19 @@ h1, h2, h3, h4, h5, h6 {
     left: 0;
     right: 0;
     background: $white-color-90;
+    @include breakpoint(sm) {
+        padding-left: $menu-size;
+    }
+}
+
+.loading {
+    position: fixed;
+    top:0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: $blue-color-90;
+    z-index: 10;
 }
 
 
