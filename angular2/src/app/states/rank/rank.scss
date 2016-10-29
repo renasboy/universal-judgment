@@ -24,8 +24,16 @@
         background: none;
         display: block;
         padding: 5px 0;
+        text-transform: uppercase;
+        font-size: $fonts-md;
         &:before {
             margin-right: 20px;
+            font-size: $fonts-lg;
+        }
+        @include breakpoint(sm) {
+            &:before {
+                font-size: $fonts-lg;
+            }
         }
 
     }

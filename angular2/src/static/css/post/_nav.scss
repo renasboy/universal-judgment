@@ -22,10 +22,13 @@ nav {
         color: $white-color;
         height: 60px;
         line-height: 60px;
+        text-transform: uppercase;
+        font-size: $fonts-md;
 
         &:before {
             color: $white-color;
             margin-right: $menu-size /12 !important;
+            font-size: $fonts-xl;
         }
 
         &:hover, &:active {
