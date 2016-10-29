@@ -16,7 +16,11 @@
             PROFESSIONALISM: 'Professionalism',
             HELL: 'Hell',
             HEAVEN: 'Heaven',
-            PURGATORY: 'Purgatory'
+            PURGATORY: 'Purgatory',
+            HOME: 'home',
+            SEARCH: 'search',
+            RANK: 'rank',
+            ME: 'me'
         });
         $translateProvider.translations('it', {
             JUDGE_NOW: 'Giudica',
@@ -30,7 +34,11 @@
             PROFESSIONALISM: 'Professionalismo',
             HELL: 'Inferno',
             HEAVEN: 'Paradiso',
-            PURGATORY: 'Purgatorio'
+            PURGATORY: 'Purgatorio',
+            HOME: 'home',
+            SEARCH: 'ricerca',
+            RANK: 'rank',
+            ME: 'io'
         });
         var langs = ['en', 'it'];
         var lang = (navigator.userLanguage ||
@@ -41,7 +49,7 @@
             lang = langs[0];
         }
         $translateProvider.preferredLanguage(lang);
-        // $translateProvider.useSanitizeValueStrategy('sanitize');
+        $translateProvider.useSanitizeValueStrategy('sanitize');
     }
 
     // move to gulp config
@@ -50,6 +58,7 @@
     angular.module('app', [
         'ui.router',
         'facebook',
-        'pascalprecht.translate'
+        'pascalprecht.translate',
+        'ngSanitize'
     ]).config(config);
 }(window.angular));
