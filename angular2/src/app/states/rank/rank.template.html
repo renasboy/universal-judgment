@@ -22,17 +22,23 @@
         <div class="col-xs-4">
             <a ui-sref="rank({rank:'hell'})"
                class="icon-emo-devil btn"
-               data-ng-class="{'active' : ctrl.rank === 'hell'}"></a>
+               data-ng-class="{'active' : ctrl.rank === 'hell'}">
+                <span translate="HELL" class="hidden-xs"></span>
+            </a>
         </div>
         <div class="col-xs-4">
             <a ui-sref="rank({rank:'purgatory'})"
                class="icon-emo-sleep btn"
-               data-ng-class="{'active' : ctrl.rank === 'purgatory'}"></a>
+               data-ng-class="{'active' : ctrl.rank === 'purgatory'}">
+                <span translate="PURGATORY" class="hidden-xs"></span>
+            </a>
         </div>
         <div class="col-xs-4">
             <a ui-sref="rank({rank:'heaven'})"
                class="icon-emo-saint btn"
-               data-ng-class="{'active' : ctrl.rank === 'heaven'}"></a>
+               data-ng-class="{'active' : ctrl.rank === 'heaven'}">
+                <span translate="HEAVEN" class="hidden-xs"></span>
+            </a>
         </div>
     </div>
 

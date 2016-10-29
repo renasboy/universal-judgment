@@ -20,7 +20,9 @@
             HOME: 'home',
             SEARCH: 'search',
             RANK: 'rank',
-            ME: 'me'
+            ME: 'me',
+            BACK: 'back',
+            CANCEL: 'cancel'
         });
         $translateProvider.translations('it', {
             JUDGE_NOW: 'Giudica',
@@ -38,7 +40,9 @@
             HOME: 'home',
             SEARCH: 'ricerca',
             RANK: 'rank',
-            ME: 'io'
+            ME: 'io',
+            BACK: 'torna',
+            CANCEL: 'chiude'
         });
         var langs = ['en', 'it'];
         var lang = (navigator.userLanguage ||

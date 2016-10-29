@@ -1,10 +1,14 @@
 <div class="container-fluid judge">
 
     <!--<app-judge-sent data-ng-show="ctrl.judgeSent"-->
-                    <!--score="{{ctrl.personData}}"-->
-                    <!--class="popup"></app-judge-sent>-->
+    <!--score="{{ctrl.personData}}"-->
+    <!--class="popup"></app-judge-sent>-->
     <!---->
     <!---->
+    <!--ng-if="ctrl.isLoading"-->
+    <div class="loading" data-ng-show="ctrl.isLoading">
+        <span class="icon-spin3 animate-spin"></span>
+    </div>
 
     <div data-ng-show="ctrl.judgeSent" class="popup">
         <div class="text-center row sent-judge">
@@ -16,7 +20,7 @@
         </div>
 
         <nav>
-            <a ui-sref="home" translate="DONE"></a>
+            <a ui-sref="home" translate="DONE" class="col-xs-12 col-sm-12 btn icon-logo"></a>
         </nav>
 
     </div>
@@ -58,9 +62,9 @@
 
         <nav class="row">
             <a ui-sref="person({id:ctrl.getPersonId()})"
-               class="col-xs-4 col-sm-12 icon-close"></a>
+               class="col-xs-4 col-sm-12 icon-close" translate="CANCEL"></a>
             <a data-ng-click="ctrl.submitForm()"
-               class="col-xs-8 col-sm-12 btn" translate="SUBMIT"></a>
+               class="col-xs-8 col-sm-12 btn icon-forward" translate="SUBMIT"></a>
         </nav>
 
     </section>

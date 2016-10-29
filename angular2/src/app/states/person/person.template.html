@@ -1,3 +1,5 @@
+<app-header></app-header>
+
 <div class="container-fluid person">
 
     <app-person-profile></app-person-profile>
@@ -20,9 +22,10 @@
 
     <nav class="row">
         <a ui-sref="home"
-           class="col-xs-4 col-sm-12 icon-arrow-back"></a>
+           class="col-xs-4 col-sm-12 icon-arrow-back" translate="BACK"></a>
         <a ui-sref="judge({id:ctrl.person.id})"
-           class="col-xs-8 col-sm-12 btn" translate="JUDGE_NOW"></a>
+           class="col-xs-8 col-sm-12 btn icon-judges" translate="JUDGE_NOW">
+        </a>
     </nav>
 
 </div>
