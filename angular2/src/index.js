@@ -40,7 +40,7 @@
             HOME: 'home',
             SEARCH: 'ricerca',
             RANK: 'rank',
-            ME: 'io',
+            ME: 'me',
             BACK: 'torna',
             CANCEL: 'chiude'
         });

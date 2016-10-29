@@ -12,9 +12,30 @@
 
     &.hell {
         border: 2px solid $pink-color;
+
+        &:before {
+            content: '';
+            position: absolute;
+            background: url("/static/img/devil.png") no-repeat;
+            background-size: 100%;
+            padding: 55px;
+            margin: -15px 0 0 -25px;
+            z-index: -1;
+        }
+
     }
     &.heaven {
         border: 2px solid $blue-color;
+
+        &:before {
+            content: '';
+            position: absolute;
+            background: url("/static/img/angel.png") no-repeat;
+            background-size: 100%;
+            padding: 70px;
+            margin: -20px 0 0 -36px;
+            z-index: -1;
+        }
     }
 
     img {
@@ -31,7 +52,7 @@
     font-size: $fonts-md;
     margin-top: 10px;
 
-    & ~ span{
+    & ~ span {
         color: $gray-3;
         font-size: $fonts-xs;
         margin: 15px 0 0 10px;

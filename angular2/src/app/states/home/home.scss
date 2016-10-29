@@ -1,5 +1,5 @@
 header {
-    z-index: 10;
+    z-index: 100;
     text-align: center;
     padding: 10px 0 16px;
     position: relative;
@@ -107,7 +107,9 @@ header {
     }
     // Search
     &.search {
-        padding-top: 130px;
+        @include breakpoint(sm) {
+            padding-top: 130px;
+        }
     }
 }
 
