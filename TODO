@@ -1,11 +1,11 @@
 - appearence
-    - angel vs devil (avatar?)
+    + angel vs devil (avatar?)
     - heaven vs hell (background?)
-    - professional (tem que ser incrivel)
+    + professional (tem que ser incrivel)
 
 - home page
-    - logo (use the hands down/up, red/green, devil/angel)
-    - title (universal judgement)
+    + logo (use the hands down/up, red/green, devil/angel)
+    + title (universal judgement)
     - slogan
         - are you in heaven or hell?
         - the people's review app
@@ -15,18 +15,19 @@
         - judge people you know
         - get to know your last/final judgement (do you go heaven or to hell) discover/find out and share the result with your friends [play with A/B testing]
     - super menu
-        - heaven
-        - hell
+        + heaven
+        + hell
+        + purgatory
         - last judgements
         - share
             - facebook
             - whatsapp
             - twitter
         - logout (unlink facebook account?)
-    - search
-        - results with avatar, name and rate (link to judgement form)
+    + search
+        + results with avatar, name and rate (link to judgement form)
         - source
-            - internal database
+            + internal database
             - facebook
     - avatar list
         - top facebook page (famous people)
@@ -34,77 +35,75 @@
         - last judgements
 
 - logged in menu
-    - home
-    - me 
-    - judgeds
-    - search
+    + me
 
-- judgement form page
-    - avatar (name, score, image)
-    - qualities
-        - appearance
-        - intelligence
-        - hosnesty
-        - professionalism
-    - why?
-        - open textarea field (why are you judging this person)
-    - submit/cancel
++ judgement form page
+    + avatar (name, score, image)
+    + qualities
+        + appearance
+        + intelligence
+        + hosnesty
+        + professionalism
+    + why?
+        + open textarea field (why are you judging this person)
+    + submit/cancel
 
 - login form page
     - explanation text why to login / what happens when you login
-    - facebook login with redirect
-    - or anonymous
+    + facebook login with redirect
+    + or anonymous
 
 - thank you page
-    - your judgement was sent!
-    - avatar with score of judged
+    + your judgement was sent!
+    + avatar with score of judged
     - share icons (notify judged adding @mention)
     - continue / go to hell !!
 
-- free text search 
-- model new database
-- craete api
+- free text search
+ 
++ model new database
++ create api
     qualities
-        - fields
-            - name
-            - img
-        - used
-            - judgement form
+        + fields
+            + name
+            + img
+        + used
+            + judgement form
     people
-        -fields
-            - name
-            - img
-            - score
-        - used
-            - homepage
-            - search
-            - heaven
-            - hell
+        +fields
+            + name
+            + img
+            + score
+        + used
+            + homepage
+            + search
+            + heaven
+            + hell
     person
-        - fields
-            - name
-            - img
-            - status
-            - total score
-            - quality
-                - name
-                - img
-                - score
-        - used
-            - home (/person)
-            - profile (/person/id)
+        + fields
+            + name
+            + img
+            + status
+            + total score
+            + quality
+                + name
+                + img
+                + score
+        + used
+            + home (/person)
+            + profile (/person/id)
     judgement
-        - fields
-            - judge id (fb id)
-            - judged id (fb id)
-            - list of qualities with id / score
-            - why
+        + fields
+            + judge id (fb id)
+            + judged id (fb id)
+            + list of qualities with id / score
+            + why
 
-- create new html
-- create deploy script (minify)
-- connection with facebook (internal app)
-    - login with facebook (fb://page/mypage)
-    - create proof of concept
++ create new html
++ create deploy script (minify)
++ connection with facebook (internal app)
+    + login with facebook (fb://page/mypage)
+    + create proof of concept
 
 - PLUS (paid version)
     - get to know who is judging you
