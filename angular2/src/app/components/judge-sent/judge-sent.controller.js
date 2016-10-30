@@ -10,33 +10,16 @@
      * Person controller
      * @param {Object} $stateParams
      * @param {PersonService} personService
-     * @param {EventDispatcherFactory} eventDispatcherFactory
      * @constructor
      */
     function JudgeSentController($stateParams,
-                                 personService,
-                                 eventDispatcherFactory) {
+                                 personService) {
         this.$stateParams = $stateParams;
         this._personService = personService;
-        this._eventDispatcher = eventDispatcherFactory.make();
 
         // Bootstrap
         this.personTotalScore();
-
-        this.listenScoreChange(this.personTotalScore.bind(this));
     }
-
-    /**
-     *
-     * @type {{}}
-     */
-    JudgeSentController.prototype.constants = {
-        PERSON_SCORE: 'personScore'
-    };
-
-    JudgeSentController.prototype.listenScoreChange = function (listener) {
-        return this._eventDispatcher.listen(this.constants.PERSON_SCORE, listener);
-    };
 
     /**
      *
