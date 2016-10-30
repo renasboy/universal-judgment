@@ -87,6 +87,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .container-fluid {
     @include breakpoint(sm) {
-        padding-left: $menu-size;
+        padding-left: $menu-size + 40;
+        margin-top: 40px;
+        max-width: 1024px;
+        width: 100%;
+        float: left;
     }
 }
