@@ -63,9 +63,9 @@ class People(object):
 
         if many:
             if input.get('search'):
-                self.data = models.Person.objects.filter(name__icontains=input.get('search'), score__gt=score_start, score__lt=score_end).exclude(id=0).order_by('{}score'.format(order))
+                self.data = models.Person.objects.filter(name__icontains=input.get('search'), score__gte=score_start, score__lte=score_end).exclude(id=0).order_by('{}score'.format(order))
             else:
-                self.data = models.Person.objects.filter(score__gt=score_start, score__lt=score_end).exclude(id=0).order_by('{}score'.format(order))
+                self.data = models.Person.objects.filter(score__gte=score_start, score__lte=score_end).exclude(id=0).order_by('{}score'.format(order))
 
     def get_data(self):
         return self.data
