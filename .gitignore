@@ -11,3 +11,4 @@ dist
 **/dist
 .eslintrc
 .DS_Store
+person

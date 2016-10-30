@@ -1,4 +1,5 @@
 import facebook
+from django.db import IntegrityError
 from django.http import Http404, HttpResponseBadRequest, HttpResponseServerError
 from api import models
 
@@ -28,7 +29,10 @@ class BaseViewModel(object):
                         img=picture['url'],
                         score=2
                     )
-                    person.save()
+                    try:
+                        person.save()
+                    except IntegrityError:
+                        pass
                 if person:
                     session['id'] = person.id
 
@@ -63,9 +67,9 @@ class People(object):
 
         if many:
             if input.get('search'):
-                self.data = models.Person.objects.filter(name__icontains=input.get('search'), score__gt=score_start, score__lt=score_end).exclude(id=0).order_by('{}score'.format(order))
+                self.data = models.Person.objects.filter(name__icontains=input.get('search'), score__gte=score_start, score__lte=score_end).exclude(id=0).order_by('{}score'.format(order))
             else:
-                self.data = models.Person.objects.filter(score__gt=score_start, score__lt=score_end).exclude(id=0).order_by('{}score'.format(order))
+                self.data = models.Person.objects.filter(score__gte=score_start, score__lte=score_end).exclude(id=0).order_by('{}score'.format(order))
 
     def get_data(self):
         return self.data
