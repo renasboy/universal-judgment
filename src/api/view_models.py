@@ -1,4 +1,5 @@
 import facebook
+from django.db import IntegrityError
 from django.http import Http404, HttpResponseBadRequest, HttpResponseServerError
 from api import models
 
@@ -28,7 +29,10 @@ class BaseViewModel(object):
                         img=picture['url'],
                         score=2
                     )
-                    person.save()
+                    try:
+                        person.save()
+                    except IntegrityError:
+                        pass
                 if person:
                     session['id'] = person.id
 
