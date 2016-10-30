@@ -1,5 +1,5 @@
 # universal-judgment
-Universal Judgement (www.universaljudgement.com)
+Universal Judgement (www.universaljudgment.com)
 
 # Backend
 
@@ -10,14 +10,15 @@ Universal Judgement (www.universaljudgement.com)
 # Angular build
 
 - node.js (https://nodejs.org/en/)
+- npm insatall
 - npm install bower
 - npm install gulp
-- npm insatall
 - bower install
 
 
-# Angular run
+# Angular gulp run
 
-- gulp build - build dist
-- gulp serve - serve on port 9000
-- gulp clean - remove dist folder
+- Build dist: gulp build:dist
+- Serve: gulp serve (on port 3000)
+- Serve dist: gulp serve:dist
+- Remove dist folder: gulp clean
