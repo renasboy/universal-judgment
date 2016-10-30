@@ -10,12 +10,15 @@
      * Person controller
      * @param {Object} $stateParams
      * @param {QualitiesService} qualitiesService
+     * @param {JudgmentService} judgmentService
+     * @param {PersonService} personService
      * @constructor
      */
     function JudgeController($stateParams,
                              qualitiesService,
                              judgmentService,
                              personService) {
+
         this.$stateParams = $stateParams;
         this._qualitiesService = qualitiesService;
         this._judgmentService = judgmentService;
@@ -24,14 +27,6 @@
         // Bootstrap
         this.getQualities();
     }
-
-    /**
-     *
-     * @type {{}}
-     */
-    JudgeController.prototype.contants = {
-        PERSON_SCORE: 'personScore'
-    };
 
     /**
      *
@@ -49,7 +44,7 @@
 
     /**
      * Gets user info from API call
-     *
+     * @return {Object}
      */
     JudgeController.prototype.getQualities = function () {
         var that = this;
@@ -61,8 +56,8 @@
     };
 
     /**
-     *
-     * @returns {Array} Person qualities
+     * Person qualities
+     * @returns {Array}
      */
     JudgeController.prototype.setQualities = function () {
         var that = this;
