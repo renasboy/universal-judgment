@@ -18,7 +18,6 @@
                              qualitiesService,
                              judgmentService,
                              personService) {
-
         this.$stateParams = $stateParams;
         this._qualitiesService = qualitiesService;
         this._judgmentService = judgmentService;
