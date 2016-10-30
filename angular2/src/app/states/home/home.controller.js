@@ -8,12 +8,12 @@
 
     /**
      * The home page controller
-     * @param {HeavenHellAPI} heavenHellAPI
+     * @param peopleService
+     * @param authService
+     * @param $state
      * @constructor
      */
     function HomeController(peopleService,
-                            Facebook,
-                            $scope,
                             authService,
                             $state) {
         this._peopleService = peopleService;

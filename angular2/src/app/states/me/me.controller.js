@@ -8,12 +8,10 @@
 
     /**
      * Person controller
-     * @param {Object} $stateParams
      * @param {PersonService} personService
      * @constructor
      */
-    function MeController($stateParams,
-                              personService) {
+    function MeController(personService) {
         this._personService = personService;
 
         // Bootstrap

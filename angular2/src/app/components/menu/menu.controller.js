@@ -8,7 +8,9 @@
 
     /**
      * The menu page controller
-     * @param {Object} $state
+     * @param $state
+     * @param authService
+     * @param $rootScope
      * @constructor
      */
     function MenuController($state, authService, $rootScope) {

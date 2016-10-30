@@ -8,7 +8,11 @@
 
     /**
      *
-     * @param {Object} $state
+     * @param $state
+     * @param Facebook
+     * @param personService
+     * @param $rootScope
+     * @constructor
      */
     function AuthService($state, Facebook, personService, $rootScope) {
         this._state = $state;
