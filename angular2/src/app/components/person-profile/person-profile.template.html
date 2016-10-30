@@ -1,13 +1,8 @@
 <div class="row user-info" data-ng-model='ctrl.person'>
     <div class="col-xs-4 col-xs-offset-1">
-        <div class="user-image {{ctrl.person.status}}">
-            <img src="{{ctrl.person.img}}"/>
-        </div>
+        <app-person-profile-image></app-person-profile-image>
     </div>
     <div class="col-xs-7">
-        <h1 class="user-name" data-ng-bind="ctrl.person.name"></h1>
-        <h2 class="user-rate pull-left" data-ng-bind="ctrl.person.score"></h2>
-        <span class="font-xs user-rate pull-left">/ 4</span>
+        <app-person-profile-name></app-person-profile-name>
     </div>
-    <!--<div class="col-xs-2 {{ctrl.person.status}}-icon"></div>-->
 </div>
