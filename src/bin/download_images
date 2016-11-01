@@ -11,7 +11,7 @@ sqlite3 $sqlite3 "$select_query" | while read line; do
     img=$(echo $line | awk -F "|" '{ print $2 }')
     new_img="http://test.$domain/static/img/person/${id}.jpeg"
     update_query="UPDATE api_person SET img = '$new_img' WHERE id = $id;"
-    wget -q -O "/var/projects/universal-judgment/angular2/src/static/img/person/$id.jpeg" "$img" &&
+    wget -q -O "/var/projects/universal-judgment/site/src/static/img/person/$id.jpeg" "$img" &&
     sqlite3 $sqlite3 "$update_query"
 done
 make frontend_build
