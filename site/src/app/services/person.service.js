@@ -15,7 +15,7 @@
     }
 
     PersonService.prototype.constants = {
-        apiHost: angular.apiHost + '/tuj/person'
+        apiHost: angular.apiHost + '/person'
     };
 
     PersonService.prototype.getPerson = function (id) {

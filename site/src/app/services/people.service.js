@@ -15,7 +15,7 @@
     }
 
     PeopleService.prototype.constants = {
-        apiHost: angular.apiHost + '/tuj/people'
+        apiHost: angular.apiHost + '/people'
     };
 
     PeopleService.prototype.getPeople = function () {

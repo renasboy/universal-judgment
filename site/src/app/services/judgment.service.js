@@ -19,7 +19,7 @@
      * @type {{apiHost: string}}
      */
     JudgmentService.prototype.constants = {
-        apiHost: angular.apiHost + '/tuj/judgment'
+        apiHost: angular.apiHost + '/judgment'
     };
 
     /**
