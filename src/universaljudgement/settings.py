@@ -4,9 +4,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 SECRET_KEY = os.environ['SECRET_KEY'] 
 
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = [ 'www.universaljudgment.com' ]
+ALLOWED_HOSTS = [ '.universaljudgment.com' ]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -96,5 +96,5 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
-STATIC_ROOT = '/var/www/test.universaljudgment.com/static'
+STATIC_ROOT = '/var/www/universaljudgment.com/static'
 STATIC_URL = '/static/'

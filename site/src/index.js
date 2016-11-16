@@ -57,7 +57,7 @@
     }
 
     // move to gulp config
-    angular.apiHost = 'http://api.universaljudgment.com';
+    angular.apiHost = 'https://universaljudgment.com/api';
 
     angular.module('app', [
         'ui.router',
