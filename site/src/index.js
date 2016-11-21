@@ -30,10 +30,10 @@
             DONE: 'Fatto',
             NEW_SCORE: 'Nuovo punteggio',
             WHY: 'Perché questo giudizio è importante per te?',
-            APPERANCE: 'Apparenza',
-            INTELLIGENCE: 'Intelligenza',
-            HONESTY: 'Onesta',
-            PROFESSIONALISM: 'Professionalismo',
+            APPERANCE: 'APPARENZA',
+            INTELLIGENCE: 'INTELLIGENZA',
+            HONESTY: 'ONEST&Aacute;',
+            PROFESSIONALISM: 'PROFESSIONALIT&Aacute;',
             HELL: 'Inferno',
             HEAVEN: 'Paradiso',
             PURGATORY: 'Purgatorio',
@@ -41,8 +41,8 @@
             SEARCH: 'ricerca',
             RANK: 'rank',
             ME: 'me',
-            BACK: 'torna',
-            CANCEL: 'chiude'
+            BACK: 'indietro',
+            CANCEL: 'chiudi'
         });
         var langs = ['en', 'it'];
         var lang = (navigator.userLanguage ||

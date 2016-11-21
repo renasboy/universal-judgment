@@ -15,4 +15,5 @@ sqlite3 $sqlite3 "$select_query" | while read line; do
     sqlite3 $sqlite3 "$update_query"
 done
 
-make deploy
+#make deploy
+cp /var/projects/universal-judgment/site/src/static/img/person/* /var/www/universaljudgment.com/static/img/person/
