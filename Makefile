@@ -24,6 +24,7 @@ frontend_build:
 
 deploy_test: frontend_build
 	cd site
+	sed -i -e 's@maps/\(scripts/.*\.js\)\.map@\1@g' dist/index.html
 	cp -R dist/* /var/www/test.universaljudgment.com
 
 deploy: frontend_build
