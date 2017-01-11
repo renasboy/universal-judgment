@@ -39,6 +39,41 @@
             padding-top: 130px;
         }
     }
+
+    .stars {
+        color: #ccc;
+        font-size: 1.2rem;
+    }
+
+    .stars0 {
+        .star0 {
+            color: #ffd700
+        }
+    }
+
+    .stars1 {
+        .star0, .star1 {
+            color: #ffd700
+        }
+    }
+
+    .stars2 {
+        .star0, .star1, .star2 {
+            color: #ffd700
+        }
+    }
+
+    .stars3 {
+        .star0, .star1, .star2, .star3 {
+            color: #ffd700
+        }
+    }
+
+    .stars4 {
+        .star0, .star1, .star2, .star3, .star4 {
+            color: #ffd700
+        }
+    }
 }
 
 .userSearch {

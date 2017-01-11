@@ -46,6 +46,24 @@
         }
     }
 
+    .form {
+        .stars {
+            margin-left: 25%;
+            font-size: 2em;
+
+            @include breakpoint(sm) {
+                font-size: 3em;
+            }
+
+            .star0, .star1, .star2, .star3, .star4 {
+                color: #ffd700;
+                width: 18%;
+                display: inline-block;
+                text-align: center;
+            }
+        }
+    }
+
     .judge-list {
 
         li {
