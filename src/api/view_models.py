@@ -15,8 +15,8 @@ class BaseViewModel(object):
                 graph = facebook.GraphAPI(access_token)
                 profile = graph.get_object('me')
                 picture = graph.get_connections(id='me', connection_name='picture')
-            except GraphAPIError:
-                del(session['id'])
+            except facebook.GraphAPIError:
+                pass
 
             if profile and picture:
                 session['fbid'] = profile['id']

@@ -1,4 +1,6 @@
 import os
+import logging, sys
+logging.basicConfig(stream=sys.stderr)
 
 from django.core.wsgi import get_wsgi_application
 

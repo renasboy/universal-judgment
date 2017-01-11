@@ -9,7 +9,7 @@
             SUBMIT: 'Submit',
             DONE: 'Done',
             NEW_SCORE: 'New Score',
-            WHY: 'Why?',
+            WHY: 'Why is this judgment important for you?',
             APPERANCE: 'Apperance',
             INTELLIGENCE: 'Intelligence',
             HONESTY: 'Honesty',
@@ -29,11 +29,11 @@
             SUBMIT: 'Invia',
             DONE: 'Fatto',
             NEW_SCORE: 'Nuovo punteggio',
-            WHY: 'Perche?',
-            APPERANCE: 'Apparenza',
-            INTELLIGENCE: 'Intelligenza',
-            HONESTY: 'Onesta',
-            PROFESSIONALISM: 'Professionalismo',
+            WHY: 'Perché questo giudizio è importante per te?',
+            APPERANCE: 'APPARENZA',
+            INTELLIGENCE: 'INTELLIGENZA',
+            HONESTY: 'ONEST&Aacute;',
+            PROFESSIONALISM: 'PROFESSIONALIT&Aacute;',
             HELL: 'Inferno',
             HEAVEN: 'Paradiso',
             PURGATORY: 'Purgatorio',
@@ -41,8 +41,8 @@
             SEARCH: 'ricerca',
             RANK: 'rank',
             ME: 'me',
-            BACK: 'torna',
-            CANCEL: 'chiude'
+            BACK: 'indietro',
+            CANCEL: 'chiudi'
         });
         var langs = ['en', 'it'];
         var lang = (navigator.userLanguage ||
@@ -57,7 +57,7 @@
     }
 
     // move to gulp config
-    angular.apiHost = 'http://api.universaljudgment.com';
+    angular.apiHost = 'https://universaljudgment.com/api';
 
     angular.module('app', [
         'ui.router',

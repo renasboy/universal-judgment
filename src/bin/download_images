@@ -9,10 +9,11 @@ select_query="SELECT id, img FROM api_person WHERE img not like '%$domain%';"
 sqlite3 $sqlite3 "$select_query" | while read line; do
     id=$(echo $line | awk -F "|" '{ print $1 }')
     img=$(echo $line | awk -F "|" '{ print $2 }')
-    new_img="http://$domain/static/img/person/${id}.jpeg"
+    new_img="https://$domain/static/img/person/${id}.jpeg"
     update_query="UPDATE api_person SET img = '$new_img' WHERE id = $id;"
     wget -q -O "/var/projects/universal-judgment/site/src/static/img/person/$id.jpeg" "$img" &&
     sqlite3 $sqlite3 "$update_query"
 done
 
-make deploy
+#make deploy
+cp /var/projects/universal-judgment/site/src/static/img/person/* /var/www/universaljudgment.com/static/img/person/
