@@ -139,3 +139,13 @@ class Judgement(BaseViewModel):
         return dict(
             result=True
         )
+
+
+class Judgements(object):
+
+    def __init__(self, input=None, session=None, cookies=None, many=False):
+        id = input.get('id', 0)
+        self.data = models.Judgement.objects.filter(judged=id).exclude(judged=0).order_by('-created').prefetch_related('judge')
+
+    def get_data(self):
+        return self.data
