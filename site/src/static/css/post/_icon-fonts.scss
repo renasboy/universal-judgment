@@ -63,3 +63,33 @@
 .icon-user2:before { content: '\e80f'; } /* '' */
 .icon-forward:before { content: '\e810'; } /* '' */
 .icon-spin3:before { content: '\e832'; } /* '' */
+
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../static/fonts/icomoon.eot?pajfy3');
+  src:  url('../static/fonts/icomoon.eot?pajfy3#iefix') format('embedded-opentype'),
+    url('../static/fonts/icomoon.ttf?pajfy3') format('truetype'),
+    url('../static/fonts/icomoon.woff?pajfy3') format('woff'),
+    url('../static/fonts/icomoon.svg?pajfy3#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.stars span {
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.stars span:before {
+  content: "\e9d9";
+}
+

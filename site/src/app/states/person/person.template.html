@@ -24,11 +24,11 @@
             <li data-ng-repeat="judgment in ctrl.judgments">
                 <h1 class="judge-name">{{judgment.judge}} <time datetime="{{judgment.created}}">{{judgment.created|timeago}}</time></h1> 
                 <div class="stars stars{{judgment.score | number:0}}">
-                    <span class="star0">★</span>
-                    <span class="star1">★</span>
-                    <span class="star2">★</span>
-                    <span class="star3">★</span>
-                    <span class="star4">★</span>
+                    <span class="star0"></span>
+                    <span class="star1"></span>
+                    <span class="star2"></span>
+                    <span class="star3"></span>
+                    <span class="star4"></span>
                 </div>
                 <p data-ng-if="judgment.why" data-ng-bind="judgment.why"></p>
                  
