@@ -9,6 +9,7 @@
     }
 
     .list-judgments {
+        margin-bottom: 90px;
 
         @include breakpoint(sm) {
             width: 80%;
