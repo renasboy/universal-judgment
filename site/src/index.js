@@ -22,7 +22,8 @@
             RANK: 'rank',
             ME: 'me',
             BACK: 'back',
-            CANCEL: 'cancel'
+            CANCEL: 'cancel',
+            JUDGMENTS: 'Judgments'
         });
         $translateProvider.translations('it', {
             JUDGE_NOW: 'Giudica',
@@ -42,7 +43,8 @@
             RANK: 'rank',
             ME: 'me',
             BACK: 'indietro',
-            CANCEL: 'chiudi'
+            CANCEL: 'chiudi',
+            JUDGMENTS: 'Giudizi'
         });
         var langs = ['en', 'it'];
         var lang = (navigator.userLanguage ||
