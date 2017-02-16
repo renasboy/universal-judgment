@@ -40,6 +40,12 @@ virtualenv:
 	$(PIP) install -U pip 
 	$(PIP) install -r etc/freeze.txt
 
+restoredb:
+	$(PYTHON) src/manage.py loaddata `ls -t src/db/db.backup-* | head -1`
+
+backupdb:
+	$(PYTHON) src/manage.py dumpdata api > src/db/db.backup-`date +%s`.json
+
 resetdb:
 	mkdir -p src/db
 	rm -f src/api/migrations/0001_initial.py src/db/db.sqlite3
