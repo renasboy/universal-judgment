@@ -1,19 +1,18 @@
 #!/bin/bash
 
-cd /var/projects/universal-judgment
+PROJECT_DIR=/var/projects/universal-judgment
+WWW_DIR=/var/www
+DOMAIN="universaljudgment.com"
+IMG_PATH=static/img/person
 
-sqlite3="src/db/db.sqlite3"
-domain="universaljudgment.com"
-select_query="SELECT id, img FROM api_person WHERE img not like '%$domain%';"
-
-sqlite3 $sqlite3 "$select_query" | while read line; do
+cd $PROJECT_DIR
+select_query="SELECT id, img FROM api_person WHERE img not like '%$DOMAIN%';"
+/usr/bin/psql -A -t -h 127.0.0.1 -U tuj -c "$select_query" | while read line; do
     id=$(echo $line | awk -F "|" '{ print $1 }')
     img=$(echo $line | awk -F "|" '{ print $2 }')
-    new_img="https://$domain/static/img/person/${id}.jpeg"
+    new_img="https://$DOMAIN/$IMG_PATH/${id}.jpeg"
     update_query="UPDATE api_person SET img = '$new_img' WHERE id = $id;"
-    wget -q -O "/var/projects/universal-judgment/site/src/static/img/person/$id.jpeg" "$img" &&
-    sqlite3 $sqlite3 "$update_query"
+    wget -q -O "$PROJECT_DIR/site/src/$IMG_PATH/$id.jpeg" "$img" &&
+    /usr/bin/psql -q -A -t -h 127.0.0.1 -U tuj -c "$update_query"
 done
-
-#make deploy
-cp /var/projects/universal-judgment/site/src/static/img/person/* /var/www/universaljudgment.com/static/img/person/
+cp $PROJECT_DIR/site/src/$IMG_PATH/* $WWW_DIR/$DOMAIN/$IMG_PATH
