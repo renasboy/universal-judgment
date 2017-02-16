@@ -12,6 +12,13 @@
                         <img data-ng-src="{{person.img}}" alt="{{person.name}}"/>
                     </div>
                     <h2 class="font-xs" data-ng-bind="person.name"></h2>
+                    <div class="stars stars{{person.score | number:0}}">
+                        <span class="star0"></span>
+                        <span class="star1"></span>
+                        <span class="star2"></span>
+                        <span class="star3"></span>
+                        <span class="star4"></span>
+                    </div>
                     <span data-ng-bind="person.score"></span>
                 </a>
             </li>

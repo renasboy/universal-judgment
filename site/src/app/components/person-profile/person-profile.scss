@@ -1,5 +1,41 @@
 .user-info {
     padding: 20px 0;
+
+    .stars {
+        color: #ccc;
+        font-size: 1.5rem;
+    }
+
+    .stars0 {
+        .star0 {
+            color: #ffd700
+        }
+    }
+
+    .stars1 {
+        .star0, .star1 {
+            color: #ffd700
+        }
+    }
+
+    .stars2 {
+        .star0, .star1, .star2 {
+            color: #ffd700
+        }
+    }
+
+    .stars3 {
+        .star0, .star1, .star2, .star3 {
+            color: #ffd700
+        }
+    }
+
+    .stars4 {
+        .star0, .star1, .star2, .star3, .star4 {
+            color: #ffd700
+        }
+    }
+
 }
 
 .user-image {
@@ -61,7 +97,7 @@
 
 // List items
 .list-items {
-    margin-bottom: 90px;
+    margin-bottom: 40px;
     li {
         padding: 35px 0 55px 0;
         position: relative;

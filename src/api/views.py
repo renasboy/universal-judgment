@@ -74,3 +74,9 @@ class Judgement(PostView):
     input_serializer = serializers.JudgementInput
     output_serializer = serializers.JudgementOutput
     view_model = view_models.Judgement
+
+
+class Judgements(ListView):
+    input_serializer = serializers.JudgementsInput
+    output_serializer = serializers.JudgementsOutput
+    view_model = view_models.Judgements

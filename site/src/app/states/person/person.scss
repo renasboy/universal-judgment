@@ -2,4 +2,69 @@
     .btn {
         line-height: 60px;
     }
+
+    .judgments-header {
+        margin-bottom: 30px;
+        padding: 0 15px;
+    }
+
+    .list-judgments {
+        margin-bottom: 90px;
+
+        @include breakpoint(sm) {
+            width: 80%;
+        }
+        
+        h1 {
+            font-size: 1.2rem;
+        }
+        time {
+            float: right;
+            font-size: 0.8rem;
+            font-family: "sans serif";
+            line-height: 1.2rem;
+        }
+        p {
+            font-family: "sans serif";
+        }
+        li {
+            margin-bottom: 30px;
+            padding: 0 15px;
+        }
+        .stars {
+            color: #ccc;
+            font-size: 1.2rem;
+        }
+
+        .stars0 {
+            .star0 {
+                color: #ffd700
+            }
+        }
+
+        .stars1 {
+            .star0, .star1 {
+                color: #ffd700
+            }
+        }
+
+        .stars2 {
+            .star0, .star1, .star2 {
+                color: #ffd700
+            }
+        }
+
+        .stars3 {
+            .star0, .star1, .star2, .star3 {
+                color: #ffd700
+            }
+        }
+
+        .stars4 {
+            .star0, .star1, .star2, .star3, .star4 {
+                color: #ffd700
+            }
+        }
+
+    }
 }

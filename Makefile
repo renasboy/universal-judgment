@@ -24,6 +24,7 @@ frontend_build:
 
 deploy_test: frontend_build
 	cd site
+	sed -i -e 's@maps/\(scripts/.*\.js\)\.map@\1@g' dist/index.html
 	cp -R dist/* /var/www/test.universaljudgment.com
 
 deploy: frontend_build
@@ -38,6 +39,12 @@ virtualenv:
 	test -d venv || pyvenv venv
 	$(PIP) install -U pip 
 	$(PIP) install -r etc/freeze.txt
+
+restoredb:
+	$(PYTHON) src/manage.py loaddata `ls -t src/db/db.backup-* | head -1`
+
+backupdb:
+	$(PYTHON) src/manage.py dumpdata api > src/db/db.backup-`date +%s`.json
 
 resetdb:
 	mkdir -p src/db

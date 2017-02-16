@@ -73,3 +73,21 @@ class JudgementInput(serializers.ModelSerializer):
 
 class JudgementOutput(serializers.Serializer):
     result = serializers.CharField()
+
+
+class JudgementsInput(serializers.ModelSerializer):
+    id = serializers.IntegerField(default=0)
+    class Meta:
+        model = models.Person
+        fields = ('id',)
+
+    def get_validation_exclusions(self):
+        return ['id']
+
+
+class JudgementsOutput(serializers.ModelSerializer):
+    judge = serializers.StringRelatedField()
+
+    class Meta:
+        model = models.Judgement
+        fields = ('id', 'created', 'judge', 'score', 'why')

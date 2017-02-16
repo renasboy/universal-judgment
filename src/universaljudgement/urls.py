@@ -12,6 +12,7 @@ urlpatterns = [
     url(r'^admin/?', admin.site.urls),
     url(r'^qualities/?$', views.Qualities.as_view()),
     url(r'^judgment/?$', views.Judgement.as_view()),
+    url(r'^judgments/(?P<id>[0-9]+)/?$', views.Judgements.as_view()),
     url(r'^people/?$', views.People.as_view()),
     url(r'^person/(?P<id>[0-9]+)/?$', views.Person.as_view()),
     url(r'^person', views.Person.as_view()),

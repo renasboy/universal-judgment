@@ -1,5 +1,7 @@
 venv
 src/db/db.sqlite3
+src/db/db.sqlite3.*
+src/db/db.backup*
 __pycache__
 *.pyc
 bower_components
