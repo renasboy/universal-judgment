@@ -11,7 +11,7 @@ gulp.task('inject', inject);
 function inject() {
     const injectScripts = gulp.src([
         conf.path.tmp('**/*.js'),
-        `!${conf.path.tmp('**/*.spec.js')}`
+        "!${conf.path.tmp('**/*.spec.js')}"
     ])
         .pipe(angularFilesort()).on('error', conf.errorHandler('AngularFilesort'));
 
