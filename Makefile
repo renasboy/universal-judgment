@@ -20,7 +20,10 @@ frontend:
 frontend_build:
 	cd site && rm -rf dist && ./node_modules/gulp/bin/gulp.js build
 
-deploy_test: frontend_build
+frontend_build_test:
+	cd site && rm -rf dist && ./node_modules/gulp/bin/gulp.js build:test
+
+deploy_test: frontend_build_test
 	cd site && cp -R dist/* /var/www/test.universaljudgment.com
 
 deploy: frontend_build
