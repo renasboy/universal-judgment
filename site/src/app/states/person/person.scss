@@ -27,17 +27,16 @@
         time {
             float: right;
             font-size: 0.8rem;
-            font-family: "sans serif";
             line-height: 1.2rem;
         }
-        p {
-            font-family: "sans serif";
-        }
+
         li {
-            margin-bottom: 30px;
-            padding: 0 15px;
+            margin-bottom: 2px;
+            background: $gray-2;
+            padding: 20px;
         }
         .stars {
+            margin: 4px 0 10px;
             color: #ccc;
             font-size: 1.2rem;
         }
