@@ -1,11 +1,11 @@
 <div class="container-fluid">
     <nav ng-hide="mainMenu" class="row">
-        <a href="/"
+        <a ui-sref="home"
            class="col-xs-3 col-sm-12 icon-home2"
            data-ng-class="ctrl.isActive('home')">
             <span translate="HOME" class="hidden-xs"></span>
         </a>
-        <a href="./#/search"
+        <a ui-sref="search"
            class="col-xs-3 col-sm-12 icon-search2"
            data-ng-class="ctrl.isActive('search')">
             <span translate="SEARCH" class="hidden-xs"></span>
@@ -15,7 +15,7 @@
            data-ng-class="ctrl.isActive('rank-menu,rank')">
             <span translate="RANK" class="hidden-xs"></span>
         </a>
-        <a href="./#/me"
+        <a ui-sref="me"
            class="col-xs-3 col-sm-12 icon-user"
            data-ng-class="ctrl.isActive('me')"
            data-ng-show="$root.logged">
