@@ -3,9 +3,7 @@
 
     var _cache = {};
 
-    function run($rootScope, authService, Facebook, $cacheFactory) {
-
-        _cache = $cacheFactory;
+    function run($rootScope, authService, Facebook) {
 
         $rootScope.$watch(
             function () {
