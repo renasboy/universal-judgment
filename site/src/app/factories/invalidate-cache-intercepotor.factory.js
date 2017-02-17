@@ -12,10 +12,7 @@
         return {
             response: function (res) {
                 if (res.data['result'] === 'True') {
-                    var checkCache = $cacheFactory.info();
-                    angular.forEach(checkCache, function (obj, key) {
-                        $cacheFactory.get(key).removeAll();
-                    });
+                    $cacheFactory.get('$http').removeAll();
                 }
                 return res;
             }
