@@ -12,3 +12,4 @@ dist
 **/.tmp
 **/dist
 .DS_Store
+site/src/static/img/person
