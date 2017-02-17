@@ -33,6 +33,10 @@
         document.cookie = 'fbat=' + accessToken + '; expires=' + expiry + '; path=/;';
     };
 
+    AuthService.prototype.removeFacebookCookie = function () {
+        document.cookie = 'fbat==;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    };
+
     AuthService.prototype.handleFacebookLogin = function (response) {
         if (response.authResponse) {
             var accessToken = response.authResponse.accessToken;
@@ -50,10 +54,11 @@
     };
 
     AuthService.prototype.setLogout = function () {
-        
+        this.removeFacebookCookie();
+        // TODO Call API
     };
 
 
-        angular.module('app')
+    angular.module('app')
         .service('authService', AuthService);
 }(window.angular));

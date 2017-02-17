@@ -9,10 +9,13 @@
     /**
      * Person controller
      * @param {PersonService} personService
+     * @param {AuthService} authService
      * @constructor
      */
-    function MeController(personService) {
+    function MeController(personService,
+                          authService) {
         this._personService = personService;
+        this._authService = authService;
 
         // Bootstrap
         this.getMe();
@@ -30,6 +33,10 @@
         }).catch(function () {
             throw Error('Get person API is not available');
         });
+    };
+
+    MeController.prototype.setLogout = function () {
+        this._authService.setLogout();
     };
 
     angular.module('app').controller('meController', MeController);

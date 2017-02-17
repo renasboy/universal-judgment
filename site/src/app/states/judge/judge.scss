@@ -2,6 +2,8 @@
 
     nav {
         .icon-close {
+            display: block;
+
             &:before {
                 margin: 14px 0 0 18px;
             }
