@@ -21,41 +21,6 @@
         );
     }
 
-
-    function cleanCache(isPost) {
-        if (isPost) {
-            var checkCache = _cache.info();
-            angular.forEach(checkCache, function (obj, key) {
-                _cache.get(key).removeAll();
-            });
-        }
-    }
-
-    function testInterceptor() {
-        return {
-            request: function (config) {
-                return config;
-            },
-
-            requestError: function (config) {
-                return config;
-            },
-
-            response: function (res) {
-                cleanCache(res.data['result'] === 'True');
-                return res;
-            },
-
-            responseError: function (res) {
-                return res;
-            }
-        }
-    }
-
     angular.module('app')
-        .run(run)
-        .factory('testInterceptor', testInterceptor)
-        .config(function ($httpProvider) {
-            $httpProvider.interceptors.push('testInterceptor');
-        });
+        .run(run);
 }(window.angular));
