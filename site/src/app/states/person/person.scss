@@ -3,6 +3,13 @@
         line-height: 60px;
     }
 
+    .btn-logout {
+        padding: 10px;
+        font-size: $fonts-sm;
+        font-weight: normal;
+        margin-bottom: 100px;
+    }
+
     .icon-arrow-back {
         &:before {
             margin: 12px 0 0 24px;
