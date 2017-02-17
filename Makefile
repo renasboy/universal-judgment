@@ -18,17 +18,13 @@ frontend:
 	./node_modules/bower/bin/bower install --allow-root
 
 frontend_build:
-	cd site
-	rm -rf dist
-	./node_modules/gulp/bin/gulp.js build
+	cd site && rm -rf dist && ./node_modules/gulp/bin/gulp.js build
 
 deploy_test: frontend_build
-	cd site
-	cp -R dist/* /var/www/test.universaljudgment.com
+	cd site && cp -R dist/* /var/www/test.universaljudgment.com
 
 deploy: frontend_build
-	cd site
-	cp -R dist/* /var/www/universaljudgment.com
+	cd site && cp -R dist/* /var/www/universaljudgment.com
 
 frontend_clean:
 	rm -rf site/node_modules
