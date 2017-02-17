@@ -3,6 +3,12 @@
         line-height: 60px;
     }
 
+    .icon-arrow-back {
+        &:before {
+            margin: 12px 0 0 24px;
+        }
+    }
+
     .judgments-header {
         margin-bottom: 30px;
         padding: 0 15px;
@@ -14,7 +20,7 @@
         @include breakpoint(sm) {
             width: 80%;
         }
-        
+
         h1 {
             font-size: 1.2rem;
         }
