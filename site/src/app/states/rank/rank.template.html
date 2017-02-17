@@ -2,8 +2,10 @@
 
 <div class="container-fluid rank">
 
-    <h1 translate="{{ctrl.rank|uppercase}}"></h1>
-
+    <div class="title">
+        <h1 translate="{{ctrl.rank|uppercase}}"></h1>
+        <h2 data-ng-bind="ctrl.people.length"></h2>
+    </div>
     <div id="user-list">
         <ul>
             <li data-ng-repeat="person in ctrl.people | filter : userSearch">

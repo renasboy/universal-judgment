@@ -1,5 +1,24 @@
 .rank {
 
+    .title {
+        padding: 20px;
+        margin: auto;
+        width: auto;
+        text-align: center;
+        @extend .clearfix;
+
+        h1 {
+            float: left;
+            margin: 0 10px 0 0;
+            padding: 0;
+        }
+        h2 {
+            float: left;
+            font-size: .9rem;
+            color: $gray-4;
+        }
+    }
+
     h1 {
         text-align: center;
         padding: 20px 0;
