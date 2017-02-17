@@ -11,6 +11,5 @@ dist
 .idea
 **/.tmp
 **/dist
-.eslintrc
 .DS_Store
 person
