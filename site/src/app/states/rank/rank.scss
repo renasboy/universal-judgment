@@ -27,7 +27,7 @@
         text-transform: uppercase;
         font-size: $fonts-md;
         &:before {
-            margin-right: 20px;
+            //margin-right: 20px;
             font-size: $fonts-lg;
         }
         @include breakpoint(sm) {

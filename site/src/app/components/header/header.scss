@@ -9,11 +9,14 @@ header {
     background: linear-gradient(to bottom, rgba(237, 237, 237, 1) 0%, rgba(237, 237, 237, 1) 74%, rgba(216, 216, 216, 1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#d8d8d8', GradientType=0);
 
+    @include breakpoint(sm) {
+        position: fixed;
+        width: 100%;
+    }
 
     .header-wrap {
         max-width: 1024px;
     }
-
 
     &:before {
         content: '';
