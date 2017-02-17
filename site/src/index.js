@@ -130,6 +130,7 @@
         'ui.router',
         'facebook',
         'pascalprecht.translate',
-        'ngSanitize'
+        'ngSanitize',
+        'angularLazyImg'
     ]).config(config);
 }(window.angular));
