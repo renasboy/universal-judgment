@@ -13,8 +13,8 @@
     li {
         text-align: center;
         display: inline-block;
-        width: 36%;
-        margin: 0 7% 34px;
+        width: 40%;
+        margin: 0 5% 34px;
 
         @include breakpoint(sm) {
             width: 33.3%;
