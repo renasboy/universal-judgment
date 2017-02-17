@@ -10,8 +10,17 @@ const sourcemaps = require('gulp-sourcemaps');
 const uglifySaveLicense = require('uglify-save-license');
 const inject = require('gulp-inject');
 const ngAnnotate = require('gulp-ng-annotate');
-
 const conf = require('../conf/gulp.conf');
+
+
+const replace = require('gulp-string-replace');
+const environments = require('../conf/environments.js');
+
+gulp.task('replace-api-url-prod', function () {
+    gulp.src(["./dist/scripts/app-**"])
+        .pipe(replace(environments.paths.test, environments.paths.prod))
+        .pipe(gulp.dest('./dist/scripts/'))
+});
 
 gulp.task('build', build);
 
