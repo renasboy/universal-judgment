@@ -4,17 +4,21 @@
 
     ul {
         margin: auto;
-        width: 90%;
+        width: 100%;
+        @include breakpoint(md) {
+            width: 90%;
+        }
     }
 
     li {
         text-align: center;
         display: inline-block;
-        width: 50%;
-        margin-bottom: 34px;
+        width: 36%;
+        margin: 0 7% 34px;
 
         @include breakpoint(sm) {
             width: 33.3%;
+            margin: 0 0 34px;
         }
         @include breakpoint(md) {
             width: 25%;
