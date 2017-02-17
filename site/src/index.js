@@ -1,8 +1,10 @@
 (function (angular) {
     'use strict';
 
-    function config(FacebookProvider, $translateProvider) {
+    function config(FacebookProvider, $httpProvider, $translateProvider) {
         FacebookProvider.init('993028097483020');
+
+        $httpProvider.defaults.cache = true;
 
         $translateProvider.translations('en', {
             JUDGE_NOW: 'Judge Now',
@@ -111,9 +113,9 @@
         });
         var langs = ['en', 'it', 'pt', 'cn', 'in'];
         var lang = (navigator.userLanguage ||
-                    navigator.language ||
-                    navigator.browserLanguage ||
-                    navigator.systemLanguage).split('-')[0];
+        navigator.language ||
+        navigator.browserLanguage ||
+        navigator.systemLanguage).split('-')[0];
         if (langs.indexOf(lang) === -1) {
             lang = langs[0];
         }
@@ -122,7 +124,7 @@
     }
 
     // move to gulp config
-    angular.apiHost = 'https://universaljudgment.com/api';
+    angular.apiHost = 'http://test.universaljudgment.com/api';
 
     angular.module('app', [
         'ui.router',
