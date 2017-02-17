@@ -13,7 +13,9 @@
             response: function (res) {
                 if (res.data['result'] === 'True') {
                     var checkCache = $cacheFactory.info();
-                    checkCache['$http'].removeAll();
+                    angular.forEach(checkCache, function (obj, key) {
+                        $cacheFactory.get(key).removeAll();
+                    });
                 }
                 return res;
             }
