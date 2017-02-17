@@ -55,7 +55,7 @@
 
     AuthService.prototype.setLogout = function () {
         this.removeFacebookCookie();
-        // TODO Call API
+        //TODO Call API
     };
 
 
