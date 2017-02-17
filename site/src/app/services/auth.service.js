@@ -49,6 +49,11 @@
         });
     };
 
-    angular.module('app')
+    AuthService.prototype.setLogout = function () {
+        
+    };
+
+
+        angular.module('app')
         .service('authService', AuthService);
 }(window.angular));
