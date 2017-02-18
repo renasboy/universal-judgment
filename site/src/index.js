@@ -26,8 +26,8 @@
             BACK: 'back',
             CANCEL: 'cancel',
             JUDGMENTS: 'Judgments',
-            LATEST: '4 Latest judged',
-            TOP: '10 Most judged'
+            LATEST: 'Latest judged',
+            TOP: 'Most judged'
         });
         $translateProvider.translations('it', {
             JUDGE_NOW: 'Giudica',
@@ -49,8 +49,8 @@
             BACK: 'indietro',
             CANCEL: 'chiudi',
             JUDGMENTS: 'Giudizi',
-            LATEST: '4 Ultimi giudicati',
-            TOP: '10 Più giudicati'
+            LATEST: 'Gli Ultimi giudicati',
+            TOP: 'I più giudicati'
         });
         $translateProvider.translations('pt', {
             JUDGE_NOW: 'Julgar',
@@ -72,8 +72,8 @@
             BACK: 'voltar',
             CANCEL: 'cancelar',
             JUDGMENTS: 'Julgamentos',
-            LATEST: '4 &Uacute;ltimos julgamentos',
-            TOP: '10 Mais julgados'
+            LATEST: '&Uacute;ltimos julgamentos',
+            TOP: 'Mais julgados'
         });
         $translateProvider.translations('in', {
             JUDGE_NOW: 'Judge Now',
@@ -95,8 +95,8 @@
             BACK: 'back',
             CANCEL: 'cancel',
             JUDGMENTS: 'Judgments',
-            LATEST: '4 Latest judged',
-            TOP: '10 Most judged'
+            LATEST: 'Latest judged',
+            TOP: 'Most judged'
         });
         $translateProvider.translations('cn', {
             JUDGE_NOW: '法官現在',
