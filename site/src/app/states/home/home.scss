@@ -1,5 +1,4 @@
 .home {
-
     .title * {
         font-size: $fonts-sm;
         display: block;
@@ -8,6 +7,12 @@
         @include breakpoint_max(sm) {
             text-align: center;
         }
+    }
+}
+
+.searchOn {
+    @include breakpoint(sm) {
+        margin-top: 230px;
     }
 }
 
@@ -49,12 +54,6 @@
 
     .user-image {
         margin: auto;
-    }
-    // Search
-    &.search {
-        @include breakpoint(sm) {
-            padding-top: 130px;
-        }
     }
 
     .stars {
