@@ -75,7 +75,7 @@ class People(object):
             limit = 4
         elif input.get('top'):
             order = '-num_judgements'
-            limit = 10
+            limit = 8
 
         filters = dict(
             score__gte=score_start,
