@@ -2,15 +2,22 @@
 
 PROJECT_DIR=/var/projects/universal-judgment
 WWW_DIR=/var/www
-DOMAIN="universaljudgment.com"
+DOMAIN=universaljudgment.com
 IMG_PATH=static/img/person
+PROTOCOL=https
+
+if test "${DB_NAME:-tuj}" = "tuj_test"; then
+    PROJECT_DIR=/var/projects/test-universal-judgment
+    DOMAIN=test.universaljudgment.com
+    PROTOCOL=http
+fi
 
 cd $PROJECT_DIR
 select_query="SELECT id, img FROM api_person WHERE img not like '%$DOMAIN%';"
 /usr/bin/psql -A -t -h 127.0.0.1 -U tuj -d ${DB_NAME:-tuj} -c "$select_query" | while read line; do
     id=$(echo $line | awk -F "|" '{ print $1 }')
     img=$(echo $line | awk -F "|" '{ print $2 }')
-    new_img="https://$DOMAIN/$IMG_PATH/${id}.jpeg"
+    new_img="$PROTOCOL://$DOMAIN/$IMG_PATH/${id}.jpeg"
     update_query="UPDATE api_person SET img = '$new_img' WHERE id = $id;"
     wget -q -O "$PROJECT_DIR/site/src/$IMG_PATH/$id.jpeg" "$img" &&
     /usr/bin/psql -q -A -t -h 127.0.0.1 -U tuj -d ${DB_NAME:-tuj} -c "$update_query"
