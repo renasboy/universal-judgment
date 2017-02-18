@@ -1,11 +1,12 @@
 <app-header></app-header>
 
-<div class="container-fluid">
+<div class="container-fluid home">
 
     <div class="title" data-ng-show="!userSearch">
         <h1 translate="LATEST"></h1>
     </div>
-    <div id="user-list" data-ng-show="!userSearch">
+    <div class="user-list list-secondary"
+         data-ng-show="!userSearch">
         <ul>
             <li data-ng-repeat="person in ctrl.latest">
                 <a ui-sref="person({slug:person.slug})">
@@ -29,7 +30,8 @@
     <div class="title" data-ng-show="!userSearch">
         <h1 translate="TOP"></h1>
     </div>
-    <div id="user-list" data-ng-show="!userSearch">
+    <div class="user-list top-10"
+         data-ng-show="!userSearch">
         <ul>
             <li data-ng-repeat="person in ctrl.top">
                 <a ui-sref="person({slug:person.slug})">
@@ -54,7 +56,8 @@
         <h1>Universal Judgment</h1>
     </div>
 
-    <div id="user-list" ng-class="ctrl.isSearchOpen ? 'search' : ''">
+    <div class="user-list last-item"
+         ng-class="ctrl.isSearchOpen ? 'search' : ''">
         <ul>
             <li data-ng-repeat="person in ctrl.people | filter : userSearch">
                 <a ui-sref="person({slug:person.slug})">
