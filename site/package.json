@@ -50,12 +50,12 @@
     "wiredep": "^2.2.2"
   },
   "scripts": {
-    "build": "gulp",
-    "serve": "gulp serve",
+    "build": "./node_modules/gulp/bin/gulp.js build",
+    "build:prod": "./node_modules/gulp/bin/gulp.js build:prod",
+    "serve": "./node_modules/gulp/bin/gulp.js serve",
     "serve:dist": "gulp serve:dist",
     "test": "gulp test",
-    "test:auto": "gulp test:auto",
-    "bower": "bower"
+    "test:auto": "gulp test:auto"
   },
   "eslintConfig": {
     "globals": {
