@@ -18,7 +18,7 @@ frontend:
 	./node_modules/bower/bin/bower install --allow-root
 
 frontend_build:
-	cd site && rm -rf dist && ./node_modules/gulp/bin/gulp.js build
+	cd site && rm -rf dist && ./node_modules/gulp/bin/gulp.js build:prod
 
 frontend_build_test:
 	cd site && rm -rf dist && ./node_modules/gulp/bin/gulp.js build:test
