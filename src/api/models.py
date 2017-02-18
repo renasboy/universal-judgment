@@ -24,6 +24,10 @@ class Judgement(models.Model):
         through_fields=('judgement', 'quality')
     )
 
+    @property
+    def judge_slug(self):
+        return self.judge.slug
+
     def __str__(self):
         return '{} - {} judged {}'.format(
             self.id,

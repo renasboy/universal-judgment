@@ -92,7 +92,7 @@ class JudgementsOutput(serializers.ModelSerializer):
 
     class Meta:
         model = models.Judgement
-        fields = ('id', 'created', 'judge', 'score', 'why')
+        fields = ('id', 'created', 'judge', 'judge_slug', 'score', 'why')
 
 
 class LogoutOutput(serializers.Serializer):
