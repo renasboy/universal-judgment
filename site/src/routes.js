@@ -17,11 +17,11 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
             template: '<app-home></app-home>'
         })
         .state('person', {
-            url: '/person/:id',
+            url: '/person/:slug',
             template: '<app-person></app-person>'
         })
         .state('judge', {
-            url: '/judge/:id',
+            url: '/judge/:slug',
             template: '<app-judge></app-judge>'
         })
         .state('me', {

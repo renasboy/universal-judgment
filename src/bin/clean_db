@@ -1,0 +1,8 @@
+#!/bin/bash
+
+select_query="select tablename from pg_tables where schemaname = 'public';"
+/usr/bin/psql -A -t -h 127.0.0.1 -U tuj -d ${DB_NAME:-tuj} -c "$select_query" | while read line; do
+    drop_query="drop table $line cascade;"
+    /usr/bin/psql -q -A -t -h 127.0.0.1 -U tuj -d ${DB_NAME:-tuj} -c "$drop_query"
+done
+

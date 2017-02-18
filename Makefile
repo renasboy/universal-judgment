@@ -39,19 +39,25 @@ virtualenv:
 	$(PIP) install -r etc/freeze.txt
 
 restoredb:
+	mkdir -p src/db
 	$(PYTHON) src/manage.py loaddata `ls -t src/db/db.backup-* | head -1`
+	$(PYTHON) src/manage.py loaddata `ls -t src/db/auth-db.backup-* | head -1`
 
 backupdb:
-	$(PYTHON) src/manage.py dumpdata api > src/db/db.backup-`date +%s`.json
-
-resetdb:
 	mkdir -p src/db
-	rm -f src/api/migrations/0001_initial.py src/db/db.sqlite3
+	$(PYTHON) src/manage.py dumpdata api > src/db/db.backup-`date +%s`.json
+	$(PYTHON) src/manage.py dumpdata auth > src/db/auth-db.backup-`date +%s`.json
+
+resetdb: backupdb
+	rm -f src/api/migrations/0001_initial.py
 	$(PYTHON) src/manage.py makemigrations
+	./src/bin/clean_db
 	$(PYTHON) src/manage.py migrate
+	make restoredb
+
+initialdb: backupdb
 	$(PYTHON) src/manage.py loaddata src/api/fixtures/initial_data.json
 	$(PYTHON) src/manage.py createsuperuser
-	chown -R www-data src/db
 
 clean:
 	find src -name *.pyc -delete

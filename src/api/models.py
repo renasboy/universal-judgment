@@ -42,6 +42,7 @@ class Person(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
     name = models.CharField(max_length=80)
+    slug = models.SlugField(max_length=80, unique=True)
     fb = models.CharField(max_length=80, unique=True)
     img = models.URLField()
     score = models.FloatField()

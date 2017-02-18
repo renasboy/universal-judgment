@@ -25,17 +25,17 @@ class PeopleInput(serializers.Serializer):
 class PeopleOutput(serializers.ModelSerializer):
     class Meta:
         model = models.Person
-        fields = ('id', 'name', 'img', 'score', 'status')
+        fields = ('id', 'name', 'slug', 'img', 'score', 'status')
 
 
 class PersonInput(serializers.ModelSerializer):
-    id = serializers.IntegerField(default=0)
+    slug = serializers.CharField(required=False, default=None)
     class Meta:
         model = models.Person
-        fields = ('id',)
+        fields = ('slug',)
 
-    def get_validation_exclusions(self):
-        return ['id']
+    #def get_validation_exclusions(self):
+    #    return ['slug']
 
 
 class PersonQuality(serializers.Serializer):
@@ -50,7 +50,7 @@ class PersonOutput(serializers.ModelSerializer):
 
     class Meta:
         model = models.Person
-        fields = ('id', 'name', 'img', 'score', 'status', 'qualities')
+        fields = ('id', 'name', 'slug', 'img', 'score', 'status', 'qualities')
 
 
 class JudgementQualityInput(serializers.ModelSerializer):
@@ -78,13 +78,13 @@ class JudgementOutput(serializers.Serializer):
 
 
 class JudgementsInput(serializers.ModelSerializer):
-    id = serializers.IntegerField(default=0)
+    slug = serializers.CharField()
     class Meta:
         model = models.Person
-        fields = ('id',)
+        fields = ('slug',)
 
-    def get_validation_exclusions(self):
-        return ['id']
+    #def get_validation_exclusions(self):
+    #    return ['slug']
 
 
 class JudgementsOutput(serializers.ModelSerializer):

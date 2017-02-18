@@ -1,8 +1,3 @@
-/**
- * Created on 14/08/16.
- * @author Renato Cardoso <re2005@gmail.com>
- */
-
 (function (angular) {
     'use strict';
 
@@ -24,6 +19,7 @@
         this._personService = personService;
 
         // Bootstrap
+        this.personSlug = $stateParams.slug;
         this.getQualities();
     }
 
@@ -32,14 +28,6 @@
      * @type {undefined}
      */
     JudgeController.prototype.why = '';
-
-    /**
-     *
-     * @returns {Numeric}
-     */
-    JudgeController.prototype.getPersonId = function () {
-        return this.$stateParams.id;
-    };
 
     /**
      * Gets user info from API call
@@ -89,12 +77,18 @@
     JudgeController.prototype.submitForm = function () {
         var that = this;
         this.isLoading = true;
-        var personData = {
-            judged: that.getPersonId(),
-            qualities: that.setQualities(),
-            why: this.why
-        };
-        this.sendPersonData(personData);
+
+        this._personService.getPerson(this.personSlug).then(function (person) {
+            var personData = {
+                judged: person.data.id,
+                qualities: that.setQualities(),
+                why: that.why
+            };
+            that.sendPersonData(personData);
+        }).catch(function () {
+            throw Error('Get person API is not available');
+        });
+
     };
 
     JudgeController.prototype.judgmentWasSent = function () {
@@ -105,7 +99,7 @@
 
     JudgeController.prototype.personTotalScore = function () {
         var that = this;
-        this._personService.getPerson(this.getPersonId()).then(function (person) {
+        this._personService.getPerson(this.personSlug).then(function (person) {
             that.personScoreTest = person.data.score;
         }).catch(function () {
             throw Error('Get person API is not available');

@@ -18,7 +18,7 @@
         </div>
 
         <nav>
-            <a ui-sref="person({id:ctrl.getPersonId()})" translate="DONE" class="col-xs-12 col-sm-12 btn icon-logo"></a>
+            <a ui-sref="person({slug:ctrl.personSlug})" translate="DONE" class="col-xs-12 col-sm-12 btn icon-logo"></a>
         </nav>
 
     </div>
@@ -59,7 +59,7 @@
 
 
         <nav class="row">
-            <a ui-sref="person({id:ctrl.getPersonId()})"
+            <a ui-sref="person({slug:ctrl.personSlug})"
                class="col-xs-4 col-sm-12 icon-close" translate="CANCEL"></a>
             <a data-ng-click="ctrl.submitForm()"
                class="col-xs-8 col-sm-12 btn icon-forward" translate="SUBMIT"></a>

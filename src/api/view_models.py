@@ -2,6 +2,7 @@ import facebook
 from django.db import IntegrityError
 from django.db.models import Count
 from django.http import Http404, HttpResponseBadRequest, HttpResponseServerError
+from django.utils.text import slugify
 from api import models
 
 
@@ -26,11 +27,14 @@ class BaseViewModel(object):
                 except models.Person.DoesNotExist:
                     person = models.Person(
                         name=profile['name'],
+                        slug=slugify(profile['name']),
                         fb=profile['id'],
                         img=picture['url'],
                         score=2
                     )
                     try:
+                        person.save()
+                        person.slug = slugify('{}-{}'.format(person.name, person.id))
                         person.save()
                     except IntegrityError:
                         pass
@@ -91,10 +95,19 @@ class Person(BaseViewModel):
 
     def __init__(self, input=None, session=None, cookies=None, many=False):
         super(Person, self).__init__(input=input, session=session, cookies=cookies)
-        id = input.get('id', 0)
-        if not id and 'id' in session:
-            id = session['id']
-        self.data = models.Person.objects.get(id=id)
+        ####
+        #people = models.Person.objects.all()
+        #for p in people:
+        #    p.slug = slugify('{}-{}'.format(p.name, p.id))
+        #    p.updated_at = p.modified
+        #    p.save()
+        ####
+        param = dict(id=0)
+        if input.get('slug'):
+            param = dict(slug=input.get('slug'))
+        elif 'id' in session:
+            param = dict(id=session['id'])
+        self.data = models.Person.objects.get(**param)
 
     def get_data(self):
         if not self.data:
@@ -156,8 +169,7 @@ class Judgement(BaseViewModel):
 class Judgements(object):
 
     def __init__(self, input=None, session=None, cookies=None, many=False):
-        id = input.get('id', 0)
-        self.data = models.Judgement.objects.filter(judged=id).exclude(judged=0).order_by('-created').prefetch_related('judge')
+        self.data = models.Judgement.objects.filter(judged__slug=input.get('slug')).exclude(judged=0).order_by('-created').prefetch_related('judge')
 
     def get_data(self):
         return self.data

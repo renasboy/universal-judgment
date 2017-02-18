@@ -1,8 +1,3 @@
-/**
- * Created on 14/08/16.
- * @author Renato Cardoso <re2005@gmail.com>
- */
-
 (function (angular) {
     'use strict';
 
@@ -18,21 +13,35 @@
         this._personService = personService;
         this._judgmentsService = judgmentsService;
         // Bootstrap
-        var personId = $stateParams.id;
-        this.getPerson(personId);
-        this.getJudgments(personId);
+        this.personSlug = $stateParams.slug;
+        if (this.personSlug) {
+            this.getPerson(this.personSlug);
+            this.getJudgments(this.personSlug);
+        }
+        else {
+            this.getMe();
+        }
     }
 
     PersonController.prototype.person = {};
     PersonController.prototype.judgments = {};
 
+    PersonController.prototype.getMe = function () {
+        var that = this;
+        this._personService.getMe().then(function (me) {
+            return (that.person = me.data);
+        }).catch(function () {
+            throw Error('Get person API is not available');
+        });
+    };
+
     /**
      * Gets user info from API call
-     * @param id
+     * @param slug
      */
-    PersonController.prototype.getPerson = function (id) {
+    PersonController.prototype.getPerson = function (slug) {
         var that = this;
-        this._personService.getPerson(id).then(function (person) {
+        this._personService.getPerson(slug).then(function (person) {
             return (that.person = person.data);
         }).catch(function () {
             throw Error('Get person API is not available');
@@ -41,11 +50,11 @@
 
     /**
      * Gets user judgment list from API call
-     * @param id
+     * @param slug
      */
-    PersonController.prototype.getJudgments = function (id) {
+    PersonController.prototype.getJudgments = function (slug) {
         var that = this;
-        this._judgmentsService.getJudgments(id).then(function (judgments) {
+        this._judgmentsService.getJudgments(slug).then(function (judgments) {
             return (that.judgments = judgments.data);
         }).catch(function () {
             throw Error('Get person API is not available');
