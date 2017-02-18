@@ -6,7 +6,8 @@
         <h1 translate="{{ctrl.rank|uppercase}}"></h1>
         <h2 data-ng-bind="ctrl.people.length"></h2>
     </div>
-    <div id="user-list">
+    <div id="user-list"
+         class="last-item">
         <ul>
             <li data-ng-repeat="person in ctrl.people | filter : userSearch">
                 <a ui-sref="person({slug:person.slug})">
@@ -55,8 +56,6 @@
 
         </div>
     </div>
-
-    <!--ui-sref="rank({rank:heaven})-->
 
 </div>
 <app-menu class="home"></app-menu>
