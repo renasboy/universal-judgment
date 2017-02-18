@@ -164,7 +164,7 @@
 
             + span {
                 transform: scale(.8);
-                left: 64px;
+                left: 60px;
                 top: 18px;
                 position: absolute;
             }
@@ -177,31 +177,34 @@
 }
 
 .list-secondary {
-    @extend .top-10;
+    @include breakpoint_max(sm) {
+        @extend .top-10;
 
-    .user-image {
-        width: 42px;
-        height: 42px;
-    }
+        .user-image {
+            width: 42px;
+            height: 42px;
+        }
 
-    li {
-        width: 46%;
-        margin: 10px 2%;
+        li {
+            width: 46%;
+            margin: 10px 2%;
+            padding-bottom: 40px;
 
-        h2 {
-            max-width: 50%;
-            text-align: left;
+            h2 {
+                max-width: 50%;
+                text-align: left;
+            }
+        }
+        .stars {
+            position: absolute;
+            top: 53px;
+
+            + span {
+                transform: scale(1);
+                left: auto;
+                right: 2px;
+                top: 56px;
+            }
         }
     }
-    .stars {
-        float: left;
-        margin-top: 10px;
-
-        + span {
-            left: auto;
-            right: 2px;
-            top: 56px;
-        }
-    }
-
 }
