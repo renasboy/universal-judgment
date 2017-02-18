@@ -16,6 +16,7 @@ urlpatterns = [
     url(r'^people/?$', views.People.as_view()),
     url(r'^person/(?P<id>[0-9]+)/?$', views.Person.as_view()),
     url(r'^person', views.Person.as_view()),
+    url(r'^logout', views.Logout.as_view()),
     url(r'^auth/', include('rest_framework.urls', namespace='rest_framework')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

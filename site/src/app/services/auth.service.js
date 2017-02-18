@@ -14,12 +14,17 @@
      * @param $rootScope
      * @constructor
      */
-    function AuthService($state, Facebook, personService, $rootScope) {
+    function AuthService($http, $state, Facebook, personService, $rootScope) {
         this._state = $state;
         this._facebook = Facebook;
         this._personService = personService;
         this._rootScope = $rootScope;
+        this.$http = $http;
     }
+
+    AuthService.prototype.constants = {
+        apiHost: angular.apiHost + '/logout'
+    };
 
     AuthService.prototype.isFacebookConnected = function () {
         return this._facebook.getLoginStatus(function (response) {
@@ -53,9 +58,14 @@
         });
     };
 
+    AuthService.prototype.logout = function () {
+        return this.$http.post(this.constants.apiHost);
+    };
+
     AuthService.prototype.setLogout = function () {
         this.removeFacebookCookie();
-        //TODO Call API
+        this.logout();
+        this._rootScope.logged = false;
     };
 
 

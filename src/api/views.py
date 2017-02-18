@@ -80,3 +80,18 @@ class Judgements(ListView):
     input_serializer = serializers.JudgementsInput
     output_serializer = serializers.JudgementsOutput
     view_model = view_models.Judgements
+
+
+class Logout(APIView):
+
+    output_serializer = serializers.LogoutOutput
+
+    def post(self, request, *args, **kwargs):
+        if 'fbat' in request.COOKIES:
+            del request.COOKIES['fbat']
+        if 'fbid' in request.session:
+            del request.session['fbid']
+        if 'id' in request.session:
+            del request.session['id']
+        output_serializer = self.output_serializer(dict(result=True))
+        return Response(output_serializer.data)
