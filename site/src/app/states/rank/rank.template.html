@@ -27,27 +27,32 @@
         </ul>
     </div>
 
-    <div class="rank-menu row">
-        <div class="col-xs-4">
-            <a ui-sref="rank({rank:'hell'})"
-               class="icon-emo-devil btn"
-               data-ng-class="{'active' : ctrl.rank === 'hell'}">
-                <span translate="HELL" class="hidden-xs"></span>
-            </a>
-        </div>
-        <div class="col-xs-4">
-            <a ui-sref="rank({rank:'purgatory'})"
-               class="icon-emo-sleep btn"
-               data-ng-class="{'active' : ctrl.rank === 'purgatory'}">
-                <span translate="PURGATORY" class="hidden-xs"></span>
-            </a>
-        </div>
-        <div class="col-xs-4">
-            <a ui-sref="rank({rank:'heaven'})"
-               class="icon-emo-saint btn"
-               data-ng-class="{'active' : ctrl.rank === 'heaven'}">
-                <span translate="HEAVEN" class="hidden-xs"></span>
-            </a>
+    <div class="row rank-menu">
+        <div class="col-xs-12 col-md-9 col-lg-6">
+            <div class="row">
+                <div class="col-xs-4">
+                    <a ui-sref="rank({rank:'hell'})"
+                       class="icon-emo-devil btn"
+                       data-ng-class="{'active' : ctrl.rank === 'hell'}">
+                        <span translate="HELL" class="hidden-xs"></span>
+                    </a>
+                </div>
+                <div class="col-xs-4">
+                    <a ui-sref="rank({rank:'purgatory'})"
+                       class="icon-emo-sleep btn"
+                       data-ng-class="{'active' : ctrl.rank === 'purgatory'}">
+                        <span translate="PURGATORY" class="hidden-xs"></span>
+                    </a>
+                </div>
+                <div class="col-xs-4">
+                    <a ui-sref="rank({rank:'heaven'})"
+                       class="icon-emo-saint btn"
+                       data-ng-class="{'active' : ctrl.rank === 'heaven'}">
+                        <span translate="HEAVEN" class="hidden-xs"></span>
+                    </a>
+                </div>
+            </div>
+
         </div>
     </div>
 
