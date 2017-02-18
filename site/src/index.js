@@ -25,7 +25,9 @@
             ME: 'me',
             BACK: 'back',
             CANCEL: 'cancel',
-            JUDGMENTS: 'Judgments'
+            JUDGMENTS: 'Judgments',
+            LATEST: '4 Latest judged',
+            TOP: '10 Most judged'
         });
         $translateProvider.translations('it', {
             JUDGE_NOW: 'Giudica',
@@ -46,7 +48,9 @@
             ME: 'me',
             BACK: 'indietro',
             CANCEL: 'chiudi',
-            JUDGMENTS: 'Giudizi'
+            JUDGMENTS: 'Giudizi',
+            LATEST: '4 Ultimi giudicati',
+            TOP: '10 Più giudicati'
         });
         $translateProvider.translations('pt', {
             JUDGE_NOW: 'Julgar',
@@ -67,7 +71,9 @@
             ME: 'eu',
             BACK: 'voltar',
             CANCEL: 'cancelar',
-            JUDGMENTS: 'Julgamentos'
+            JUDGMENTS: 'Julgamentos',
+            LATEST: '4 &Uacute;ltimos julgamentos',
+            TOP: '10 Mais julgados'
         });
         $translateProvider.translations('in', {
             JUDGE_NOW: 'Judge Now',
@@ -88,7 +94,9 @@
             ME: 'me',
             BACK: 'back',
             CANCEL: 'cancel',
-            JUDGMENTS: 'Judgments'
+            JUDGMENTS: 'Judgments',
+            LATEST: '4 Latest judged',
+            TOP: '10 Most judged'
         });
         $translateProvider.translations('cn', {
             JUDGE_NOW: '法官現在',
@@ -109,7 +117,9 @@
             ME: '我',
             BACK: '背部',
             CANCEL: '取消',
-            JUDGMENTS: '判斷'
+            JUDGMENTS: '判斷',
+            LATEST: '最新判斷',
+            TOP: '最評判'
         });
         var langs = ['en', 'it', 'pt', 'cn', 'in'];
         var lang = (navigator.userLanguage ||
