@@ -8,14 +8,16 @@
 
     /**
      * The home page controller
-     * @param peopleService
-     * @param authService
-     * @param $state
+     * @param {PeopleService} peopleService
+     * @param {AuthService} authService
+     * @param {object} $state
+     * @param {$rootScope} $rootScope
      * @constructor
      */
     function HomeController(peopleService,
                             authService,
-                            $state) {
+                            $state,
+                            $rootScope) {
         this._peopleService = peopleService;
         this.state = $state;
         this._authService = authService;
@@ -23,6 +25,8 @@
         this.getPeople();
         this.getLatest();
         this.getTop();
+
+        $rootScope.$emit('lazyImg:refresh');
     }
 
     /**
