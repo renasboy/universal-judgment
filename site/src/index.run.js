@@ -1,8 +1,6 @@
 (function (angular) {
     'use strict';
 
-    var _cache = {};
-
     function run($rootScope, authService, Facebook) {
 
         $rootScope.$watch(
