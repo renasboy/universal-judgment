@@ -1,5 +1,6 @@
 import facebook
 from django.db import IntegrityError
+from django.db.models import Count
 from django.http import Http404, HttpResponseBadRequest, HttpResponseServerError
 from api import models
 
@@ -50,26 +51,37 @@ class Quality(object):
 class People(object):
 
     def __init__(self, input=None, session=None, cookies=None, many=False):
-        order = ''
+        order = 'score'
         score_start = 0
         score_end = 4
+        limit = None
         if input.get('heaven'):
             score_start = 2.5
             score_end = 4
-            order = '-'
+            order = '-score'
         elif input.get('purgatory'):
             score_start = 1.5
             score_end = 2.5
-            order = '-'
+            order = '-score'
         elif input.get('hell'):
             score_start = 0
             score_end = 1.5
+        elif input.get('latest'):
+            order = '-modified'
+            limit = 4
+        elif input.get('top'):
+            order = '-num_judgements'
+            limit = 10
+
+        filters = dict(
+            score__gte=score_start,
+            score__lte=score_end,
+        )
 
         if many:
             if input.get('search'):
-                self.data = models.Person.objects.filter(name__icontains=input.get('search'), score__gte=score_start, score__lte=score_end).exclude(id=0).order_by('{}score'.format(order))
-            else:
-                self.data = models.Person.objects.filter(score__gte=score_start, score__lte=score_end).exclude(id=0).order_by('{}score'.format(order))
+                filters.update(dict(name__icontains=input.get('search')))
+            self.data = models.Person.objects.filter(**filters).exclude(id=0).annotate(num_judgements=Count('judgements')).order_by(order)[:limit]
 
     def get_data(self):
         return self.data
