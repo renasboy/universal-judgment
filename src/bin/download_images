@@ -23,3 +23,8 @@ select_query="SELECT id, img FROM api_person WHERE img not like '%$DOMAIN%';"
     /usr/bin/psql -q -A -t -h 127.0.0.1 -U tuj -d ${DB_NAME:-tuj} -c "$update_query"
 done
 cp $PROJECT_DIR/site/src/$IMG_PATH/* $WWW_DIR/$DOMAIN/$IMG_PATH
+
+for img in $WWW_DIR/$DOMAIN/$IMG_PATH/*.*; do
+    convert $img -resize 100x100\> $img.tmp && jpegoptim -q $img.tmp && mv $img.tmp $img
+    #optipng
+done
