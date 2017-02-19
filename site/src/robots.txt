@@ -1,0 +1,5 @@
+User-agent: *
+sitemap: https://universaljudgment.com/sitemap.xml
+Allow: /
+Disallow: /api
+NoIndex: /api

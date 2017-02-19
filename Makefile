@@ -24,10 +24,10 @@ frontend_build_test:
 	cd site && rm -rf dist && ./node_modules/gulp/bin/gulp.js build:test
 
 deploy_test: frontend_build_test
-	cd site && cp -R dist/* /var/www/test.universaljudgment.com && cp src/googleef800ef69f9e4bef.html /var/www/test.universaljudgment.com
+	cd site && cp -R dist/* /var/www/test.universaljudgment.com && cp src/googleef800ef69f9e4bef.html src/robots.txt /var/www/test.universaljudgment.com
 
 deploy: frontend_build
-	cd site && cp -R dist/* /var/www/universaljudgment.com && cp src/googleef800ef69f9e4bef.html /var/www/universaljudgment.com
+	cd site && cp -R dist/* /var/www/universaljudgment.com && cp src/googleef800ef69f9e4bef.html src/robots.txt /var/www/universaljudgment.com
 
 frontend_clean:
 	rm -rf site/node_modules
