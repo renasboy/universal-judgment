@@ -1,8 +1,3 @@
-/**
- * Created on 16/08/16.
- * @author Renato Cardoso <re2005@gmail.com>
- */
-
 (function (angular) {
     'use strict';
 

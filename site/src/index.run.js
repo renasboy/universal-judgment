@@ -1,7 +1,9 @@
 (function (angular) {
     'use strict';
 
-    function run($rootScope, authService, Facebook) {
+    function run($rootScope, authService, metaService, Facebook) {
+
+        $rootScope.metaService = metaService;
 
         $rootScope.$watch(
             function () {

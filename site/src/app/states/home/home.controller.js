@@ -1,8 +1,3 @@
-/**
- * Created on 13/08/16.
- * @author Renato Cardoso <re2005@gmail.com>
- */
-
 (function (angular) {
     'use strict';
 
@@ -16,18 +11,35 @@
      */
     function HomeController(peopleService,
                             authService,
+                            metaService,
                             $state,
-                            $rootScope) {
+                            $rootScope,
+                            $translate) {
+        this.translate = $translate;
         this._peopleService = peopleService;
-        this.state = $state;
         this._authService = authService;
+        this._metaService = metaService;
         this.isSearchOpen = $state.current.name === 'search';
         this.getPeople();
         this.getLatest();
         this.getTop();
+        this.setMetaInfo();
 
         $rootScope.$emit('lazyImg:refresh');
     }
+
+    HomeController.prototype.setMetaInfo = function () {
+        if (this.isSearchOpen) {
+            this._metaService.setTitle(this.translate.instant('SEARCH_TITLE'));
+            this._metaService.setDescription(this.translate.instant('SEARCH_META_DESCRIPTION'));
+            this._metaService.setKeywords(this.translate.instant('SEARCH_META_KEYWORKDS'));
+        }
+        else {
+            this._metaService.setTitle(this.translate.instant('HOME_TITLE'));
+            this._metaService.setDescription(this.translate.instant('HOME_META_DESCRIPTION'));
+            this._metaService.setKeywords(this.translate.instant('HOME_META_KEYWORKDS'));
+        }
+    };
 
     /**
      *

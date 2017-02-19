@@ -13,12 +13,9 @@
                              qualitiesService,
                              judgmentService,
                              personService) {
-        this.$stateParams = $stateParams;
         this._qualitiesService = qualitiesService;
         this._judgmentService = judgmentService;
         this._personService = personService;
-
-        // Bootstrap
         this.personSlug = $stateParams.slug;
         this.getQualities();
     }

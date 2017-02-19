@@ -1,8 +1,3 @@
-/**
- * Created on 13/08/16.
- * @author Renato Cardoso <re2005@gmail.com>
- */
-
 (function (angular) {
     'use strict';
 
@@ -17,26 +12,33 @@
     function RankController($stateParams,
                             peopleService,
                             authService,
-                            $state) {
-        this._peopleService = peopleService;
+                            metaService,
+                            $state,
+                            $translate,
+                            $filter) {
         this.state = $state;
+        this.translate = $translate;
+        this.filter = $filter;
+        this._peopleService = peopleService;
         this._authService = authService;
-        this.isSearchOpen = $state.current.name === 'rank';
+        this._metaService = metaService;
         this.rank = $stateParams.rank;
         this.getPeople(this.rank);
+        this.setMetaInfo(this.rank);
     }
+
+    RankController.prototype.setMetaInfo = function (rank) {
+        var replacements = {'%RANK%': this.translate.instant(this.filter('uppercase')(rank))};
+        this._metaService.setTitle(this.translate.instant('RANK_TITLE'), replacements);
+        this._metaService.setDescription(this.translate.instant('RANK_META_DESCRIPTION'), replacements);
+        this._metaService.setKeywords(this.translate.instant('RANK_META_KEYWORKDS'), replacements);
+    };
 
     /**
      *
      * @type {Array}
      */
     RankController.prototype.people = [];
-
-    /**
-     *
-     * @type {boolean}
-     */
-    RankController.prototype.isSearchOpen = false;
 
     /**
      *

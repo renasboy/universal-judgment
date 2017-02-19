@@ -1,8 +1,3 @@
-/**
- * Created on 14/08/16.
- * @author Renato Cardoso <re2005@gmail.com>
- */
-
 (function (angular) {
     'use strict';
 
@@ -17,7 +12,6 @@
         this._personService = personService;
         this._authService = authService;
 
-        // Bootstrap
         this.getMe();
     }
 
