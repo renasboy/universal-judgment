@@ -1,0 +1,87 @@
+#!/bin/bash
+
+PROJECT_DIR=/var/projects/universal-judgment
+WWW_DIR=/var/www
+DOMAIN=universaljudgment.com
+PROTOCOL=https
+
+if test "${DB_NAME:-tuj}" = "tuj_test"; then
+    PROJECT_DIR=/var/projects/test-universal-judgment
+    DOMAIN=test.universaljudgment.com
+    PROTOCOL=http
+fi
+
+tmp_dir=`mktemp -d`
+
+trap cleanexit EXIT
+
+cleanexit () {
+    if test -d "$tmp_dir"; then
+        rm -rf "$tmp_dir"
+    fi
+}
+
+move_file () {
+    local sitemap=$tmp_dir/sitemap-misc.xml
+    add_footer $sitemap
+    sed -i 's/&/&amp;/g' $sitemap
+    gzip $sitemap
+    cp $sitemap.gz $WWW_DIR/$DOMAIN
+}
+
+add_header () {
+    local sitemap=$1
+    echo '<?xml version="1.0" encoding="UTF-8"?>' > $sitemap
+    echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' >> $sitemap
+}
+
+add_footer () {
+    local sitemap=$1
+    echo "</urlset>" >> $sitemap
+}
+
+add_url () {
+    local priority=$1
+    local changefreq=$2
+    local url=$3
+    local sitemap=$tmp_dir/sitemap-misc.xml
+    if ! test -f "$sitemap"; then
+        add_header $sitemap
+    fi
+
+    echo "<url>" >> $sitemap
+    echo "<loc>$PROTOCOL://$url</loc>" >> $sitemap
+    echo "<changefreq>$changefreq</changefreq>" >> $sitemap
+    echo "<priority>$priority</priority>" >> $sitemap
+    echo "</url>" >> $sitemap
+}
+
+add_urls () {
+    local priority=$1
+    local changefreq=$2
+    local query=$3
+    /usr/bin/psql -A -t -h 127.0.0.1 -U tuj -d ${DB_NAME:-tuj} -c "$query" | while read line; do
+        add_url $priority $changefreq $DOMAIN/$line
+    done
+}
+
+# HOME
+add_url 1.0 daily $DOMAIN
+
+# RANKS
+add_url 1.0 daily $DOMAIN/rank/hell
+add_url 1.0 daily $DOMAIN/rank/heaven
+add_url 1.0 daily $DOMAIN/rank/purgatory
+
+# SEARCH
+add_url 0.5 daily $DOMAIN/search
+
+# PERSON
+query="SELECT CONCAT('person/', slug) FROM api_person WHERE id != 0 ORDER BY id;" 
+add_urls 0.8 weekly "$query"
+
+# JUDGE
+query="SELECT CONCAT('judge/', slug) FROM api_person WHERE id != 0 ORDER BY id;" 
+add_urls 0.8 monthly "$query"
+
+move_file

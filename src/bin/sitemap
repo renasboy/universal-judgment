@@ -1,0 +1,61 @@
+#!/bin/bash
+
+PROJECT_DIR=/var/projects/universal-judgment
+WWW_DIR=/var/www
+DOMAIN=universaljudgment.com
+PROTOCOL=https
+
+if test "${DB_NAME:-tuj}" = "tuj_test"; then
+    PROJECT_DIR=/var/projects/test-universal-judgment
+    DOMAIN=test.universaljudgment.com
+    PROTOCOL=http
+fi
+
+$PROJECT_DIR/src/bin/generate_sitemap
+
+tmp_dir=`mktemp -d`
+
+trap cleanexit EXIT
+
+cleanexit () {
+    if test -d "$tmp_dir"; then
+        rm -rf "$tmp_dir"
+    fi
+}
+
+move_file () {
+    local sitemap=$tmp_dir/sitemap.xml
+    add_footer $sitemap
+    cp $sitemap $WWW_DIR/$DOMAIN/sitemap.xml
+}
+
+add_header () {
+    local sitemap=$1
+    echo '<?xml version="1.0" encoding="UTF-8"?>' > $sitemap
+    echo '<sitemapindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/siteindex.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' >> $sitemap
+}
+
+add_footer () {
+    local sitemap=$1
+    echo "</sitemapindex>" >> $sitemap
+}
+
+add_url () {
+    local url=$1
+    local date=$2
+    local sitemap=$tmp_dir/sitemap.xml
+    if ! test -f "$sitemap"; then
+        add_header $sitemap
+    fi
+
+    echo "<sitemap>" >> $sitemap
+    echo "<loc>$PROTOCOL://$url</loc>" >> $sitemap
+    echo "<lastmod>$date</lastmod>" >> $sitemap
+    echo "</sitemap>" >> $sitemap
+}
+
+date=$(date --rfc-3339=seconds | sed 's/ /T/')
+for sitemap in $WWW_DIR/$DOMAIN/sitemap-*.xml.gz; do
+    add_url $DOMAIN/$(basename $sitemap) $date
+done
+move_file
