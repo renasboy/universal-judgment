@@ -32,13 +32,14 @@
         if (this.isSearchOpen) {
             this._metaService.setTitle(this.translate.instant('SEARCH_TITLE'));
             this._metaService.setDescription(this.translate.instant('SEARCH_META_DESCRIPTION'));
-            this._metaService.setKeywords(this.translate.instant('SEARCH_META_KEYWORKDS'));
+            this._metaService.setKeywords(this.translate.instant('SEARCH_META_KEYWORDS'));
         }
         else {
             this._metaService.setTitle(this.translate.instant('HOME_TITLE'));
             this._metaService.setDescription(this.translate.instant('HOME_META_DESCRIPTION'));
-            this._metaService.setKeywords(this.translate.instant('HOME_META_KEYWORKDS'));
+            this._metaService.setKeywords(this.translate.instant('HOME_META_KEYWORDS'));
         }
+        this._metaService.appendKeywords(this.translate.instant('KEYWORDS'));
     };
 
     /**

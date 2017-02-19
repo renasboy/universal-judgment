@@ -32,13 +32,11 @@
     };
 
     MetaService.prototype.appendKeywords = function (keywords) {
-        for (var key in keywords) {
-            if (this.keywords === '') {
-                this.keywords = keywords[key];
-            }
-            else {
-                this.keywords += ', ' + keywords[key];
-            }
+        if (this.keywords === '') {
+            this.keywords = keywords;
+        }
+        else {
+            this.keywords += ', ' + keywords;
         }
     };
 

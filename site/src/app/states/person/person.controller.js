@@ -33,13 +33,14 @@
         if (this.isFormOpen) {
             this._metaService.setTitle(this.translate.instant('JUDGE_TITLE'), replacements);
             this._metaService.setDescription(this.translate.instant('JUDGE_META_DESCRIPTION'), replacements);
-            this._metaService.setKeywords(this.translate.instant('JUDGE_META_KEYWORKDS'), replacements);
+            this._metaService.setKeywords(this.translate.instant('JUDGE_META_KEYWORDS'), replacements);
         }
         else {
             this._metaService.setTitle(this.translate.instant('PERSON_TITLE'), replacements);
             this._metaService.setDescription(this.translate.instant('PERSON_META_DESCRIPTION'), replacements);
-            this._metaService.setKeywords(this.translate.instant('PERSON_META_KEYWORKDS'), replacements);
+            this._metaService.setKeywords(this.translate.instant('PERSON_META_KEYWORDS'), replacements);
         }
+        this._metaService.appendKeywords(this.translate.instant('KEYWORDS'));
     };
 
     /**

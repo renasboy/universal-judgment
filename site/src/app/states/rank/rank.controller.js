@@ -31,7 +31,8 @@
         var replacements = {'%RANK%': this.translate.instant(this.filter('uppercase')(rank))};
         this._metaService.setTitle(this.translate.instant('RANK_TITLE'), replacements);
         this._metaService.setDescription(this.translate.instant('RANK_META_DESCRIPTION'), replacements);
-        this._metaService.setKeywords(this.translate.instant('RANK_META_KEYWORKDS'), replacements);
+        this._metaService.setKeywords(this.translate.instant('RANK_META_KEYWORDS'), replacements);
+        this._metaService.appendKeywords(this.translate.instant('KEYWORDS'));
     };
 
     /**
