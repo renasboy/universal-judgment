@@ -51,6 +51,12 @@
      */
     PersonController.prototype.isFormOpen = false;
 
+    /**
+     *
+     * @type {boolean}
+     */
+    PersonController.prototype.judgmentsLoaded = false;
+
     PersonController.prototype.person = {};
     PersonController.prototype.judgments = {};
 
@@ -89,6 +95,7 @@
     PersonController.prototype.getJudgments = function (slug) {
         var that = this;
         this._judgmentsService.getJudgments(slug).then(function (judgments) {
+            that.judgmentsLoaded = true;
             return (that.judgments = judgments.data);
         }).catch(function () {
             throw Error('Get person API is not available');

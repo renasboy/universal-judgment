@@ -35,7 +35,7 @@
             </li>
         </ul>
 
-        <h1 class="judgments-header" translate="NO_JUDGMENTS" data-ng-hide="ctrl.judgments.length"></h1>
+        <h1 class="judgments-header" translate="NO_JUDGMENTS" data-ng-show="!ctrl.judgments.length && ctrl.judgmentsLoaded"></h1>
     </div>
 
     <nav class="row">
