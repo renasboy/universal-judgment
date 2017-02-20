@@ -19,7 +19,7 @@
             </li>
         </ul>
 
-        <h1 class="judgments-header" translate="JUDGMENTS"></h1>
+        <h1 class="judgments-header" translate="JUDGMENTS" data-ng-show="ctrl.judgments.length"></h1>
         <ul class="list-judgments">
             <li data-ng-repeat="judgment in ctrl.judgments">
                 <h1 class="judge-name">{{judgment.judge}} <time datetime="{{judgment.created}}">{{judgment.created|timeago}}</time></h1> 
@@ -34,6 +34,8 @@
                  
             </li>
         </ul>
+
+        <h1 class="judgments-header" translate="NO_JUDGMENTS" data-ng-hide="ctrl.judgments.length"></h1>
     </div>
 
     <nav class="row">
