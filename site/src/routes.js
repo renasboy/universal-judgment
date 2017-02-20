@@ -35,6 +35,10 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
         .state('rank', {
             url: '/rank/{rank:hell|heaven|purgatory}',
             template: '<app-rank></app-rank>'
+        })
+        .state('error404', {
+            url: '/404',
+            template: '<app-error404></app-error404>'
         });
 }
 

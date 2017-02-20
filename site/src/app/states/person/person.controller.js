@@ -12,7 +12,9 @@
                               judgmentsService,
                               metaService,
                               $state,
+                              $location,
                               $translate) {
+        this.location = $location;
         this.translate = $translate;
         this._personService = personService;
         this._judgmentsService = judgmentsService;
@@ -71,7 +73,11 @@
         this._personService.getPerson(slug).then(function (person) {
             that.setMetaInfo(person.data.name);
             return (that.person = person.data);
-        }).catch(function () {
+        }).catch(function (err) {
+            if (err.status === 404) {
+                that.location.url('/404');
+                return null;
+            }
             throw Error('Get person API is not available');
         });
     };
