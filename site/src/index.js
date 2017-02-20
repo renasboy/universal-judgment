@@ -78,7 +78,7 @@
             TOP: 'I più giudicati',
             KEYWORDS: 'giudizio, universale, giudizio universale, anti-social, anti, social, anti-social network, rete anti-social, classifica, classifiche, rating, ratings, rate, valutazione, votazione, punteggio, stars, stelle, i migliori, i peggiori, paradiso, inferno, purgatorio, giuizi, mario barone, renato cavallari',
             HOME_TITLE: 'Giudizio Universale - La prima rete anti-social',
-            HOME_META_DESCRIPTION: 'Giudizio Universale è veramente la prima rete anti-social su internet, online dal 2007. Giudica prima di essere giudicato.',
+            HOME_META_DESCRIPTION: 'Giudizio Universale è davvero la prima rete anti-social su internet, online dal 2007. Giudica prima di essere giudicato.',
             HOME_META_KEYWORDS: '',
             RANK_TITLE: 'Giudizio Universale - Classifica - %RANK%',
             RANK_META_DESCRIPTION: 'Giudizio Universale Classifica del %RANK%',
