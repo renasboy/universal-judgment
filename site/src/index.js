@@ -2,7 +2,12 @@
     'use strict';
 
     function config(FacebookProvider, $httpProvider, $translateProvider) {
+        var lang = (navigator.userLanguage ||
+        navigator.language ||
+        navigator.browserLanguage ||
+        navigator.systemLanguage);
         FacebookProvider.init('993028097483020');
+        FacebookProvider.setLocale(lang);
 
         $httpProvider.defaults.cache = true;
 
