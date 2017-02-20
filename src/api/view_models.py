@@ -107,7 +107,11 @@ class Person(BaseViewModel):
             param = dict(slug=input.get('slug'))
         elif 'id' in session:
             param = dict(id=session['id'])
-        self.data = models.Person.objects.get(**param)
+
+        try:
+            self.data = models.Person.objects.get(**param)
+        except models.Person.DoesNotExist:
+            raise Http404()
 
     def get_data(self):
         if not self.data:
