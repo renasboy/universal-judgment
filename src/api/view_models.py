@@ -173,7 +173,7 @@ class Judgement(BaseViewModel):
 class Judgements(object):
 
     def __init__(self, input=None, session=None, cookies=None, many=False):
-        self.data = models.Judgement.objects.filter(judged__slug=input.get('slug')).exclude(judged=0).order_by('-created').prefetch_related('judge')
+        self.data = models.Judgement.objects.filter(judged__slug=input.get('slug')).exclude(judged=0).exclude(why='').order_by('-created').prefetch_related('judge')
 
     def get_data(self):
         return self.data
