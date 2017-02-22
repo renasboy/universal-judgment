@@ -3,6 +3,14 @@
 
     function run($rootScope, authService, metaService, Facebook) {
 
+        // check if already navigated to to back button or homepage
+        $rootScope.navigated = false;
+        $rootScope.$on('$stateChangeSuccess', function (ev, to, toParams, from, fromParams) {
+            if (from.name) {
+                $rootScope.navigated = true;
+            }
+        }); 
+
         $rootScope.metaService = metaService;
 
         $rootScope.$watch(
