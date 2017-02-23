@@ -6,9 +6,7 @@
         // check if already navigated to to back button or homepage
         $rootScope.navigated = false;
         $rootScope.$on('$stateChangeSuccess', function (ev, to, toParams, from, fromParams) {
-            if (from.name) {
-                $rootScope.navigated = true;
-            }
+            $rootScope.navigated = (from.name && from.name != 'judge');
         }); 
 
         $rootScope.metaService = metaService;
