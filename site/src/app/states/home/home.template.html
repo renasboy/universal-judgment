@@ -2,16 +2,16 @@
 
 <div class="container-fluid home" data-ng-class="{'searchOn': ctrl.isSearchOpen}">
 
-    <div class="title" data-ng-show="!userSearch">
+    <div class="title" data-ng-show="!ctrl.userSearch">
         <h1 translate="LATEST"></h1>
     </div>
     <div class="user-list list-secondary"
-         data-ng-show="!userSearch">
+         data-ng-show="!ctrl.userSearch">
         <ul>
             <li data-ng-repeat="person in ctrl.latest">
                 <a ui-sref="person({slug:person.slug})">
                     <div class="user-image {{person.status}}">
-                        <img lazy-img="{{person.img}}" alt="{{person.name}}"/>
+                        <img src="{{person.img}}" alt="{{person.name}}"/>
                     </div>
                     <h2 class="font-xs" data-ng-bind="person.name"></h2>
                     <div class="stars stars{{person.score | score}}">
@@ -27,16 +27,41 @@
         </ul>
     </div>
 
-    <div class="title" data-ng-show="!userSearch">
+    <div class="title" data-ng-show="!ctrl.userSearch">
         <h1 translate="TOP"></h1>
     </div>
     <div class="user-list top-10"
-         data-ng-show="!userSearch">
+         data-ng-show="!ctrl.userSearch">
         <ul>
             <li data-ng-repeat="person in ctrl.top">
                 <a ui-sref="person({slug:person.slug})">
                     <div class="user-image {{person.status}}">
-                        <img lazy-img="{{person.img}}" alt="{{person.name}}"/>
+                        <img src="{{person.img}}" alt="{{person.name}}"/>
+                    </div>
+                    <h2 class="font-xs" data-ng-bind="person.name"></h2>
+                    <div class="stars stars{{person.score | score}}">
+                        <span class="star0"></span>
+                        <span class="star1"></span>
+                        <span class="star2"></span>
+                        <span class="star3"></span>
+                        <span class="star4"></span>
+                    </div>
+                    <span data-ng-bind="person.score"></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="title" data-ng-show="!ctrl.userSearch">
+        <h1 translate="RECOMMENDED_FOR_YOU"></h1>
+    </div>
+
+    <div class="user-list" data-ng-show="!ctrl.userSearch">
+        <ul>
+            <li data-ng-repeat="person in ctrl.recommended">
+                <a ui-sref="person({slug:person.slug})">
+                    <div class="user-image {{person.status}}">
+                        <img src="{{person.img}}" alt="{{person.name}}"/>
                     </div>
                     <h2 class="font-xs" data-ng-bind="person.name"></h2>
                     <div class="stars stars{{person.score | score}}">
@@ -57,12 +82,12 @@
     </div>
 
     <div class="user-list last-item"
-         ng-class="ctrl.isSearchOpen ? 'search' : ''">
-        <ul>
-            <li data-ng-repeat="person in ctrl.people | filter : userSearch">
+         data-ng-class="ctrl.isSearchOpen ? 'search top-10' : ''">
+        <ul infinite-scroll="ctrl.addPeopleToPage()" infinite-scroll-distance="1">
+            <li data-ng-repeat="person in ctrl.people">
                 <a ui-sref="person({slug:person.slug})">
                     <div class="user-image {{person.status}}">
-                        <img lazy-img="{{person.img}}" alt="{{person.name}}"/>
+                        <img src="{{person.img}}" alt="{{person.name}}"/>
                     </div>
                     <h2 class="font-xs" data-ng-bind="person.name"></h2>
                     <div class="stars stars{{person.score | score}}">
@@ -80,7 +105,7 @@
 
     <div class="userSearch row" data-ng-show="ctrl.isSearchOpen">
         <div class="col-xs-9 col-xs-offset-1 col-sm-9 col-md-7 col-lg-5">
-            <input type="text" data-ng-model="userSearch">
+            <input type="text" data-ng-model="ctrl.userSearch" data-ng-change="ctrl.searchPeople();">
         </div>
         <div class="col-xs-1">
             <a href="/"

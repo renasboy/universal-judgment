@@ -28,6 +28,14 @@ class Judgement(models.Model):
     def judge_slug(self):
         return self.judge.slug
 
+    @property
+    def judge_img(self):
+        return self.judge.img
+
+    @property
+    def judge_status(self):
+        return self.judge.status
+
     def __str__(self):
         return '{} - {} judged {}'.format(
             self.id,
@@ -43,6 +51,14 @@ class JudgementQuality(models.Model):
 
 
 class Person(models.Model):
+    RECOMMENDED_FOR_CHOICES = (
+        ('nr', 'Not recommended'),
+        ('it', 'Italy'),
+        ('cn', 'China'),
+        ('in', 'India'),
+        ('pt', 'Brazil'),
+        ('ww', 'World Wide')
+    )
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
     name = models.CharField(max_length=80)
@@ -50,6 +66,11 @@ class Person(models.Model):
     fb = models.CharField(max_length=80, unique=True)
     img = models.URLField()
     score = models.FloatField()
+    recommended_for = models.CharField(
+        max_length=2,
+        choices=RECOMMENDED_FOR_CHOICES,
+        default='nr'
+    )
 
     def status(self):
         if self.score > 2.5:

@@ -79,6 +79,30 @@
     }
 }
 
+
+@include breakpoint(sm) {
+    .person .user-image, .judge .user-image {
+        width: 100px;
+        height: 100px;
+        border-width: 3px;
+
+        &.hell {
+            &:before {
+                padding: 85px;
+                margin: -20px 0 0 -40px;
+            }
+
+        }
+        &.heaven {
+            &:before {
+                padding: 100px;
+                margin: -35px 0 0 -53px;
+            }
+        }
+
+    }
+}
+
 .user-name {
     font-size: $fonts-lg;
     text-align: left;

@@ -28,8 +28,33 @@
             width: 80%;
         }
 
+        .user-image {
+            float: left;
+            width: 36px;
+            height: 36px;
+            border-width: 1px;
+            margin-right: 20px;
+            &.hell {
+                &:before {
+                    padding: 32px;
+                    margin: -10px 0 0 -16px;
+                    z-index: 1;
+                }
+            }
+            &.heaven {
+                &:before {
+                    padding: 38px;
+                    margin: -13px 0 0 -21px;
+                    z-index: 1;
+                }
+            }
+        }
+
         h1 {
             font-size: 1.2rem;
+            a {
+                color: #333;
+            }
         }
         time {
             float: right;
@@ -41,6 +66,12 @@
             margin-bottom: 2px;
             background: $gray-2;
             padding: 20px;
+        }
+        p {
+            font-family: "Sans-Serif,Arial";
+            line-height: 1.1rem;
+            white-space: pre-line;
+            font-size: 1rem;
         }
         .stars {
             margin: 4px 0 10px;

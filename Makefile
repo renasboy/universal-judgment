@@ -48,12 +48,11 @@ backupdb:
 	$(PYTHON) src/manage.py dumpdata api > src/db/db.backup-`date +%s`.json
 	$(PYTHON) src/manage.py dumpdata auth > src/db/auth-db.backup-`date +%s`.json
 
-resetdb: backupdb
+resetdb:
 	rm -f src/api/migrations/0001_initial.py
 	$(PYTHON) src/manage.py makemigrations
 	./src/bin/clean_db
 	$(PYTHON) src/manage.py migrate
-	make restoredb
 
 initialdb: backupdb
 	$(PYTHON) src/manage.py loaddata src/api/fixtures/initial_data.json

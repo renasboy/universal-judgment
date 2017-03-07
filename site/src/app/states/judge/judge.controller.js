@@ -65,6 +65,7 @@
             that.judgmentWasSent();
             that.isLoading = false;
         }).catch(function () {
+            that.isLoading = false;
             throw Error('Person judgment was not sent');
         });
     };

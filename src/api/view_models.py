@@ -76,6 +76,9 @@ class People(object):
         elif input.get('top'):
             order = '-num_judgements'
             limit = 8
+        elif input.get('recommended'):
+            order = '-modified'
+            limit = 40
 
         filters = dict(
             score__gte=score_start,
@@ -85,6 +88,8 @@ class People(object):
         if many:
             if input.get('search'):
                 filters.update(dict(name__icontains=input.get('search')))
+            elif input.get('recommended'):
+                filters.update(dict(recommended_for__in=[input.get('recommended'), 'ww']))
             self.data = models.Person.objects.filter(**filters).exclude(id=0).annotate(num_judgements=Count('judgements')).order_by(order)[:limit]
 
     def get_data(self):

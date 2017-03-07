@@ -20,6 +20,7 @@ class PeopleInput(serializers.Serializer):
     purgatory = serializers.BooleanField(required=False, default=False)
     latest = serializers.BooleanField(required=False, default=False)
     top = serializers.BooleanField(required=False, default=False)
+    recommended = serializers.CharField(min_length=2, max_length=2, required=False)
 
 
 class PeopleOutput(serializers.ModelSerializer):
@@ -92,7 +93,7 @@ class JudgementsOutput(serializers.ModelSerializer):
 
     class Meta:
         model = models.Judgement
-        fields = ('id', 'created', 'judge', 'judge_slug', 'score', 'why')
+        fields = ('id', 'created', 'judge', 'judge_slug', 'judge_img', 'judge_status', 'score', 'why')
 
 
 class LogoutOutput(serializers.Serializer):

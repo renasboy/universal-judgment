@@ -19,6 +19,15 @@
         });
     };
 
+    PeopleService.prototype.getRecommendedPeople = function (language) {
+        var params = {};
+        params['recommended'] = language;
+        return this.$http({
+            url: this.constants.apiHost,
+            params: params
+        });
+    };
+
     PeopleService.prototype.getRank = function (rank) {
         var params = {};
         params[rank] = true;
