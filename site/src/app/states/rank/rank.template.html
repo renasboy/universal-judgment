@@ -12,7 +12,7 @@
             <li data-ng-repeat="person in ctrl.people | filter : userSearch">
                 <a ui-sref="person({slug:person.slug})">
                     <div class="user-image {{person.status}}">
-                        <img lazy-img="{{person.img}}" alt="{{person.name}}"/>
+                        <img src="{{person.img}}" alt="{{person.name}}"/>
                     </div>
                     <h2 class="font-xs" data-ng-bind="person.name"></h2>
                     <div class="stars stars{{person.score | score}}">
