@@ -54,8 +54,8 @@ class Person(models.Model):
     RECOMMENDED_FOR_CHOICES = (
         ('nr', 'Not recommended'),
         ('it', 'Italy'),
-        ('cn', 'China'),
-        ('in', 'India'),
+        ('zh', 'China'),
+        ('hi', 'India'),
         ('pt', 'Brazil'),
         ('ww', 'World Wide')
     )

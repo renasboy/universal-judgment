@@ -222,7 +222,7 @@
             JUDGE_META_DESCRIPTION: '%NAME%在普遍判決中的判決形式, 分享您對%NAME%的意見和經驗.',
             JUDGE_META_KEYWORDS: '%NAME%, 法官%NAME%, 形式，評價，評論',
         });
-        var langs = ['en', 'it', 'pt', 'zh', 'in'];
+        var langs = ['en', 'it', 'pt', 'zh', 'hi'];
         var lang = (navigator.userLanguage ||
         navigator.language ||
         navigator.browserLanguage ||
@@ -231,7 +231,7 @@
             lang = langs[0];
         }
         $translateProvider.preferredLanguage(lang);
-        $translateProvider.useSanitizeValueStrategy('sce');
+        $translateProvider.useSanitizeValueStrategy(null);
     }
 
     // move to gulp config
