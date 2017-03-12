@@ -231,7 +231,7 @@
             lang = langs[0];
         }
         $translateProvider.preferredLanguage(lang);
-        $translateProvider.useSanitizeValueStrategy('sanitize');
+        $translateProvider.useSanitizeValueStrategy('sce');
     }
 
     // move to gulp config
