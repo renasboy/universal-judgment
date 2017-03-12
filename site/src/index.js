@@ -96,19 +96,19 @@
             JUDGE_META_KEYWORDS: '%NAME%, giudica %NAME%, form, modulario, valutazione, commenti',
         });
         $translateProvider.translations('pt', {
-            UNIVERSAL_JUDGMENT: 'Ju&iacute;zo Universal',
+            UNIVERSAL_JUDGMENT: 'Juízo Universal',
             JUDGE_NOW: 'Julgar',
             SUBMIT: 'Enviar',
             DONE: 'Pronto',
             NEW_SCORE: 'Novos Pontos',
-            WHY: 'Porque este ju&iacute;zo &eacute; importante para voc&ecirc;? (max. 255 carat.)',
-            APPEARANCE: 'Apar&ecirc;ncia',
+            WHY: 'Porque este juízo é importante para você? (max. 255 carat.)',
+            APPEARANCE: 'Aparência',
             INTELLIGENCE: 'Inteligencia',
             HONESTY: 'Honestidade',
             PROFESSIONALISM: 'Profissionalismo',
             HELL: 'Inferno',
-            HEAVEN: 'Para&iacute;so',
-            PURGATORY: 'Purgat&oacute;rio',
+            HEAVEN: 'Paraíso',
+            PURGATORY: 'Purgatório',
             HOME: 'home',
             SEARCH: 'busca',
             RANK: 'rank',
@@ -116,28 +116,28 @@
             BACK: 'voltar',
             CANCEL: 'cancelar',
             JUDGMENTS: 'Julgamentos',
-            NO_JUDGMENTS: 'Ainda n&atilde;o existem julgamentos, seja o primeiro a adicionar um!',
-            LATEST: '&Uacute;ltimos julgamentos',
+            NO_JUDGMENTS: 'Ainda não existem julgamentos, seja o primeiro a adicionar um!',
+            LATEST: 'Últimos julgamentos',
             TOP: 'Mais julgados',
             RECOMMENDED_FOR_YOU: 'Recomendados!',
             KEYWORDS: 'juizo, universal, juizo universao, julgamento, anti-social, anti, social, rede, avaliacao, avaliacoes, estrelas, estrela, o melhor, o pior, paraiso, inferno, purgatorio, julgamentos, mario barone, renato cavallari',
-            HOME_TITLE: 'Ju&iacute;zo Universal - A Primeira Rede Anti-Social',
-            HOME_META_DESCRIPTION: 'O Ju&iacute;zo Universal &eacute; mesmo a primeira rede anti-social da internet, desde 2007 online. Julgue antes de ser julgado.',
+            HOME_TITLE: 'Juízo Universal - A Primeira Rede Anti-Social',
+            HOME_META_DESCRIPTION: 'O Juízo Universal é mesmo a primeira rede anti-social da internet, desde 2007 online. Julgue antes de ser julgado.',
             HOME_META_KEYWORDS: '',
-            RANK_TITLE: 'Ju&iacute;zo Universal - Ranking - %RANK%',
-            RANK_META_DESCRIPTION: 'Quem est&aacute; no %RANK% de acordo com o Ju&iacute;zo Universal',
+            RANK_TITLE: 'Juízo Universal - Ranking - %RANK%',
+            RANK_META_DESCRIPTION: 'Quem está no %RANK% de acordo com o Juízo Universal',
             RANK_META_KEYWORDS: '%RANK%',
-            SEARCH_TITLE: 'Ju&iacute;zo Universal - Busca',
-            SEARCH_META_DESCRIPTION: 'Busque no Ranking do Ju&iacute;zo Universal',
+            SEARCH_TITLE: 'Juízo Universal - Busca',
+            SEARCH_META_DESCRIPTION: 'Busque no Ranking do Juízo Universal',
             SEARCH_META_KEYWORDS: 'procure, pesquise, discubra',
-            PERSON_TITLE: 'P&acute;gina do %NAME% no Ju&iacute;zo Universal',
-            PERSON_META_DESCRIPTION: 'P&acute;gina do %NAME% no Ju&iacute;zo Universal, veja o que os outros est&atilde;o a dizer a respeito de %NAME%.',
+            PERSON_TITLE: 'Página do %NAME% no Juízo Universal',
+            PERSON_META_DESCRIPTION: 'Página do %NAME% no Juízo Universal, veja o que os outros estão a dizer a respeito de %NAME%.',
             PERSON_META_KEYWORDS: '%NAME%, pagina %NAME%, %NAME% profile, profile, avaliacao, commentario, commentarios',
-            JUDGE_TITLE: 'Julgue %NAME% no Ju&iacute;zo Universal',
-            JUDGE_META_DESCRIPTION: 'Formul&aacute;rio de julgamento de %NAME% no Ju&iacute;zo Universal, d&ecirc; a sua opini&atilde;o e conte a sua experiencia com %NAME%.',
+            JUDGE_TITLE: 'Julgue %NAME% no Juízo Universal',
+            JUDGE_META_DESCRIPTION: 'Formulário de julgamento de %NAME% no Juízo Universal, dê a sua opinião e conte a sua experiencia com %NAME%.',
             JUDGE_META_KEYWORDS: '%NAME%, julgue %NAME%, julga %NAME%, form, formulario, avaliacao, avaliacoes, comentario, comentarios, estrela, estrelas',
         });
-        $translateProvider.translations('in', {
+        $translateProvider.translations('hi', {
             UNIVERSAL_JUDGMENT: 'Universal Judgment',
             JUDGE_NOW: 'Judge Now',
             SUBMIT: 'Submit',
@@ -180,7 +180,7 @@
             JUDGE_META_KEYWORDS: '%NAME%, judge %NAME%, form, evaluation, comments',
 
         });
-        $translateProvider.translations('cn', {
+        $translateProvider.translations('zh', {
             UNIVERSAL_JUDGMENT: '普遍判斷',
             JUDGE_NOW: '法官現在',
             SUBMIT: '提交',
@@ -222,7 +222,7 @@
             JUDGE_META_DESCRIPTION: '%NAME%在普遍判決中的判決形式, 分享您對%NAME%的意見和經驗.',
             JUDGE_META_KEYWORDS: '%NAME%, 法官%NAME%, 形式，評價，評論',
         });
-        var langs = ['en', 'it', 'pt', 'cn', 'in'];
+        var langs = ['en', 'it', 'pt', 'zh', 'in'];
         var lang = (navigator.userLanguage ||
         navigator.language ||
         navigator.browserLanguage ||
