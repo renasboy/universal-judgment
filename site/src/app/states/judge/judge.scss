@@ -15,7 +15,7 @@
         textarea {
             margin-top: 10px;
             width: 100%;
-            font-size: 14px;
+            font-size: 18px;
         }
     }
 
@@ -44,6 +44,9 @@
         }
         .user-image {
             margin: 20px auto;
+        }
+        .user-name {
+            font-family: $font-ebony;
         }
     }
 

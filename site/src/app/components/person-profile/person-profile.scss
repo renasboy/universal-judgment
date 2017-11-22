@@ -36,6 +36,13 @@
         }
     }
 
+    .user-name {
+        font-family: $font-ebony;
+        font-size: $fonts-lg;
+        text-align: left;
+    }
+
+
 }
 
 .user-image {
@@ -101,11 +108,6 @@
         }
 
     }
-}
-
-.user-name {
-    font-size: $fonts-lg;
-    text-align: left;
 }
 
 .user-rate {

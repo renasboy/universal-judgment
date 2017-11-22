@@ -59,7 +59,7 @@
             SUBMIT: 'Invia',
             DONE: 'Fatto',
             NEW_SCORE: 'Nuovo punteggio',
-            WHY: 'Perché questo giudizio è importante per te? (max. 255 carat.)',
+            WHY: 'Scrivi una recensione (max. 255 carat.)',
             APPEARANCE: 'APPARENZA',
             INTELLIGENCE: 'INTELLIGENZA',
             HONESTY: 'ONEST&Aacute;',

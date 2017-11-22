@@ -50,6 +50,10 @@
             }
         }
 
+        .user-name {
+            font-family: $font-ebony;
+        }
+
         h1 {
             font-size: 1.2rem;
             a {
@@ -65,7 +69,7 @@
         li {
             margin-bottom: 2px;
             background: $gray-2;
-            padding: 20px;
+            padding: 10px 20px;
         }
         p {
             font-family: "Sans-Serif,Arial";
