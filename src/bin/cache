@@ -1,0 +1,10 @@
+#!/bin/bash
+
+curl -k -s 'https://universaljudgment.com/api/people' -H 'Accept: application/json' --compressed -H 'Connection: keep-alive' -H 'Cache-Control: max-age=0' > /dev/null
+curl -k -s 'https://universaljudgment.com/api/people?recommended=en' -H 'Accept: application/json' --compressed -H 'Connection: keep-alive' -H 'Cache-Control: max-age=0' > /dev/null
+curl -k -s 'https://universaljudgment.com/api/people?recommended=it' -H 'Accept: application/json' --compressed -H 'Connection: keep-alive' -H 'Cache-Control: max-age=0' > /dev/null
+curl -k -s 'https://universaljudgment.com/api/people?latest=true' -H 'Accept: application/json' --compressed -H 'Connection: keep-alive' -H 'Cache-Control: max-age=0' > /dev/null
+curl -k -s 'https://universaljudgment.com/api/people?top=true' -H 'Accept: application/json' --compressed -H 'Connection: keep-alive' -H 'Cache-Control: max-age=0' > /dev/null
+curl -k -s 'https://universaljudgment.com/api/people?purgatory=true' -H 'Accept: application/json' --compressed -H 'Connection: keep-alive' -H 'Cache-Control: max-age=0' > /dev/null
+curl -k -s 'https://universaljudgment.com/api/people?hell=true' -H 'Accept: application/json' --compressed -H 'Connection: keep-alive' -H 'Cache-Control: max-age=0' > /dev/null
+curl -k -s 'https://universaljudgment.com/api/people?heaven=true' -H 'Accept: application/json' --compressed -H 'Connection: keep-alive' -H 'Cache-Control: max-age=0' > /dev/null
