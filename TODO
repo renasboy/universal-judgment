@@ -112,3 +112,20 @@
 
 - add new languages (in=indian)
 - google play app
+
+
+===================================================================================================================
+===================================================================================================================
+
+- profile page, add stars to each of the qualities
+- profile page, format paragraph with judgements justified with the image
+- profile page, more space between the judgements
+- profile page, sort judgements by popularity or time
+- judgement form, change js-slider like life lottery
+- add like, dislike and reply with counters
+- add a new quality "SENSIBILITA"
+- admin, add auto-increment for new added person
+- anonymous user should not link and have its own page
+- add link to HOME between close and send
+- google index
+- zoom 110%
