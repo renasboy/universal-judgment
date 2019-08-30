@@ -21,7 +21,7 @@ class GetView(APIView):
     many = False
 
     def get(self, request, *args, **kwargs):
-        data = copy(request.data)
+        data = copy(request.query_params)
         data.update(request.GET)
         data.update(*args)
         data.update(kwargs)

@@ -34,9 +34,10 @@ frontend_clean:
 	rm -rf site/bower_components
 
 virtualenv:
-	test -d venv || pyvenv venv
+	test -d venv || python3.7 -m venv venv
 	$(PIP) install -U pip 
-	$(PIP) install -r etc/freeze.txt
+	#$(PIP) install -r etc/freeze.txt
+	$(PIP) install -r etc/deps.txt
 
 restoredb:
 	mkdir -p src/db

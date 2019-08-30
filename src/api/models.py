@@ -14,8 +14,8 @@ class Quality(models.Model):
 
 class Judgement(models.Model):
     created = models.DateTimeField(auto_now_add=True)
-    judged = models.ForeignKey('Person', related_name='judgements')
-    judge = models.ForeignKey('Person', related_name='opinions', default=0)
+    judged = models.ForeignKey('Person', related_name='judgements', on_delete=models.DO_NOTHING)
+    judge = models.ForeignKey('Person', related_name='opinions', default=0, on_delete=models.DO_NOTHING)
     score = models.FloatField()
     why = models.CharField(max_length=255, blank=True)
     qualities = models.ManyToManyField(
@@ -45,8 +45,8 @@ class Judgement(models.Model):
 
 class JudgementQuality(models.Model):
     created = models.DateTimeField(auto_now_add=True)
-    judgement = models.ForeignKey('Judgement')
-    quality = models.ForeignKey('Quality')
+    judgement = models.ForeignKey('Judgement', on_delete=models.DO_NOTHING)
+    quality = models.ForeignKey('Quality', on_delete=models.DO_NOTHING)
     score = models.PositiveSmallIntegerField()
 
 
